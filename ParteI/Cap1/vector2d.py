@@ -9,10 +9,11 @@ class Vector:
         self.x = x
         self.y = y
 
+    #método especial __repr__ é chamado pela função embutida repr para obtermos a representação em string do objeto para inspeção
     def __repr__(self):
-        return 'Vector(%s, %s)' % (self.x, self.y)
+        return 'Vector(%r, %r)' % (self.x, self.y)#string → Vector(x, y)
 
-    #método abs para calcular a magnitude("hipotenusa") de um vetor bidimencional (x, y)
+    #método especial __abs__ é chamado pela função embutida abs para calcular a magnitude("hipotenusa") de um vetor bidimencional (x, y)
     def __abs__(self):
         return hypot(self.x, self.y) #>>> hypot(3.0, 4.0) → hp=5.0
 
