@@ -38,8 +38,8 @@ print("__abs__:", abs_)
 boll_ = bool(v)
 print("__boll__:", boll_)
 
-add_ = add(v, 5)
+add_ = add(v, 2)
 print("__add__:", add_)#TypeError: add expected 3 arguments, got 2 ???????????????
 
-mul_ = mul(v, 5)
+mul_ = mul(v, 6)
 print("__mul__:", mul_)#TypeError: add expected 3 arguments, got 2 ???????????????
