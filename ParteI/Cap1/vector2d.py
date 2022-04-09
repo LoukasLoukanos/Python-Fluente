@@ -26,9 +26,8 @@ class Vector:
 
     #novos objetos são criados e os operandos (self e other) não são alterados.
     def __add__(self, other):
-        x = self.x + other.x
-        y = self.y + other.y
-        return Vector(x, y)
+        return Vector(self.x + other, self.y + other)
+
     #novos objetos são criados e os operandos (self e scalar) não são alterados.
     def __mul__(self, scalar):
         return Vector(self.x * scalar, self.y * scalar)
