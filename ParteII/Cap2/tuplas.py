@@ -6,6 +6,9 @@
 #_____________________________________Tuplas como registros - Pág. 52_____________________________________
 
 # 1° EXEMPLO
+from pyparsing import line
+
+
 lax_coordinates = (33.425, -118.408056) #latitude e longitude do Aeroporto Internacional de Londres.
 print('    1° exemplo: ', type(lax_coordinates), lax_coordinates) #output: <class 'tuple'> (33.425, -118.408056) 
 
@@ -66,3 +69,22 @@ for name, cc, pop, (latitude, longitude) in metro_areas:  # desempacotando as co
         print(fmt.format(name, latitude, longitude))
 
 #________________________Tuplas nomeadas - pág 56_________________________________
+
+#________________________Fatiamento - pág 59 à 62_____________________________________________________________________________________________________________________________________
+invoice = """
+0.....6.................................40........52...55........
+1909 Pimoroni PiBrella                      $17.50    3    $52.50
+1489 6mm TactileSwitch x20                   $4.95    2     $9.90
+1510 Panavise Jr. - PV-201                  $28.00    1    $28.00
+1601 PiTFT Mini Kit 320x240                 $34.95    1    $34.95
+"""
+SKU = slice(0, 6)
+DESCRIPTION = slice(6, 40)
+UNIT_PRICE = slice(40, 52)
+QUANTITY = slice(52, 55)
+ITEM_TOTAL = slice(55, None)
+line_items = invoice.split('\n')[2:] # invoice é cortado nas quebras de linhas depois da 2segunda (a primeira quebra foi após """)
+print("__________________________________\n")
+for item in line_items:
+    print(item[UNIT_PRICE], item[DESCRIPTION])
+print("——————————————————————————————————")
