@@ -69,6 +69,12 @@ for name, cc, pop, (latitude, longitude) in metro_areas:  # desempacotando as co
         print(fmt.format(name, latitude, longitude))
 
 #________________________Tuplas nomeadas - pág 56_________________________________
+from collections import namedtuple
+City = namedtuple('City', 'name country population coordinates')
+tokyo = City('tokio', 'JP', population=36.933, coordinates=(36.689722, 139.691667))
+print("—————————————————————\n", tokyo.population)
+print(tokyo.coordinates)
+print(tokyo[1],"\n_____________________")
 
 #________________________Fatiamento - pág 59 à 62_____________________________________________________________________________________________________________________________________
 invoice = """
