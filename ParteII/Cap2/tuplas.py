@@ -211,8 +211,8 @@ equivalent_without_listcomp[1][2] = 'equivalent_with_listcomp' # linha por colun
 print("código equivalente a SEM o uso de listcomprehension (ocorre evento indesejado):", '\n', equivalent_without_listcomp, '\n') #evento indesejado → (gera repetições)
 #output: [['_', '_', 'equivalent_with_listcomp'], ['_', '_', 'equivalent_with_listcomp'], ['_', '_', 'equivalent_with_listcomp']] 
 
-#________________________Atribuições combinadas e sequências - pág 65 à xx____________________________________________________________________________________________________________
-print("__________________Atribuições combinadas e sequências - pág 65 à xx__________________")
+#________________________Atribuições combinadas e sequências - pág 65 e 66____________________________________________________________________________________________________________
+print("__________________Atribuições combinadas e sequências - pág 65 e 66__________________")
 '''
  SEQUÊNCIAS EMBUTIDAS:
     __________________IMUTÁVEIS("superclasse/pai")__________________
@@ -244,3 +244,39 @@ imutavel_tuple *= 2 #possuirá outro id pois se torna outro objeto ao acrescenta
 print("sequência imutável tuple: ", imutavel_tuple)
 print("id da sequência imutável tuple: ", id(imutavel_tuple))
 #output: 2639841656736
+
+# OBS: !!!
+# A SEQUÊNCIA EMBUTIDA IMUTÁVEL SIMPLES str (string) é uma exceção; pois as instâncias de str são alocadas em 
+# memória com espaço extra, de modo que a concatenação não exigirá uma cópia da string completa todas as vezes.
+
+#________________________O enigma da atribuição += - pág 67 e 68______________________________________________________________________________________________________________________
+print("__________________O enigma da atribuição += - pág 67 e 68__________________")
+t = (1, 2, [30, 40])
+'''
+t[2] += [50, 60]
+output: TypeError: 'tuple' object does not support item assignment
+
+print(t)
+output: (1, 2, [30, 40, 50, 60])
+'''
+
+#inspecionar bytecode Python para ver o que ocorre internamente:
+import dis
+dis.dis('t[2] += [50, 60]')
+''' 
+output:
+.1............0 LOAD_NAME................0 (t)
+..............2 LOAD_CONST...............0 (2)
+..............4 DUP_TOP_TWO..............
+..............6 BINARY_SUBSCR............ →→→ coloca o valor de t[2] no TOS (Top Of Stack, ou Topo de Pilha)
+..............8 LOAD_CONST...............1 (50)
+.............10 LOAD_CONST...............2 (60)
+.............12 BUILD_LIST...............2
+.............14 INPLACE_ADD.............. →→→ Executa TOS += [50, 60]. Isso funciona quando TOS refere-se a um objeto mutável (uma lista no exemplo)
+.............16 ROT_THREE................
+.............18 STORE_SUBSCR............. →→→ Faz a atribuição t[2] = TOS. Isso falha se s é imutável (a tupla t)
+.............20 LOAD_CONST...............3 (None)
+.............22 RETURN_VALUE.............
+'''
+
+# →→→→→→→→→ CONCLUSÃO: colocar itens mutáveis(list, no exemplo) em imutáveis(tupla, no exemplo) não é uma boa ideia. ←←←←←←←←←
