@@ -155,3 +155,12 @@ print("m[3::2] = [11, 22]\nm =", m, '\n')
 m[2:5] = [100]
 print("m[2:5] = [100]\nm =", m, '\n') # no 2°(:) coloca o 100; e elimina tudo após até o 5°, mas não inclusive.
 #output: m = [0, 1, 100, 22, 9]
+
+#________________________Usando + e * com sequências - pág 62 à 65____________________________________________________________________________________________________________________
+print("__________________Usando + e * com sequências - pág 62 à 65__________________")
+n = [1, 2, 3]
+print("n * 5: ", (n * 5))
+#output: [1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3]
+
+print("5 * 'abcd': ", (5 * 'abcd'))
+#output: abcdabcdabcdabcdabcd
