@@ -210,3 +210,37 @@ print("código equivalente a SEM o uso de listcomprehension (ocorre evento indes
 equivalent_without_listcomp[1][2] = 'equivalent_with_listcomp' # linha por coluna, com índice iniciando em zero.
 print("código equivalente a SEM o uso de listcomprehension (ocorre evento indesejado):", '\n', equivalent_without_listcomp, '\n') #evento indesejado → (gera repetições)
 #output: [['_', '_', 'equivalent_with_listcomp'], ['_', '_', 'equivalent_with_listcomp'], ['_', '_', 'equivalent_with_listcomp']] 
+
+#________________________Atribuições combinadas e sequências - pág 65 à xx____________________________________________________________________________________________________________
+print("__________________Atribuições combinadas e sequências - pág 65 à xx__________________")
+'''
+ SEQUÊNCIAS EMBUTIDAS:
+    __________________IMUTÁVEIS("superclasse/pai")__________________
+    CONTAINER (armazenam itens de tipos diferentes) : tuple
+    SIMPLES (armazenam itens de um só tipo)         : str, bytes
+    __________________MUTÁVEIS("subclasse/herança")__________________
+    CONTAINER (armazenam itens de tipos diferentes) : list, collections.deque
+    SIMPLES (armazenam itens de um só tipo)         : bytearray, array.array, memoryview      
+    Como um exemplo, o tipo mais básico de sequência é list, um container mutável.
+'''
+#___SEQUÊNCIAS EMBUTIDAS MUTÁVEIS continuam sendo o mesmo objeto ao acrescentar itens_____________________
+mutavel_list = [1, 2, 3]
+print("sequência mutável list: ", mutavel_list)
+print("id da sequência mutável list: ", id(mutavel_list))
+#output: 2639841919104
+
+mutavel_list *= 2 #possuirá o mesmo id pois continua sendo o mesmo objeto ao acrescentar itens
+print("sequência mutável list: ", mutavel_list)
+print("id da sequência mutável list: ", id(mutavel_list), '\n')
+#output: 2639841919104
+
+#___SEQUÊNCIAS EMBUTIDAS IMUTÁVEIS geram outros objetos ao acrescentar itens_____________________________
+imutavel_tuple = (1, 2, 30)
+print("sequência imutável tuple: ", imutavel_tuple)
+print("id da sequência imutável tuple: ", id(imutavel_tuple))
+#output: 2639828257536
+
+imutavel_tuple *= 2 #possuirá outro id pois se torna outro objeto ao acrescentar itens
+print("sequência imutável tuple: ", imutavel_tuple)
+print("id da sequência imutável tuple: ", id(imutavel_tuple))
+#output: 2639841656736
