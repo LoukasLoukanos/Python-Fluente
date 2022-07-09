@@ -164,3 +164,49 @@ print("n * 5: ", (n * 5))
 
 print("5 * 'abcd': ", (5 * 'abcd'))
 #output: abcdabcdabcdabcdabcd
+
+#______Listas de listas →→→ COM LISTCOMPREHENSION E EQUIVALENTE:_________________________________
+with_listcomp = [['_'] * 3 for i in range(3)] # LISTCOMPREHENSION
+
+print("COM o uso de listcomprehension (obtém resultado desejado):", '\n', with_listcomp, '\n')
+#output: [['_', '_', '_'], ['_', '_', '_'], ['_', '_', '_']]
+
+with_listcomp[1][2] = 'with_listcomp' # linha por coluna, com índice iniciando em zero.
+print("COM o uso de listcomprehension (obtém resultado desejado):", '\n', with_listcomp, '\n')
+#output: [['_', '_', '_'], ['_', '_', 'with_listcomp'], ['_', '_', '_']]
+
+# CÓDIGO EQUIVALENTE:
+equivalent_with_listcomp = []
+for i in range(3):
+    row_1 = ['_'] * 3
+    equivalent_with_listcomp.append(row_1)
+
+print("código equivalente a COM o uso de listcomprehension (obtém resultado desejado):", '\n', equivalent_with_listcomp, '\n')
+#output: [['_', '_', '_'], ['_', '_', '_'], ['_', '_', '_']]
+
+equivalent_with_listcomp[1][2] = 'equivalent_with_listcomp' # linha por coluna, com índice iniciando em zero.
+print("código equivalente a COM o uso de listcomprehension (obtém resultado desejado):", '\n', equivalent_with_listcomp, '\n')
+#output: [['_', '_', '_'], ['_', '_', 'equivalent_with_listcomp'], ['_', '_', '_']]
+
+#______Listas de listas →→→ SEM LISTCOMPREHENSION E EQUIVALENTE:_________________________________
+without_listcomp = [['_'] * 3] * 3
+
+print("SEM o uso de listcomprehension (ocorre evento indesejado):", '\n', without_listcomp, '\n')
+#output: [['_', '_', '_'], ['_', '_', '_'], ['_', '_', '_']]
+
+without_listcomp[1][2] = 'without_listcomp' # linha por coluna, com índice iniciando em zero.
+print("SEM o uso de listcomprehension (ocorre evento indesejado):", '\n', without_listcomp, '\n') #evento indesejado → (gera repetições)
+#output: [['_', '_', 'without_listcomp'], ['_', '_', 'without_listcomp'], ['_', '_', 'without_listcomp']]
+
+# CÓDIGO EQUIVALENTE:
+row_2 = ['_'] * 3
+equivalent_without_listcomp = []
+for i in range(3):
+    equivalent_without_listcomp.append(row_2)
+
+print("código equivalente a SEM o uso de listcomprehension (ocorre evento indesejado):", '\n', equivalent_without_listcomp, '\n')
+#output: [['_', '_', '_'], ['_', '_', '_'], ['_', '_', '_']]
+
+equivalent_without_listcomp[1][2] = 'equivalent_with_listcomp' # linha por coluna, com índice iniciando em zero.
+print("código equivalente a SEM o uso de listcomprehension (ocorre evento indesejado):", '\n', equivalent_without_listcomp, '\n') #evento indesejado → (gera repetições)
+#output: [['_', '_', 'equivalent_with_listcomp'], ['_', '_', 'equivalent_with_listcomp'], ['_', '_', 'equivalent_with_listcomp']] 
