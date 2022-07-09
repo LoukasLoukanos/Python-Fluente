@@ -1,13 +1,12 @@
 '''
-    AS TUPLAS TÊM DUPLA FUNÇÃO:
-    •podem ser usadas como listas imutáveis
-    •podem ser usadas como registros sem nomes de campos
+    A SEQUÊNCIA EMBUTIDA IMUTÁVEL TUPLA TEM DUPLA FUNÇÃO:
+    •pode ser usada como lista imutável
+    •pode ser usada como registros sem nomes de campos
 '''
 #_____________________________________Tuplas como registros - Pág. 52__________________________________________________________________________________________________________________
 print("_______________________________Tuplas como registros - Pág. 52_______________________________")
 # 1° EXEMPLO
 from pyparsing import line
-
 
 lax_coordinates = (33.425, -118.408056) #latitude e longitude do Aeroporto Internacional de Londres.
 print('    1° exemplo: ', type(lax_coordinates), lax_coordinates) #output: <class 'tuple'> (33.425, -118.408056) 
@@ -40,7 +39,7 @@ latitude, longitude = lax_coordinates
 #troca (swap) de valores de duas variáveis sem usar uma variável temporária:
 latitude, longitude = longitude, latitude
 #revertendo:
-latitude, longitude = latitude, longitude
+latitude, longitude = longitude, latitude
 
 #prefixar um argumento com um asterisco * ao chamar uma função:
 divmod(20, 8)
@@ -62,6 +61,7 @@ metro_areas = [
     ('Sao Paulo', 'BR', 19.649, (-23.547778, -46.635833)),
 ]
 
+#format() é um dos métodos de formatação de string em Python3. Esse método nos permite concatenar elementos em uma string por meio da formatação posicional
 print('{:15} | {:^9} | {:^9}'.format('', 'lat.', 'long.'))
 fmt = '{:15} | {:9.4f} | {:9.4f}'
 for name, cc, pop, (latitude, longitude) in metro_areas:  # desempacotando as coordenadas atribuindo-as à tupla (latitude, longitude)
@@ -70,7 +70,7 @@ for name, cc, pop, (latitude, longitude) in metro_areas:  # desempacotando as co
 
 #________________________Tuplas nomeadas - pág 56 à 58_________________________________________________________________________________________________________________________________
 print('__________________Tuplas nomeadas - pág 56 à 58__________________')
-from collections import namedtuple #namedtuples contêm chaves como hash para um valor específico, oferecendo suporte ao acesso do valor pela chave[key] e pela iteração[x]
+from collections import namedtuple #namedtuples contêm chaves como hash para um valor específico, oferecendo suporte ao acesso do valor tanto pela chave[key] como pela iteração[x]
 City = namedtuple('City', 'name country population coordinates')
 tokyo = City('tokyo', 'JP', population=36.933, coordinates=(36.689722, 139.691667))
 print("acesso por chaves[keys]:\n", tokyo.name, tokyo.country, tokyo.population, tokyo.coordinates)
@@ -84,11 +84,18 @@ print("acesso por iteração[x]:\n", tokyo[0], tokyo[1], tokyo[2], tokyo[3], "\n
          tokyo JP 36.933 (36.689722, 139.691667) 
         —————————————————————
 '''
-print('Retorno de _fields: ', City._fields) # _fields retorna uma tupla com os nomes das [chaves] dos valores da classe namedtuple definida  | output:('name', 'country', 'population', 'coordinates')
-LatLong = namedtuple('LatLong', 'Lat Long') #Lat será a shave[key] do valor 28.613889; e Long será a chave[key] do valor 77.208889 ↓↓↓
+#_fields retorna uma tupla com os nomes das [chaves] dos valores da classe namedtuple definida  
+print('Retorno de _fields: ', City._fields) # output:('name', 'country', 'population', 'coordinates')
+
+LatLong = namedtuple('LatLong', 'Lat Long') #Lat será a chave[key] do valor 28.613889; e Long será a chave[key] do valor 77.208889 ↓↓↓
 delhi_data = ('Delhi NCR', 'IN', 21935, LatLong(28.613889, 77.208889))# LatLong(valor da chave [Lat], valor da chave[Long]) ↑↑↑
-delhi = City._make(delhi_data) # _make() permite instanciar uma tupla nomeada a partir de um iterável. Os valores das chaves [Lat] e [Long] da namedtuple LatLong() serão, também, os valores da chave [coordinate] da namedtuple City.
-print('Retorno de _asdict(): ', delhi._asdict()) # _asdict() retorna um collections.OrderedDict , chaves e valores... | output: Retorno de _asdict():  {'name': 'Delhi NCR', 'country': 'IN', 'population': 21935, 'coordinates': LatLong(Lat=28.613889, Long=77.208889)}
+
+# _make() permite instanciar uma tupla nomeada a partir de um iterável.
+delhi = City._make(delhi_data) # Os valores das chaves [Lat] e [Long] da namedtuple LatLong() serão, também, os valores da chave [coordinate] da namedtuple City.
+
+ # _asdict() retorna um collections.OrderedDict , chaves e valores...
+print('Retorno de _asdict(): ', delhi._asdict()) # output: Retorno de _asdict():  {'name': 'Delhi NCR', 'country': 'IN', 'population': 21935, 'coordinates': LatLong(Lat=28.613889, Long=77.208889)}
+
 for key, value in delhi._asdict().items():
     print('hash [',key, ']', ' = ', value)
     ''' Output:
@@ -101,8 +108,8 @@ for key, value in delhi._asdict().items():
 #________________________Fatiamento - pág 59 à 62_____________________________________________________________________________________________________________________________________
 print("__________________Fatiamento - pág 59 à 62__________________")
 l = [10, 20, 30, 40, 50, 60]
-print('l[:2] = ', l[:2]) #output: [10, 20]
-print('l[2:] = ', l[2:]) #output: [30, 40, 50, 60]
+print('l[:2] = ', l[:2]) # até, mas não inclusive o (:)2° | output: [10, 20]
+print('l[2:] = ', l[2:]) # a partir do 2(:)° | output: [30, 40, 50, 60]
 
 s = 'Bicycle'
 print('s[::3] = ', s[::3]) #output: Bye
@@ -126,3 +133,25 @@ print("__________________________________\n")
 for item in line_items:
     print(item[UNIT_PRICE], item[DESCRIPTION])
 print("——————————————————————————————————")
+
+#________________________Atribuição de valores à fatias - pág 62______________________________________________________________________________________________________________________
+print("__________________Atribuição de valores à fatias - pág 62__________________")
+m = list(range(10))
+print("m =", m, '\n')
+#output: m = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+m[2:5] = [20, 30] # no 2°(:) coloca o 20 e o 30 vai em seguida(no 3°); e elimina tudo após até o 5°, mas não inclusive.
+print("m[2:5] = [20, 30]\nm =", m, '\n') 
+#output: m = [0, 1, 20, 30, 5, 6, 7, 8, 9]
+
+del m[5:7] # deleta tudo a partir do 5°, até o 7°, mas não inclusive.
+print("del m[5:7]\nm =", m, '\n') 
+#output: m = [0, 1, 20, 30, 5, 8, 9]
+
+m[3::2] = [11, 22] # no 3°(:) coloca 11, e, em seguida, antes do (:)2° —que ao reiniciar em zero é o 9— coloca o 22.
+print("m[3::2] = [11, 22]\nm =", m, '\n')
+#output: m = [0, 1, 20, 11, 5, 22, 9]
+
+m[2:5] = [100]
+print("m[2:5] = [100]\nm =", m, '\n') # no 2°(:) coloca o 100; e elimina tudo após até o 5°, mas não inclusive.
+#output: m = [0, 1, 100, 22, 9]
