@@ -280,3 +280,58 @@ output:
 '''
 
 # →→→→→→→→→ CONCLUSÃO: colocar itens mutáveis(list, no exemplo) em imutáveis(tupla, no exemplo) não é uma boa ideia. ←←←←←←←←←
+
+#________________________list.sort e a função embutida sorted - pág 69 e 70____________________________________________________________________________________________________________
+print("__________________list.sort e a função embutida sorted - pág 69 e 70__________________")
+'''
+• list.sort: ordena uma lista in-place (não cria nova lista, altera a lista original)
+• sorted: não ordena uma lista in-place (cria nova lista, não alterar a lista original)
+→ 2 parâmetros: (list, 1°reverse=True, 2°key=str.lower/ou/key=len)
+'''
+fruits = ['grape', 'raspberry', 'apple', 'banana']
+sorted(fruits) #sorted: cria uma nova lista de strings em órdem alfabética
+#output: ['apple', 'banana', 'grape', 'raspberry']
+print(fruits) #a lista original não foi alterada
+#output: ['grape', 'raspberry', 'apple', 'banana']
+
+sorted(fruits, reverse=True) #sorted: cria uma nova lista de strings com reverse que deixa em órdem alfabética reversa
+#output: ['raspberry', 'grape', 'banana', 'apple']
+print(fruits) #a lista original não foi alterada
+#output: ['grape', 'raspberry', 'apple', 'banana']
+
+sorted(fruits, key=len) #sorted: cria uma nova lista de strings com key que ordenada de acordo com o tamanho de cada string
+#output: ['grape', 'apple', 'banana', 'raspberry']
+print(fruits) #a lista original não foi alterada
+#output: ['grape', 'raspberry', 'apple', 'banana']
+
+sorted(fruits, key=len, reverse=True) #sorted: cria uma nova lista de strings com key que ordenada de acordo com o tamanho de cada string e com reverse que deixa em órdem reversa
+#output: ['raspberry', 'banana', 'grape', 'apple']
+print(fruits) #a lista original não foi alterada
+#output: ['grape', 'raspberry', 'apple', 'banana']
+
+print(fruits.sort()) #list.sort: ordena a lista in-place (não cria nova lista, altera a lista original)
+#output: None → retorna None para nos lembrar de que o objeto-alvo é aterado e que não foi criado uma nova cópia
+print(fruits) #a lista original foi alterada
+#output: ['apple', 'banana', 'grape', 'raspberry']
+
+
+nomes = ['Aluno', 'alfa', 'Abcd', 'abcd']
+sorted(nomes) #sorted: cria uma nova lista de strings em órdem alfabética
+#output:['Abcd', 'Aluno', 'abcd', 'alfa']
+print(nomes) #a lista original não foi alterada
+#output:['Aluno', 'alfa', 'Abcd', 'abcd']
+
+nomes.sort(key=str.lower) #sorted: #list.sort: ordena a lista in-place (não cria nova lista, altera a lista original) com key=str.lower que ordena sem levar em consideração letras maiúsculas e minúsculas
+#output: None → retorna None para nos lembrar de que o objeto-alvo é aterado e que não foi criado uma nova lista, mas alterado a lista original
+print(nomes) #a lista original foi alterada
+#output:['Abcd', 'abcd', 'alfa', 'Aluno']
+
+sorted(nomes, key=len) #sorted: cria uma nova lista de strings com key=len que ordenada de acordo com o tamanho de cada string
+#output:['Abcd', 'abcd', 'alfa', 'Aluno'] → ♦compare... ↓↓↓
+print(nomes) #a lista original não foi alterada
+#output:['Abcd', 'abcd', 'alfa', 'Aluno']
+
+sorted(nomes, key=len, reverse=True) #sorted: cria uma nova lista de strings com key=len que ordenada de acordo com o tamanho de cada string e com reverse=True que deixa em órdem reversa
+#output:['Aluno', 'Abcd', 'abcd', 'alfa'] → ♦compare... ↑↑↑
+print(nomes) #a lista original não foi alterada
+#output:['Abcd', 'abcd', 'alfa', 'Aluno']
