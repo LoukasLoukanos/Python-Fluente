@@ -1,13 +1,16 @@
 '''
 Módulo bisect oferece duas funções — bisect e insort— que usam algoritmo 
 de busca binária para pesquisar e inserir itens em [sequências ordenadas].
-sintaxe:
+♦ sintaxe:
     este_indice = bisect.bisect(sequencia_ordenada, valor) → valor é inserido no índice correto da sequencia_ordenada. É retornado o valor desse índice o qual foi atribuido à este_indice
-obs:
-    bisect.bisect() é um alias para bisect.bisect_rigth(), que insere à direita do índice procurado; → bisect.bisect_left() insere à esquerda do índice.
+    bisect.insort(seq, item) → permite a inserção de item de forma ordenada na sequência seq 
+♦ comportamento:
+    • bisect.bisect() é um alias para bisect.bisect_rigth(), que insere à direita do índice procurado; → bisect.bisect_left() insere à esquerda do índice.
+    • limitar a pesquisa a uma sequência, o default do argumento lo é 0 e de hi é o len(): [5, 3 ,7 ,8 ,9] → (lo=3, hi=9) → [3, 7, 8, 9], len()=3
 '''
 import bisect
 import sys
+import random
 # Demonstração de uso do módulo bisect____________________________________
 HAYSTACK = [1, 4, 5, 6, 8, 12, 15, 20, 21, 23, 23, 26, 29, 30]
 NEEDLES = [0, 1, 2, 5, 8, 10, 22, 23, 29, 30, 31]
@@ -56,7 +59,7 @@ def grade(score, breakpoints=[60, 70, 80, 90], grades='FDCBA'): #notas escolares
     print("nota", grades[i], "obtida para a nota", score)
     return grades[i]
 
-print('\nTodas as notas:', [grade(score) for score in [33, 99, 77, 70 ,89, 90, 100]])
+print('\nTodas as notas obtidas:', [grade(score) for score in [33, 99, 77, 70 ,89, 90, 100]], '\np/ as respectivas pontuações: [33, 99, 77, 70 ,89, 90, 100]')
 
 '''output:
  33 inserido no índice 0
@@ -80,5 +83,29 @@ nota A obtida para a nota 90
  100 inserido no índice 4
 nota A obtida para a nota 100
 
-Todas as notas: ['F', 'A', 'C', 'C', 'B', 'A', 'A']
+Todas as notas obtidas: ['F', 'A', 'C', 'C', 'B', 'A', 'A']
+p/ as respectivas pontuações: [33, 99, 77, 70 ,89, 90, 100]
+'''
+
+# Exemplo de uso do módulo bisect em inserção de itens em sequência ordenada com bisect.insort(seq, item):____________________________________
+SIZE = 7
+
+random.seed(1729)
+
+my_list = []
+print("\nInserindo itens ordenadamente com bisect.insort(): ")
+for i in range(SIZE):
+    new_item = random.randrange(SIZE*2)
+    bisect.insort(my_list, new_item)
+    print('%2d ->' % new_item, my_list)
+
+'''output:
+Inserindo itens ordenadamente com bisect.insort():
+10 -> [10]
+ 0 -> [0, 10]
+ 6 -> [0, 6, 10]
+ 8 -> [0, 6, 8, 10]
+ 7 -> [0, 6, 7, 8, 10]
+ 2 -> [0, 2, 6, 7, 8, 10]
+10 -> [0, 2, 6, 7, 8, 10, 10]
 '''
