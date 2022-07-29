@@ -1,6 +1,6 @@
 '''
 ● tuple aceita os métodos de list, com exceção do método __reversed__() e de todos os métodos que acrescentam ou removem itens.
-● array é mais eficiente que list para sequências contendo apenas valores numéricos.
+● array é mais eficiente que list para sequências contendo apenas valores numéricos. 
 ● deque é a sequência mais eficiente para inserção e remoção em ambas as extremidades, pois permite ambas as regras de acesso FIFO e LIFO.
 ╔═══════════════════════════╦═══════════╦══════════╦═══════════╦═══════════╦══════════════════════════════════════════════════════════════════════════════════════════════════╗
 ║___________________________║___tuple___║___list___║___array___║___deque___║__________________________________________________________________________________________________║
