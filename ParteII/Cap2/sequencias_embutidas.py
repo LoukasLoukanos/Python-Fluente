@@ -1,20 +1,20 @@
 
 '''
- SEQUÊNCIAS EMBUTIDAS:
+╔═══════════════════════════════════════════════════════╦═════════════════════════════════╦════════════════════════════════╗
+║................SEQUÊNCIAS EMBUTIDAS...................║..MUTÁVEIS("subclasse/herança")..║..IMUTÁVEIS("superclasse/pai")..║
+╠═══════════════════════════════════════════════════════╬═════════════════════════════════╬════════════════════════════════╣
+║SIMPLES (armazenam itens de um só tipo)................║..bytearray, array, memoryview...║............str, bytes..........║
+╠═══════════════════════════════════════════════════════╬═════════════════════════════════╬════════════════════════════════╣
+║CONTAINER (armazenam itens de tipos diferentes)........║...........list, deque...........║..............tuple.............║
+╚═══════════════════════════════════════════════════════╩═════════════════════════════════╩════════════════════════════════╝
 
+SIMPLES:
+• Mais compactas, rápidas e fáceis de usar.
+• Limitadas ao armazenamento de dados atômicos como números, caracteres e bytes.
 
-    __________________IMUTÁVEIS("superclasse/pai")__________________
-    CONTAINER (armazenam itens de tipos diferentes) : tuple
-    SIMPLES (armazenam itens de um só tipo)         : str, bytes
+CONTAINER:
+• Mais flexíveis.
+• Não recomendadas para armazenar objetos mutáveis.
 
-
-
-    __________________MUTÁVEIS("subclasse/herança")__________________
-    CONTAINER (armazenam itens de tipos diferentes) : list, collections.deque
-    SIMPLES (armazenam itens de um só tipo)         : bytearray, array.array, memoryview      
-
-
-
-
-    Como um exemplo, o tipo mais básico de sequência é list, um container mutável.
+→ Como um exemplo, o tipo mais básico de sequência é list, um container mutável.
 '''
