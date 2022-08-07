@@ -285,8 +285,8 @@ output:
 print("__________________list.sort e a função embutida sorted - pág 69 e 70__________________")
 '''
 • list.sort: ordena uma lista in-place (não cria nova lista, altera a lista original)
-• sorted: não ordena uma lista in-place (cria nova lista, não alterar a lista original)
-→ 2 parâmetros: (list, 1°reverse=True, 2°key=str.lower/ou/key=len)
+• sorted: não ordena uma lista in-place (cria nova lista, não altera a lista original)
+→ 2 parâmetros: (list, 1°reverse=True, 2°key=str.lower/ou/key=len/ou/key=str/ou/key=int)
 '''
 fruits = ['grape', 'raspberry', 'apple', 'banana']
 sorted(fruits) #sorted: cria uma nova lista de strings em órdem alfabética
@@ -335,3 +335,17 @@ sorted(nomes, key=len, reverse=True) #sorted: cria uma nova lista de strings com
 #output:['Aluno', 'Abcd', 'abcd', 'alfa'] → ♦compare... ↑↑↑
 print(nomes) #a lista original não foi alterada
 #output:['Abcd', 'abcd', 'alfa', 'Aluno']
+
+
+str_int = [28, 14, '28', 5, '9', '1', 0, 6, '23', 19]
+#sorted(str_int) → output: "TypeError: '<' not supported between instances of 'str' and 'int'" (solução: key=int/strt↓)
+
+sorted(str_int, key=int) #sorted: cria uma nova lista com key=int que ordenada tratando todos os itens como tipo inteiro
+#output:[0, '1', 5, 6, '9', 14, 19, '23', 28, '28']
+print(str_int) #a lista original não foi alterada
+#output:[28, 14, '28', 5, '9', '1', 0, 6, '23', 19]
+
+sorted(str_int, key=str) #sorted: cria uma nova lista com key=str que ordenada tratando todos os itens como tipo string
+#output:[0, '1', 14, 19, '23', 28, '28', 5, 6, '9']
+print(str_int) #a lista original não foi alterada
+#output:[28, 14, '28', 5, '9', '1', 0, 6, '23', 19]
