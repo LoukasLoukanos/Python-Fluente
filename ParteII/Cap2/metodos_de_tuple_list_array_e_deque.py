@@ -16,10 +16,19 @@ CONTAINER:
 • Não recomendadas para armazenar objetos mutáveis.
 
 
+Objeto hashable é um ojeto capaz de possuir um hash (um id como sha1 ou MD5)
+ ✓ Terá um valor de hash que não muda (possuirá um método __hash__())
+ ✓ Será comparável com outros objetos (possuirá um método __eq__())
+Condição para um objeto ser hashable:
+ → Deve ser IMUTÁVEL — str, bytes e tuple(exceto se conter referências a objetos que não são hashable)—.
+Nota: 
+ → frozenset é uma função que transforma objetos MUTÁVEIS em IMUTÁVEIS.
+
+
 Métodos de tuple, list, array e deque:________________________________________________________________________________________________________________________________________
-● tuple aceita os métodos de list, com exceção do método __reversed__() e de todos os métodos que acrescentam ou removem itens.
-● array é mais eficiente que list para sequências contendo apenas valores numéricos. 
-● deque permite ambas as regras de acesso FIFO e LIFO e é a sequência mais otimizada para inserção e remoção de itens das extremidades (para itens do meio é mais lento).
+● tuple aceita os métodos de list, com exceção do método __reversed__() e de todos os métodos que acrescentam ou removem itens, pois tuple é IMUTÁVEL.
+● array é mais eficiente que list (exceto pela limitância de ser do tipo de sequência SIMPLES) para sequências contendo apenas tipo de valores numéricos.
+● deque permite ambas as regras de acesso FIFO e LIFO e é a sequência mais otimizada para inserção e remoção de itens das extremidades (centrais a latência é maior).
 ╔═══════════════════════════╦═══════════╦══════════╦═══════════╦═══════════╦══════════════════════════════════════════════════════════════════════════════════════════════════╗
 ║...........................║...tuple...║...list...║...array...║...deque...║..................................................................................................║
 ╠═══════════════════════════╬═══════════╬══════════╬═══════════╬═══════════╬══════════════════════════════════════════════════════════════════════════════════════════════════╣
