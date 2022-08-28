@@ -23,8 +23,8 @@ WORD_RE = re.compile(r'\w+')
 index = {}
 
 '''
-♦ OBJETIVO:________________________________________________________________________
-Demonstrar um código que satisfaça o exemplo abaixo, [FAZENDO APENAS UMA BUSCA].
+♦ OBJETIVO:__________________________________________________________________________________________
+Demonstrar um código que satisfaça o exemplo do uso do mapeamento abaixo, [FAZENDO APENAS UMA BUSCA].
     if key not in my_dict:           → 1°BUSCA
         my_dict[key] = []
     my_dict[key].append(new_value)   → 2°BUSCA
@@ -38,10 +38,10 @@ with open(sys.argv[1], encoding='utf-8') as fp: # with↓; as→alias(apelido)
             column_no = match.start()+1
             location = (line_no, column_no)
 
-            # MANEIRA 1: → com .get(word, [])
-            occurrences = index.get(word, [])  # Obtêm a lista de ocorrências para word, ou [] se essa palavra não for encontrada
+            # MANEIRA 1: com my_dict.get(k, [default])   →   Obtém item com a chave k; devolve default ou None se estiver ausente (pag97_metodos_de_mapeamento.py).
+            occurrences = index.get(word, [])  # 1°BUSCA: Obtêm a lista de ocorrências para word, ou [] se essa palavra não for encontrada
             occurrences.append(location)       # Concatena a nova posição para ocurrences 
-            index[word] = occurrences          # Coloca occurrences alterado no dicionário index; isso [IMPLICA UMA SEGUNDA BUSCA] em index
+            index[word] = occurrences          # 2°BUSCA: Coloca occurrences alterado no dicionário index; isso [IMPLICA UMA SEGUNDA BUSCA] em index
 
 # MANEIRA 2[UMA BUSCA]:
 with open(sys.argv[1], encoding='utf-8') as fp:
@@ -51,19 +51,19 @@ with open(sys.argv[1], encoding='utf-8') as fp:
             column_no = match.start()+1
             location = (line_no, column_no)
             
-            # MANEIRA 2: → com .setdefault
+            # MANEIRA 2: → com my_dict.setdefault(k, [default])   →   Se k in my_dict, devolve my_dict[k]; caso contrário, define my_dict[k] = default e devolve esse valor (pag97_metodos_de_mapeamento.py).
             index.setdefault(word, []).append(location)  # Obtêm a lista de ocorrências para word, ou [] se essa palavra não for encontrada; setdefault devolve o valor, portanto poderá ser atualizada [SEM EXIGIR UMA SEGUNDA BUSCA]).
 
 
 '''
-♦ CONCLUSÃO:________________________________________________________________________
+♦ CONCLUSÃO:__________________________________________________________________________________________
 A MANEIRA 2:
     my_dict.setdefault(key, []).append(new_value)   → UMA ÚNICA BUSCA
 
 É EQUIVALENTE À:
-    if key not in my_dict:           → 1°BUSCA
-        my_dict[key] = []
-    my_dict[key].append(new_value)   → 2°BUSCA
+    if key not in my_dict:           → +1 BUSCA
+        my_dict[key] = []         → +1 (ou não)
+    my_dict[key].append(new_value)   → +1 BUSCA
 
 COM EXCEÇÃO DE QUE .setdefault FAZ TUDO COM [UMA ÚNICA BUSCA]
 '''
