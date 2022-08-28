@@ -2,8 +2,18 @@
 # http://www.aleax.it/Python/accu04_Relearn_Python_alex.pdf
 # (slide 41) Ex: lines-by-word file index
 
-# BEGIN INDEX0
-"""Build an index mapping word -> list of occurrences"""
+
+'''
+Explicação de with:
+with é usado para garantir finalização de recursos adquiridos
+No exemplo citado deve ficar algo parecido com isto internamente:
+try:
+    __enter__()
+    open(sys.argv[1], encoding='utf-8') as fp:
+        #bloco de códigos
+finally:
+    __exit__()
+'''
 
 import sys
 import re
@@ -19,19 +29,29 @@ with open(sys.argv[1], encoding='utf-8') as fp: #with↓; as→alias(apelido)
             column_no = match.start()+1
             location = (line_no, column_no)
 
+            # MANEIRA 1: → .get(word, [])
             occurrences = index.get(word, [])  # O btêm a lista de ocorrências para word, ou [] se essa palavra não for encontrada
             occurrences.append(location)       # Concatena a nova posição para ocurrences 
             index[word] = occurrences          # Coloca occurrences alterado no dicionário index; isso implica uma segunda busca em index
-'''
-with é usado para garantir finalização de recursos adquiridos
-No exemplo citado deve ficar algo parecido com isto internamente:
-try:
-    __enter__()
-    open(sys.argv[1], encoding='utf-8') as fp:
-        #bloco de códigos
-finally:
-    __exit__()
-'''
+# OU
+with open(sys.argv[1], encoding='utf-8') as fp:
+    for line_no, line in enumerate(fp, 1):
+        for match in WORD_RE.finditer(line):
+            word = match.group()
+            column_no = match.start()+1
+            location = (line_no, column_no)
+            
+            # MANEIRA 2: → .setdefault
+            index.setdefault(word, []).append(location)  # Obtêm a lista de ocorrências para word, ou [] se essa palavra não for encontrada; setdefault devolve o valor, portanto poderá ser atualizada sem exigir uma segunda busca.
+            '''
+            A MANEIRA 2:
+                my_dict.setdefault(key, []).append(new_value)
+            É EQUIVALENTE À:
+                if key not in my_dict:
+                    my_dict[key] = []
+                my_dict[key].append(new_value)
+            COM EXCEÇÃO DE QUE .setdefault FAZ TUDO COM UMA ÚNICA BUSCA
+            '''
 
 # print in alphabetical order
 for word in sorted(index, key=str.upper):  # No argumento key= de sorted, não é chamando str.upper; mas apenas passado uma referência a esse método para que a função sorted possa usá-lo a fim de normalizar as palavras para a ordenação.
