@@ -4,6 +4,8 @@
 
 
 Métodos dos tipos de mapeamento dict, collections.defaultdict e collections.OrderedDict:_________________________________________________________________________________
+ • O diferencial do tipo de mapeamento defaultdict é que ele é capaz de devolver valores predefinidos quando chaves são ausentes:
+     (O método especial __missing__ é o mecanismo que faz defaultdict funcionar(chamando default_factory) para essa finalidade.)
  → Nota: @a: default_factory não é um método, mas um atributo de instância invocável (callable) definido pelo usuário final quando defaultdict é instanciada 
          @b: OrderedDict.popitem() remove o primeiro item inserido (FIFO); um argumento last opcional, se definido com True, remove o último item (LIFO).
 ╔════════════════════════════╦═════════╦═══════════════╦═══════════════╦═════════════════════════════════════════════════════════════════════════════════════════════════╗
