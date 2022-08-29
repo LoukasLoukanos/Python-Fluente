@@ -17,6 +17,7 @@ finally:
 
 import sys
 import re
+import collections #para collections.defaultdict()
 
 WORD_RE = re.compile(r'\w+')
 
@@ -43,7 +44,7 @@ with open(sys.argv[1], encoding='utf-8') as fp: # with↓; as→alias(apelido)
             occurrences.append(location)       # Concatena a nova posição para ocurrences 
             index[word] = occurrences          # 2°BUSCA: Coloca occurrences alterado no dicionário index; isso [IMPLICA UMA SEGUNDA BUSCA] em index
 
-# MANEIRA 2[UMA BUSCA]:
+#ou MANEIRA 2[UMA BUSCA]:
 with open(sys.argv[1], encoding='utf-8') as fp:
     for line_no, line in enumerate(fp, 1):
         for match in WORD_RE.finditer(line):
@@ -68,8 +69,34 @@ A MANEIRA 2:
 COM EXCEÇÃO DE QUE .setdefault FAZ TUDO COM [UMA ÚNICA BUSCA]
 '''
 
-
 # print in alphabetical order
 for word in sorted(index, key=str.upper):  # No argumento key= de sorted, não é chamando str.upper; mas apenas passado uma referência a esse método para que a função sorted possa usá-lo a fim de normalizar as palavras para a ordenação.
+    print(word, index[word])
+# END INDEX0
+
+
+'''
+____________________________________________________________________________________________________________________________________________
+→ o mapeamento defaultdict devolve valores predefinidos quando chaves são ausentes, pode ser usado no lugar do método setdefault.
+dado um defaultdict vazio criado como dd = defaultdict(list), se 'new-key' não estiver em dd, a expressão dd['new-key'] executará os passos:
+    •Chama list() para criar uma nova lista.
+    •Insere a lista em dd usando 'new-key' como chave.
+    •Devolve uma referência a essa lista.
+'''
+WORD_RE = re.compile(r'\w+')
+
+index = collections.defaultdict(list)     # Cria um defaultdict com o construtor list como default_factory
+with open(sys.argv[1], encoding='utf-8') as fp:
+    for line_no, line in enumerate(fp, 1):
+        for match in WORD_RE.finditer(line):
+            word = match.group()
+            column_no = match.start()+1
+            location = (line_no, column_no)
+            index[word].append(location)  # Se word não estiver inicialmente em index, default_factory será chamado para gerar o valor
+                                          # ausente, que, neste caso, é uma list vazia; ela será então atribuida a index[word] e
+                                          # devolvida, de modo que a operação .append(location) sempre será bem-sucedida.
+
+# print in alphabetical order
+for word in sorted(index, key=str.upper):
     print(word, index[word])
 # END INDEX0
