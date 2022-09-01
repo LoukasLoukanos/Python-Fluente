@@ -1,41 +1,7 @@
-"""StrKeyDict0 converts non-string keys to `str` on lookup
-
-# BEGIN STRKEYDICT0_TESTS
-
-Tests for item retrieval using `d[key]` notation::
-
-    >>> d = StrKeyDict0([('2', 'two'), ('4', 'four')])
-    >>> d['2']
-    'two'
-    >>> d[4]
-    'four'
-    >>> d[1]
-    Traceback (most recent call last):
-      ...
-    KeyError: '1'
-
-Tests for item retrieval using `d.get(key)` notation::
-
-    >>> d.get('2')
-    'two'
-    >>> d.get(4)
-    'four'
-    >>> d.get(1, 'N/A')
-    'N/A'
-
-
-Tests for the `in` operator::
-
-    >>> 2 in d
-    True
-    >>> 1 in d
-    False
-
-# END STRKEYDICT0_TESTS
-"""
-
-
-# BEGIN STRKEYDICT0
+'''____________________pag97_metodos_de_mapeamentos______________________________________________________________________________
+ • O diferencial do tipo de mapeamento defaultdict é que ele é capaz de devolver valores predefinidos quando chaves são ausentes:
+     (O método especial __missing__ é o mecanismo que faz defaultdict funcionar(chamando default_factory) para essa finalidade.)
+'''
 class StrKeyDict0(dict):  # <1>
 
     def __missing__(self, key):
@@ -52,4 +18,31 @@ class StrKeyDict0(dict):  # <1>
     def __contains__(self, key):
         return key in self.keys() or str(key) in self.keys()  # <6>
 
-# END STRKEYDICT0
+
+'''____________________testes para StrKeyDict0()____________________
+
+d = StrKeyDict0([('2', 'two'), ('4', 'four')])
+d['2']
+    output: 'two'
+d[4]
+    output: 'four'
+d[1]
+    output: 
+        Traceback (most recent call last):
+          ...
+        KeyError: '1'
+
+d.get('2')
+    output: 'two'
+d.get(4)
+    output: 'four'
+d.get(1, 'N/A')
+    output: 'N/A'
+
+
+2 in d
+    output: True
+1 in d
+    output: False
+
+'''
