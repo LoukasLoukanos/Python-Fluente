@@ -73,4 +73,27 @@ print("cafe_arr[:3]: ", cafe_arr[:3]) #output: bytearray'caf'
 print("cafe_arr[:4]: ", cafe_arr[:4]) #output: bytearray'caf\xc3'
 print("cafe_arr[:5]: ", cafe_arr[:5]) #output: bytearray'caf\xc3\xa9'
 
-print("cafe[-1:]: ", cafe_arr[-1:]) #output: b'caf\xc3\xa9'
+print("cafe[-1:]: ", cafe_arr[-1:]) #output: bytearray(b'\xa9')
+
+
+#____________________________________MÉTODO fromhex PARA SEQUÊNCIAS BINÁRIAS____________________________________
+
+# CODIFICAÇÃO (de hex para bytes) usando o método fromhex que cria uma sequência binária 
+# interpretando [pares] de dígitos hexadeximais [opcionalmente separados com espaços]:
+f = bytes.fromhex('31 4B CE A9')
+
+print("\ntipo f:", type(f), "\nvalor f:", f, "\ntamanho b:", len(f))
+'''output:
+    tipo f: <class 'bytes'>
+    valor f: b'1K\xce\xa9'
+    tamanho b: 4
+'''
+
+#DECODIFICAÇÃO (de bytes para str) usando a codificação UTF-8
+f = f.decode('utf8')
+print("\ntipo f:", type(f), "\nvalor em utf-8:", f, "\ntamanho b:", len(f))
+'''output:
+    tipo f: <class 'str'>
+    valor f: 1KΩ
+    tamanho b: 3
+'''
