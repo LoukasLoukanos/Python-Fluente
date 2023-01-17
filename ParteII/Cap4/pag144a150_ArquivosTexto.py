@@ -48,3 +48,75 @@ print(fp4.read()) # Leitura que retorna bytes, conforme esperado.
 #output: b'caf\xc3\xa9'
  
 fp4.close()
+
+
+
+
+
+#———————————————————————————————————————————————————————————————————————————————————————————————————
+#Várias configurações do SO afetam a codigicação default para I/O em Python:
+
+import sys, locale
+
+expressions = """
+        locale.getpreferredencoding()
+        type(my_file)
+        my_file.encoding
+        sys.stdout.isatty()
+        sys.stdout.encoding
+        sys.stdin.isatty()
+        sys.stdin.encoding
+        sys.stderr.isatty()
+        sys.stderr.encoding
+        sys.getdefaultencoding()
+        sys.getfilesystemencoding()
+    """
+
+my_file = open('dummy', 'w')
+
+for expression in expressions.split():
+    value = eval(expression)
+    print(expression.rjust(30), '->', repr(value))
+
+'''
+output em GNULinux (Ubuntu 14.040) e em  OSX (Mavericks 10.9):
+ locale.getpreferredencoding() -> 'utf-8'
+                 type(my_file) -> <class '_io.TextIOWrapper'>
+              my_file.encoding -> 'utf-8'
+           sys.stdout.isatty() -> True
+           sys.stdout.encoding -> 'utf-8'
+            sys.stdin.isatty() -> True
+            sys.stdin.encoding -> 'utf-8'
+           sys.stderr.isatty() -> True
+           sys.stderr.encoding -> 'utf-8'
+      sys.getdefaultencoding() -> 'utf-8'
+   sys.getfilesystemencoding() -> 'utf-8' 
+
+
+output no Windows 7:
+ locale.getpreferredencoding() -> 'cp1252'........................(é a configuração mais importante)
+                 type(my_file) -> <class '_io.TextIOWrapper'>
+              my_file.encoding -> 'cp1252'........................(arquivos de texto usam getpreferredencoding() por padrão)
+           sys.stdout.isatty() -> True............................(a saídad está sendo enviada para o console)
+           sys.stdout.encoding -> 'cp850'.........................(igual a configuração do console)
+            sys.stdin.isatty() -> True
+            sys.stdin.encoding -> 'cp850'
+           sys.stderr.isatty() -> True
+           sys.stderr.encoding -> 'cp850'
+      sys.getdefaultencoding() -> 'utf-8'
+   sys.getfilesystemencoding() -> 'mbcs' 
+
+
+output no Windows 11:
+ locale.getpreferredencoding() -> 'cp1252'
+                 type(my_file) -> <class '_io.TextIOWrapper'>
+              my_file.encoding -> 'cp1252'
+           sys.stdout.isatty() -> True
+           sys.stdout.encoding -> 'utf-8'
+            sys.stdin.isatty() -> True
+            sys.stdin.encoding -> 'utf-8'
+           sys.stderr.isatty() -> True
+           sys.stderr.encoding -> 'utf-8'
+      sys.getdefaultencoding() -> 'utf-8'
+   sys.getfilesystemencoding() -> 'utf-8' 
+'''
