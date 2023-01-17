@@ -53,8 +53,12 @@ fp4.close()
 
 
 
-#———————————————————————————————————————————————————————————————————————————————————————————————————
-#Várias configurações do SO afetam a codigicação default para I/O em Python:
+'''
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+Várias configurações do SO afetam a codigicação default para I/O em Python:
+Em GNU/Linux e em OSX, todas as codificações abaixo são definidas como UTF-8 por padrão, portanto o I/O trata todos os caracteres Unicode;
+Em Windows, codificações diferentes são usadas no mesmo sistema, portanto existe muito mais chances de ocorrer erros de codificação
+'''
 
 import sys, locale
 
@@ -72,7 +76,7 @@ expressions = """
         sys.getfilesystemencoding()
     """
 
-my_file = open('dummy', 'w')
+my_file = open('dummy', 'w') # encoding omitido → o default será dado por locale.getpreferredencoding()
 
 for expression in expressions.split():
     value = eval(expression)
@@ -80,43 +84,43 @@ for expression in expressions.split():
 
 '''
 output em GNULinux (Ubuntu 14.040) e em  OSX (Mavericks 10.9):
- locale.getpreferredencoding() -> 'utf-8'
+ locale.getpreferredencoding() -> 'utf-8'.........................(→ é a configuração mais importante)
                  type(my_file) -> <class '_io.TextIOWrapper'>
-              my_file.encoding -> 'utf-8'
-           sys.stdout.isatty() -> True
-           sys.stdout.encoding -> 'utf-8'
+              my_file.encoding -> 'utf-8'.........................(→ arquivos de texto usam getpreferredencoding() por padrão)
+           sys.stdout.isatty() -> True............................(→ a saídad está sendo enviada para o console)
+           sys.stdout.encoding -> 'utf-8'.........................(→ igual a configuração do console)
             sys.stdin.isatty() -> True
             sys.stdin.encoding -> 'utf-8'
            sys.stderr.isatty() -> True
            sys.stderr.encoding -> 'utf-8'
-      sys.getdefaultencoding() -> 'utf-8'
-   sys.getfilesystemencoding() -> 'utf-8' 
+      sys.getdefaultencoding() -> 'utf-8'.........................(→ sys.getdefaultencoding() é usado para converter dadosbinários para/de str)
+   sys.getfilesystemencoding() -> 'utf-8'.........................(→ sys.getfilesystemencoding() é usado para codificar/decodificar nomes de arquivo e não seus conteúdos)
 
 
 output no Windows 7:
- locale.getpreferredencoding() -> 'cp1252'........................(é a configuração mais importante)
+ locale.getpreferredencoding() -> 'cp1252'........................(→ é a configuração mais importante)
                  type(my_file) -> <class '_io.TextIOWrapper'>
-              my_file.encoding -> 'cp1252'........................(arquivos de texto usam getpreferredencoding() por padrão)
-           sys.stdout.isatty() -> True............................(a saídad está sendo enviada para o console)
-           sys.stdout.encoding -> 'cp850'.........................(igual a configuração do console)
+              my_file.encoding -> 'cp1252'........................(→ arquivos de texto usam getpreferredencoding() por padrão)
+           sys.stdout.isatty() -> True............................(→ a saídad está sendo enviada para o console)
+           sys.stdout.encoding -> 'cp850'.........................(→ igual a configuração do console)
             sys.stdin.isatty() -> True
             sys.stdin.encoding -> 'cp850'
            sys.stderr.isatty() -> True
            sys.stderr.encoding -> 'cp850'
-      sys.getdefaultencoding() -> 'utf-8'
-   sys.getfilesystemencoding() -> 'mbcs' 
+      sys.getdefaultencoding() -> 'utf-8'.........................(→ sys.getdefaultencoding() é usado para converter dadosbinários para/de str)
+   sys.getfilesystemencoding() -> 'mbcs'..........................(→ sys.getfilesystemencoding() é usado para codificar/decodificar nomes de arquivo e não seus conteúdos)
 
 
 output no Windows 11:
- locale.getpreferredencoding() -> 'cp1252'
+ locale.getpreferredencoding() -> 'cp1252'........................(→ é a configuração mais importante)
                  type(my_file) -> <class '_io.TextIOWrapper'>
-              my_file.encoding -> 'cp1252'
-           sys.stdout.isatty() -> True
-           sys.stdout.encoding -> 'utf-8'
+              my_file.encoding -> 'cp1252'........................(→ arquivos de texto usam getpreferredencoding() por padrão)
+           sys.stdout.isatty() -> True............................(→ a saídad está sendo enviada para o console)
+           sys.stdout.encoding -> 'utf-8'.........................(→ igual a configuração do console)
             sys.stdin.isatty() -> True
             sys.stdin.encoding -> 'utf-8'
            sys.stderr.isatty() -> True
            sys.stderr.encoding -> 'utf-8'
-      sys.getdefaultencoding() -> 'utf-8'
-   sys.getfilesystemencoding() -> 'utf-8' 
+      sys.getdefaultencoding() -> 'utf-8'.........................(→ sys.getdefaultencoding() é usado para converter dadosbinários para/de str)
+   sys.getfilesystemencoding() -> 'utf-8'.........................(→ sys.getfilesystemencoding() é usado para codificar/decodificar nomes de arquivo e não seus conteúdos) 
 '''
