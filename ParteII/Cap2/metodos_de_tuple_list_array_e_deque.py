@@ -25,7 +25,7 @@ Nota:
  → frozenset é uma função que transforma objetos MUTÁVEIS em IMUTÁVEIS.
 
 
-Métodos de tuple, list, array e deque:________________________________________________________________________________________________________________________
+Métodos de tuple, list, array e deque: ________________________________________________________________________________________________________________________
 ● tuple aceita os métodos de list, com exceção do método __reversed__() e de todos os métodos que acrescentam ou removem itens, pois tuple é IMUTÁVEL.
 ● array é mais eficiente que list (exceto pela limitância de ser do tipo de sequência SIMPLES) para sequências contendo apenas tipo de valores numéricos.
 ● deque permite as regras de acesso FIFO e LIFO e é a sequência mais otimizada para inserção e remoção de itens das extremidades (centrais a latência é maior).
