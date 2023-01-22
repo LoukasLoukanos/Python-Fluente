@@ -33,37 +33,34 @@ half = normalize('NFKD', half)
 
 
 
-# usando com funções______________________________________________________________________________________
+# exemplos com funções______________________________________________________________________________________
 def nfc_equal(str1, str2):
-    # casefold() não leva em conta as diferenças entre as letras minúsculas e maiúsculas (case-insensitive)
     return normalize('NFC', str1) == normalize('NFC', str2)
 
 def fold_equal(str1, str2):
-    # casefold() não leva em conta as diferenças entre as letras minúsculas e maiúsculas (case-insensitive)
+    # casefold() faz a conversão do texto em letras minúsculas, com algumas transformações adicionais.
     return (normalize('NFC', str1).casefold() == normalize('NFC', str2).casefold())
 
 
-# Usando (NFC) → "Compõe":
+# Usando (NFC) → "Compõe":_________________________________
 s1 = 'café'
 s2 = 'cafe\u0301'
-s1 == s2
-    #output: False
-nfc_equal(s1, s2)
-    #output: True → pois (s1=cafe) == (s2)
-nfc_equal('A', 'a')
-    #output: False → (não há o que gerar de nova string equivalente, pois 'a' não é a composição de 'A', ou vice-versa, em Unicode)
+s1 == s2 #output: False
+
+nfc_equal(s1, s2) #output: True → (pois (s1=café) == (s2 composto por NFC))
+
+nfc_equal('A', 'a') #output: False → (não há o que gerar de nova string equivalente, pois 'a' não é a composição de 'A', ou vice-versa, em Unicode)
 
 
-# Usando (NFC) → "Compõe":
+# Usando (NFC) → "Compõe":_________________________________
 s3 = 'Straße'
 s4 = 'strasse'
-s3 == s4
-    #output: False
-nfc_equal(s3, s4)
-    #output: False → (não há o que gerar de nova string equivalente, pois 'ß' não é a composição de 'ss(minúsculo)', ou vice-versa, em Unicode)
-fold_equal(s3, s4)
-    #output: True → pois (casefold() não leva em conta as diferenças entre as letras minúsculas e maiúsculas (case-insensitive))
-fold_equal(s1, s2)
-    #output: True 
-fold_equal('A', 'a') # retorno (case-insensitive)
-    #output: True
+s3 == s4 #output: False
+
+nfc_equal(s3, s4) #output: False → (não há o que gerar de nova string equivalente, pois 'ß' não é a composição de 'ss(minúsculo)', ou vice-versa, em Unicode)
+
+fold_equal(s3, s4) #output: True → (pois casefold() faz a conversão do texto em letras minúsculas, com algumas transformações adicionais – nesse caso 'ß' virou 'ss' –)
+
+fold_equal(s1, s2) #output: True 
+
+fold_equal('A', 'a') #output: True → (pois casefold() converteu 'A' em 'a')
