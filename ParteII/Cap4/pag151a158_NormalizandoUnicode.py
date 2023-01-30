@@ -1,4 +1,4 @@
-# Normalizando Unicode para comparações mais seguras:
+#Normalizando Unicode: comparações mais seguras_______________________________________________________________________________________________________________________________________
 
 from unicodedata import normalize
 '''
@@ -64,3 +64,104 @@ fold_equal(s3, s4) #output: True → (pois casefold() faz a conversão do texto 
 fold_equal(s1, s2) #output: True 
 
 fold_equal('A', 'a') #output: True → (pois casefold() converteu 'A' em 'a')
+
+
+
+
+#Normalização Extrema: removendo acentos_______________________________________________________________________________________________________________________________________
+import unicodedata
+import string
+
+#_________________________________________________________________________________
+#FUNÇÃO PARA REMOVER TODAS AS MARCAS COMBINADAS
+def shave_marks(txt):
+    """Remove todas as marcas de diacríticos(acentos, cedolhas, etc)"""
+    norm_txt = unicodedata.normalize('NFD', txt)  # Usando (NFD) → "Decompõe de modo equivalente"
+    shaved = ''.join(c for c in norm_txt if not unicodedata.combining(c))  # filtra todas as marcas combinadas
+    return unicodedata.normalize('NFC', shaved)  # Usando (NFC) → "Compõe de modo equivalente"
+#_________________________________________________________________________________
+
+
+
+#_________________________________________________________________________________
+#FUNÇÃO PARA REMOVER MARCAS COMBINADAS DE CARACTERES LATINOS
+def shave_marks_latin(txt):
+    """Remove todas as marcas de diacríticos(acentos, cedolhas, etc) dos caracteres-base latinos"""
+    norm_txt = unicodedata.normalize('NFD', txt)  # Usando (NFD) → "Decompõe de modo equivalente"
+    latin_base = False
+    keepers = []
+    for c in norm_txt:
+        if unicodedata.combining(c) and latin_base: # pula as marcas combinadas quando o caractere for latino
+            continue  # ignora diacríticos(acentos, cedolhas, etc) em caracteres-base latinos
+        keepers.append(c) # caso contrário mantém o caractere atual
+        # se não é um caractere combinado, é um novo caractere base
+        if not unicodedata.combining(c): # declara o novo caractere-base e determina se é latino
+            latin_base = c in string.ascii_letters
+    shaved = ''.join(keepers)
+    return unicodedata.normalize('NFC', shaved) # recompõe todos os caracteres
+#_________________________________________________________________________________
+
+
+
+#_________________________________________________________________________________
+#FUNÇÃO PARA TRANSFORMAR ALGUNS SÍMBOLOS TIPOGRÁFICOS OCIDENTAIS EM ASCII 
+single_map = str.maketrans("""‚ƒ„†ˆ‹‘’“”•–—˜›""",  # Cria tabela de mapeamento para substituição de caractere para caractere.
+                           """'f"*^<''""---~>""")
+
+multi_map = str.maketrans({  # Cria tabela de mapeamento para substituição de caractere para string
+    '€': '<euro>',
+    '…': '...',
+    'Œ': 'OE',
+    '™': '(TM)',
+    'œ': 'oe',
+    '‰': '<per mille>',
+    '‡': '**',
+})
+
+multi_map.update(single_map)  # Combina as tabelas de mapeamento.
+
+
+def dewinize(txt):
+    """Replace Win1252 symbols with ASCII chars or sequences"""
+    return txt.translate(multi_map)  # dewinize não afeta texto ASCII ou latin1, somente os acréscimos da Microsoft ao latini em cp1252.
+
+
+def asciize(txt):
+    no_marks = shave_marks_latin(dewinize(txt))     # Aplica dewintze e remove marcas de diacríticos. 
+    no_marks = no_marks.replace('ß', 'ss')          # Substitui Eszett por "ss" (não estamos usando case fold nesse caso, pois queremos preservar a diferença entre letras maiúsculas e minúsculas).
+    return unicodedata.normalize('NFKC', no_marks)  # Aplica a normalização NFKC para compor caracteres com seus códigos de compatibilidade Unicode.
+#_________________________________________________________________________________
+
+
+
+# Exemplos: Manipulando uma string com simbolos em `cp1252`:________________________
+order = '“Herr Voß: • ½ cup of Œtker™ caffè latte • bowl of açaí.”'
+
+shave_marks(order)
+#output: '“Herr Voß: • ½ cup of Œtker™ caffe latte • bowl of acai.”'
+
+shave_marks_latin(order)
+#output: '“Herr Voß: • ½ cup of Œtker™ caffe latte • bowl of acai.”'
+
+dewinize(order)
+#output: '"Herr Voß: - ½ cup of OEtker(TM) caffè latte - bowl of açaí."'
+
+asciize(order)
+#output: '"Herr Voss: - 1⁄2 cup of OEtker(TM) caffe latte - bowl of acai."'
+
+
+
+# Exemplos: Manipulando uma string com caracteres acentuados gregos e latinos:_________
+greek = 'Ζέφυρος, Zéfiro'
+
+shave_marks(greek)
+#output: 'Ζεφυρος, Zefiro'
+
+shave_marks_latin(greek)
+#output: 'Ζέφυρος, Zefiro'
+
+dewinize(greek)
+#output: 'Ζέφυρος, Zéfiro'
+
+asciize(greek)
+#output: 'Ζέφυρος, Zefiro'
