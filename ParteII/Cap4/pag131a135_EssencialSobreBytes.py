@@ -32,12 +32,16 @@ print("\ntipo cafe:", type(cafe), "\nvalor cafe:", cafe, "\ntamanho cafe:", len(
     tamanho cafe: 5
 '''
 
-#cada item é um inteiro em range(256):
-print("cafe[0]: ", cafe[0]) #output: 99
-print("cafe[1]: ", cafe[1]) #output: 97
-print("cafe[2]: ", cafe[2]) #output: 102
-print("cafe[3]: ", cafe[3]) #output: 195
-print("cafe[4]: ", cafe[4]) #output: 169
+'''cada item é um inteiro em range(256): 
+Por exemplo, a=97, b=98, c=99, d=100, e=101, f=102, ..., \xc3=195, ..., \xa9=169, ...até256.
+→ Obs: esses caracteres em utf-8 são representados por "índices", como em Unicode, e alguns até coicidem (a=97 em utf-8 e em Unicode). 
+→ Nesse caso (em UTF-8) o par de bytes \xc3=195 + \xa9=169 representa o caractere "é". Já o valor \xc3=195 sozinho não representa um caractere válido.
+→ "\xc3"=195 é o mesmo que "0xC3"=195 → '\x' e '0x' representam que está em hexadecimal, e 'C3' é o valor hexadecimal que é igual a 195 em deciaml)'''
+print("cafe[0]: ", cafe[0]) #output: 99  → é o "índice" que representa "c" em utf-8 (o mesmo para Unicode)
+print("cafe[1]: ", cafe[1]) #output: 97  → é o "índice" que representa "a" em utf-8 (o mesmo para Unicode)
+print("cafe[2]: ", cafe[2]) #output: 102 → é o "índice" que representa "f" em utf-8 (o mesmo para Unicode)
+print("cafe[3]: ", cafe[3]) #output: 195 → é o "índice" que representa o byte em hexadecimal "\xc3" ("0xC3") em utf-8 (em Unicode seria 'Á')
+print("cafe[4]: ", cafe[4]) #output: 169 → é o "índice" que representa o byte em hexadecimal "\xc3" ("0xC3") em utf-8 (em Unicode seria '©')
 
 #fatias de bytes também são bytes — mesmo as fatias com um único byte:
 print("cafe[:0]: ", cafe[:0]) #output: b''   →   (literais do tipo bytes começam com um prefixo b)
