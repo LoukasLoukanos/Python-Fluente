@@ -1,6 +1,18 @@
 # BEGIN NUMERICS_DEMO
-import unicodedata
+import unicodedata #O módulo unicodedata do Python fornece acesso a informações sobre caracteres Unicode, incluindo seu nome, número, propriedades e classificação. 
 import re
+
+'''
+Abaixo uma descrição de quatro métodos úteis ao trabalhar com caracteres Unicode, especialmente quando se lida com scripts e idiomas que possuem representações diferentes de números ou símbolos.
+
+Métodos disponíveis no módulo unicodedata:
+→ unicodedata.numeric(chr): retorna o valor numérico associado ao caractere chr no formato de uma string. Se o caractere não tiver um valor numérico associado, a função retorna None.
+→ unicodedata.name(chr): retorna o nome formal do caractere chr segundo o padrão Unicode.
+
+Métodos disponíveis no objeto de string e não no módulo unicodedata:
+→ .isdigit(): retorna True se o caractere for uma cifra decimal, False caso contrário.
+→ .isnumeric(): retorna True se o caractere for um símbolo numérico (como um número romano), False caso contrário.
+'''
 
 re_digit = re.compile(r'\d')
 
@@ -17,7 +29,8 @@ for char in sample:
           sep='\t')
 
 
-'''output: (obs: U+00bc é o número Unicode do hexadeximal \xbc...)
+'''
+output: (obs: U+00bc é o número Unicode do hexadeximal \xbc...)
 
 U+0031    1     re_dig  isdig   isnum    1.00   DIGIT ONE
 U+00bc    ¼     -       -       isnum    0.25   VULGAR FRACTION ONE QUARTER
