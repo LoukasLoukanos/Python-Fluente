@@ -99,3 +99,41 @@ for name, param in sig.parameters.items():
     POSITIONAL_OR_KEYWORD : text = <class 'inspect._empty'>
     POSITIONAL_OR_KEYWORD : max_len = 80
     """
+
+
+
+'''____________________________________________________________________________________________________________
+Um exemplo que mostra como o modelo de dados de Python, com a ajuda de inspect, expõe o mesmo mecanismo 
+usado pelo interpretador para associar argumentos a parâmetros formais em chamadas de função.
+
+Frameworks e ferramentas como IDEs podem usar essas informações para validar códigos. 
+Outro recurso de Python 3, as anotações de função, expandem os possíveis usos disso, como veremos a seguir.
+'''
+
+import inspect
+import pag186e187_ArgsPosicionaisNomeados
+
+sig = inspect.signature(pag186e187_ArgsPosicionaisNomeados.tag) # Obtém a assinatura da função tag do exemplo
+
+my_tag = {'name': 'ing', 'title': 'Sunset Boulevard', 'src': 'sunset.jpg', 'cls': 'Framed'}
+bound_args = sig.bind(**my_tag) # Passa um dict com os argumentos para .bind()
+
+bound_args # Um objeto inspect.BoundArguments é produzido ↓
+#output: <inspect.BoundArguments object at 0x..>
+
+# Faz uma iteração pelos itens em bound_args.arguments, que é um OrderedDict, para exibir os nomes e os valores dos argumentos ↓ 
+for name, value in bound_args.arguments.items():
+    print(name, '=', value)
+    '''output:
+    name = img
+    cls = framed
+    attrs = {'title': 'Sunset Boulevard', 'src': 'sunset.jpg"}
+    '''
+
+del my_tag['name'] # Remove o argumento obrigatório name de my_tag.
+
+bound_args = sig.bind(**my_tag) # Chamar sig.bind(**my_tag) gera um TypeError que reclama do parâmetro name ausente.
+'''output:
+Traceback (most recent call last):
+TypeError: 'name' paraneter lacking default value
+'''
