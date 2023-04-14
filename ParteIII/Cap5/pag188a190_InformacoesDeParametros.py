@@ -1,36 +1,56 @@
-"""
- Encurta um texto para um comprimento máximo especificado. Se o texto fornecido for mais longo do que o comprimento máximo 
- especificado, a função encontra o último espaço antes ou depois da posição máxima permitida e encurta o texto até esse ponto. 
- Se não houver espaços no texto, a função simplesmente encurta o texto para o comprimento máximo permitido.
-"""
+'''
+ACESSO À INFORMAÇÕES DE OBJETOS E PARÂMETROS DE FUNÇÕES (INTROSPECÇÃO)
 
-def clip(text, max_len=80):
-    # Inicializa a variável 'end' como 'None'
-    end = None
-    # Verifica se o comprimento do texto é maior do que o comprimento máximo permitido
-    if len(text) > max_len:
-        # Procura a posição do último espaço no texto antes da posição máxima permitida
-        space_before = text.rfind(' ', 0, max_len)
-        # Se a posição do último espaço antes da posição máxima permitida for encontrada, atribui essa posição à variável 'end'
-        if space_before >= 0:
-            end = space_before
-        # Caso contrário, procura a posição do último espaço após a posição máxima permitida
-        else:
-            space_after = text.rfind(' ', max_len)
-            # Se a posição do último espaço após a posição máxima permitida for encontrada, atribui essa posição à variável 'end'
-            if space_after >= 0:
-                end = space_after
-    # Se a variável 'end' não foi atribuída uma posição, significa que não há espaços no texto para encurtar
-    if end is None:  
-        # Define a posição final como o comprimento total do texto
-        end = len(text)
-    # Retorna o texto encurtado até a posição final e remove quaisquer espaços em branco adicionais do final da string
-    return text[:end].rstrip()
+Introspecção é a capacidade de uma linguagem como Python de examinar seu próprio código e as informações associadas a ele em tempo de execução.
+O módulo ♦inspect, nativo do Python, é útil para depurar código e obter informações sobre como os objetos Python estão sendo usados em tempo de 
+execução, pois permite obter informações detalhadas sobre um objeto Python, como suas propriedades, métodos e docstrings, podendo ser útil para 
+obter a lista de métodos e atributos de uma classe ou, até mesmo, para verificar se uma função é assíncrona. Ou seja, o módulo ♦inspect é uma 
+ferramenta poderosíssima e avançada de Introspecção, nativa do python e para o python.
+O modelo de dados de Python, com a ajuda do módulo ♦inspect, expõe o mesmo mecanismo usado pelo interpretador para associar argumentos a parâmetros 
+formais em chamadas de função. Frameworks e ferramentas como IDEs podem usar essas informações para validar códigos. Outro recurso de Python 3, as 
+anotações de função, expandem os possíveis usos disso.
+
+Alguns dos métodos disponíveis no módulo ♦inspect (existem muitos outros métodos úteis de inspect para realizar operações de introspecção em objetos Python):
+•getmembers(obj[, predicate]): retorna uma lista de tuplas que representam os membros de um objeto, incluindo métodos, atributos e outros membros.
+•signature(obj): retorna a assinatura de uma função, método ou callable como um objeto Signature.
+•isfunction(obj): retorna True se o objeto passado for uma função, ou False caso contrário.
+•ismethod(obj): retorna True se o objeto passado for um método, ou False caso contrário.
+•isclass(obj): retorna True se o objeto passado for uma classe, ou False caso contrário.
+•isgenerator(obj): retorna True se o objeto passado for um generator, ou False caso contrário.
+•isasyncgen(obj): retorna True se o objeto passado for um async generator, ou False caso contrário.
+•isroutine(obj): retorna True se o objeto passado for uma função, método ou callable, ou False caso contrário.
+•getsource(obj): retorna o código-fonte de um objeto, como uma string.
+•getfile(obj): retorna o nome do arquivo em que um objeto foi definido.
+•getmodule(obj[, _filename]): retorna o módulo em que um objeto foi definido.
+•getmembers(module[, predicate]): retorna uma lista de tuplas que representam os membros de um módulo, incluindo funções, classes e outros membros.
+•getdoc(obj): retorna a documentação de um objeto, como uma string.
+'''
 
 
 # _________________________________________________________________________________
-# Exemplos de uso da função:
-
+def clip(text, max_len=80):
+    '''
+    Exempo de função para ser usada com o módulo ♦inspect:
+    Encurta um texto para um comprimento máximo especificado. Se o texto fornecido for mais longo do que o comprimento máximo 
+    especificado, a função encontra o último espaço antes ou depois da posição máxima permitida e encurta o texto até esse ponto. 
+    Se não houver espaços no texto, a função simplesmente encurta o texto para o comprimento máximo permitido.
+    '''
+    end = None # Inicializa a variável 'end' como 'None'
+    
+    if len(text) > max_len: # Verifica se o comprimento do texto é maior do que o comprimento máximo permitido
+        space_before = text.rfind(' ', 0, max_len) # Procura a posição do último espaço no texto antes da posição máxima permitida
+        if space_before >= 0: # Se a posição do último espaço antes da posição máxima permitida for encontrada, atribui essa posição à variável 'end'
+            end = space_before
+        else: # Caso contrário, procura a posição do último espaço após a posição máxima permitida
+            space_after = text.rfind(' ', max_len)
+            if space_after >= 0: # Se a posição do último espaço após a posição máxima permitida for encontrada, atribui essa posição à variável 'end'
+                end = space_after
+    if end is None: # Se a variável 'end' não foi atribuída uma posição, significa que não há espaços no texto para encurtar
+        end = len(text) # Define a posição final como o comprimento total do texto
+    return text[:end].rstrip() # Retorna o texto encurtado até a posição final e remove quaisquer espaços em branco adicionais do final da string
+   
+   
+# Exemplos de uso apenas da função:
 clip('banana ', 6)
 #output: 'banana'
 
@@ -57,7 +77,7 @@ clip('banana split', 12)
 
 
 # _________________________________________________________________________________
-# Acessando algumas informações sobre a própria função:
+# ACESSANDO INFORMAÇÕES DA FUNÇÃO clip() (INTROSPECÇÃO), MAS SEM O USO DE ♦inspect:
 
 # 'clip.defaults' retorna uma tupla que contém os valores padrão dos parâmetros da função 'clip'. Nesse caso, o valor padrão para o parâmetro 'max_len' é 80.
 clip.__defaults__
@@ -76,8 +96,8 @@ clip.__code__.co_argcount
 #output: 2
 
 
-# _________________________________________________________________________________
-# Usando o módulo 'inspect' para obter informações sobre a assinatura da função 'clip':
+# _________________________________________________________________________________________________________
+# ACESSANDO INFORMAÇÕES DA FUNÇÃO clip() (INTROSPECÇÃO), COM O USO DA FUNÇÃO •signature do MÓDULO ♦inspect:
 from inspect import signature
 
 # 'sig = signature(clip)' cria um objeto Signature que representa a assinatura da função 'clip', incluindo o número e o nome de seus parâmetros.
@@ -100,18 +120,11 @@ for name, param in sig.parameters.items():
     POSITIONAL_OR_KEYWORD : max_len = 80
     """
 
-
-
-'''____________________________________________________________________________________________________________
-Um exemplo que mostra como o modelo de dados de Python, com a ajuda de inspect, expõe o mesmo mecanismo 
-usado pelo interpretador para associar argumentos a parâmetros formais em chamadas de função.
-
-Frameworks e ferramentas como IDEs podem usar essas informações para validar códigos. 
-Outro recurso de Python 3, as anotações de função, expandem os possíveis usos disso, como veremos a seguir.
-'''
-
-import inspect
+    
+# ______________________________________________________________________________________________________________________________________________________
+# ACESSANDO INFORMAÇÕES DA FUNÇÃO tag() (INTROSPECÇÃO) do módulo pag186e187_ArgsPosicionaisNomeados, COM O USO DA FUNÇÃO •signature do MÓDULO ♦inspect:
 import pag186e187_ArgsPosicionaisNomeados
+import inspect
 
 sig = inspect.signature(pag186e187_ArgsPosicionaisNomeados.tag) # Obtém a assinatura da função tag do exemplo
 
