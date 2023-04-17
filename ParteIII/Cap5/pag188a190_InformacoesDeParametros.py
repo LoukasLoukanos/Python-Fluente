@@ -98,6 +98,13 @@ clip.__code__.co_argcount
 
 # _________________________________________________________________________________________________________
 # ACESSANDO INFORMAÇÕES DA FUNÇÃO clip() (INTROSPECÇÃO), COM O USO DA FUNÇÃO •signature do MÓDULO ♦inspect:
+'''
+Algumas das funções que podem ser usadas com o objeto Signature:
+→ parameters: retorna uma lista com os objetos Parameter do objeto Signature, que contêm informações sobre cada um dos parâmetros da função.
+→ bind: permite ligar os argumentos passados para a função aos parâmetros da assinatura da função. Essa função pode levantar exceções se houver erros de ligação.
+→ bind_partial: semelhante à função bind(), mas permite ligar apenas alguns dos argumentos da função aos parâmetros da assinatura. Os argumentos não passados serão substituídos pelos seus valores padrão.
+→ return_annotation: retorna a anotação de retorno da função, se houver.
+'''
 from inspect import signature
 
 # 'sig = signature(clip)' cria um objeto Signature que representa a assinatura da função 'clip', incluindo o número e o nome de seus parâmetros.
