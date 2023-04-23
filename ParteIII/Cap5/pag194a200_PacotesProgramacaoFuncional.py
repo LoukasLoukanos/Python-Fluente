@@ -79,7 +79,8 @@ soma = functools.reduce(operator.add, numeros)
 esta_na_lista = operator.contains(numeros, 3)
 
 #_________________________________________________________________________________
-# •reduce de ♦functools: reduce é uma função do módulo functools em Python que permite reduzir uma sequência de valores a um único valor aplicando uma função cumulativa que combina cada elemento da sequência com o resultado anterior.
+# •reduce de ♦functools: reduce é uma função do módulo functools em Python que permite reduzir uma sequência de valores a um único valor aplicando uma 
+# função cumulativa que combina cada elemento da sequência com o resultado anterior.
 
 # Fatorial Implementado com reduce e uma função anônima
 from functools import reduce 
@@ -87,7 +88,8 @@ def fact(n):
     return reduce(lambda a, b: a*b, range(1, n+1))
 
 #_________________________________________________________________________________
-# •mul de ♦operator: mul é uma função do módulo operator em Python que retorna o produto de dois valores. Essa função é frequentemente usada em conjunto com a função reduce do módulo functools para calcular o produto de uma sequência de valores.
+# •mul de ♦operator: mul é uma função do módulo operator em Python que retorna o produto de dois valores. Essa função é frequentemente usada em conjunto 
+# com a função reduce do módulo functools para calcular o produto de uma sequência de valores.
 
 # Para evitar o trabalho de escrever funções anónimas triviais como acima↑, o módulo 
 # operator oferece equivalentes de funções para dezenas de operadores artiméticos.
@@ -99,7 +101,9 @@ def fact(n):
     return reduce(mul, range(1, n+1))
 
 #_________________________________________________________________________________
-# •itemgetter de ♦operator: itemgetter é uma função do módulo operator em Python que retorna uma função que pode ser usada para recuperar um determinado item de uma sequência ou de um objeto. Essa função é especialmente útil quando se trabalha com objetos que têm muitos atributos e se deseja acessar apenas um ou alguns deles.
+# •itemgetter de ♦operator: itemgetter é uma função do módulo operator em Python que retorna uma função que pode ser usada para recuperar um determinado 
+# item de uma sequência ou de um objeto. Essa função é especialmente útil quando se trabalha com objetos que têm muitos atributos e se deseja acessar 
+# apenas um ou alguns deles.
 
 # Demo de itemgetter para ordenar uma lista de tuplas
 from operator import itemgetter
@@ -128,4 +132,36 @@ for city in metro_data:
         ('x', 'Mexico City')
         ('US', 'New York-Newark')
         ('BR', 'Sao Paulo')
+    '''
+
+#_________________________________________________________________________________
+# •attrgetter de ♦operator: attrgetter é uma função da biblioteca operator do Python que retorna uma função que pode ser usada para obter um determinado
+#  atributo de um objeto. A função attrgetter pode ser usada em conjunto com outras funções como sorted, min, max, entre outras, para ordenar ou processar 
+#  objetos com base em um determinado atributo.
+from collections import namedtuple
+
+LatLong = namedtuple('LatLong', 'lat long') # Usa namedtuple para definir LatLong.
+
+Metropolis = namedtuple('Metropolis', 'nane cc pop coord') # Também define Metropolis.
+
+metro_areas = [Metropolis (name, cc, pop, LatLong(lat, long)) for name, cc, pop, (lat, long) in metro_data] # Cria a lista retro areas com instâncias de Metropolis; observe o desempacotamento da tupla aninhada para extrair (lat, long) e usar esses valores para criar o Latlong para o atributo coord de Metropolis.
+
+print(metro_areas[0])
+#output: Metropolis (name='Tokyo', cc='JP', pop-36.933, coord=LatLong(lat-35.689722, long-139.691667))
+
+print(metro_areas[0].coord.lat) # Acessa o elemento netro_areas[0] internamente para obter sua latitude
+#output: 35.689722
+
+from operator import attrgetter
+
+name_lat = attrgetter('name', 'coord.lat') # Define um attrgetter para obter name e o atributo aninhado coord.lat
+
+for city in sorted(metro_areas, key=attrgetter('coord.lat')): # Usa attrgetter novamente para ordenar a lista de cidades de acordo com a latitude.
+    print(name_lat(city)) # Usa o attrgetter definido em 157 para mostrar somente o nome da cidade e a latitude.
+    '''output:
+    ('Sao Paulo', -23.547778)
+    ('Mexico City', 19.433333)
+    ('Delhi NCR, 28.613889) 
+    ('Tokyo', 35.689722)
+    ('New York-Newark', 49.888611)
     '''
