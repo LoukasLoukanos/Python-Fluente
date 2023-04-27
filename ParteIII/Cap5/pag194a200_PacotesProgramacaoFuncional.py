@@ -165,3 +165,75 @@ for city in sorted(metro_areas, key=attrgetter('coord.lat')): # Usa attrgetter n
     ('Tokyo', 35.689722)
     ('New York-Newark', 49.888611)
     '''
+
+#_________________________________________________________________________________
+from operator import methodcaller
+s = 'The tine has cone!'
+upcase = methodcaller('upper')
+print(upcase(s))
+#output: THE TIME HAS COME 
+
+hiphenate = methodcaller('replace', ' ', '-')
+print(hiphenate(s))
+#output: 'The-tine-has-cone'
+
+print(str.upper(s))
+#output: 'THE TIME HAS COME'
+
+
+#_________________________________________________________________________________
+'''Congelando argumentos com functools partial
+O módulo functools reúne uma porção de funções de ordem superior. A mais conhecida delas provavelmente é reduce.
+Entre as funções restantes em functools, as mais úteis são partial e a sua variante partialmethod.'''
+
+from operator import mul
+from functools import partial 
+triple = partial (mul, 3) # Cria uma nova função triple a partir de rul, associando o primeiro argumenta posicional a 3.
+print(triple(7)) # Testa. 
+#output: 21
+
+list(map(triple, range(1, 10))) # Usa triple com map; mul não funcionaria com map nesse exemplo.
+#output: [3, 6, 9, 12, 15, 18, 21, 24, 27]
+
+#_________________________________________________________________________________
+# Criando uma função conveniente para normalização de Unicode com parcial
+
+import unicodedata, functools
+
+nfc = functools.partial (unicodedata.normalize, 'NFC')
+s1 = 'café' 
+s2 = 'cafe\u0301'
+print(s1, s2)
+#output: ('café', 'café')
+
+print(s1 == s2)
+#output: False
+
+print(nfc(s1) == nfc(s2))
+#output: True
+
+#_________________________________________________________________________________
+# Demo de parcial aplicado à função tag do exemplo pag186e187_ArgsPosicionaisNomeados.py
+
+from pag186e187_ArgsPosicionaisNomeados import tag
+print(tag) # ↑ Importa tag e mostra o seu ID ↓
+#output: <function tag at 6x10206d1e0> 
+
+from functools import partial
+
+# Cria a função picture a partir de tag fixando o primeiro argumentos com 'img' e o argumento nomeado cls com 'pic-frame' ↓
+picture = partial(tag, 'img', cls='pic-frame')
+print(picture(src="wumpus.jpeg")) # O picture funciona conforme esperado ↓
+#output: '<img class="pic-frame" src="wumpus.jpeg" />'
+
+print(picture) # partial() devolve um objeto functools.partial ↓
+#output: functools.partial(<function tag at 0x10206d1e0>, 'img', cls'pic-frame')
+
+print(picture.func) # Um objeto functools, partial tem atributos que possibilitam ter acesso à função original e aos argumentos fixos ↓
+#output: <function tag at 0x10206d1e0>
+
+print(picture.args)
+#output: ('img',)
+
+print(picture.keywords)
+#output: ('cls': 'pic-frame')
