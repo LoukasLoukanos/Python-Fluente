@@ -1,32 +1,4 @@
-# classic_strategy.py
 # Strategy pattern -- classic implementation
-
-"""
-# BEGIN CLASSIC_STRATEGY_TESTS
-
-    >>> joe = Customer('John Doe', 0)  # <1>
-    >>> ann = Customer('Ann Smith', 1100)
-    >>> cart = [LineItem('banana', 4, .5),  # <2>
-    ...         LineItem('apple', 10, 1.5),
-    ...         LineItem('watermellon', 5, 5.0)]
-    >>> Order(joe, cart, FidelityPromo())  # <3>
-    <Order total: 42.00 due: 42.00>
-    >>> Order(ann, cart, FidelityPromo())  # <4>
-    <Order total: 42.00 due: 39.90>
-    >>> banana_cart = [LineItem('banana', 30, .5),  # <5>
-    ...                LineItem('apple', 10, 1.5)]
-    >>> Order(joe, banana_cart, BulkItemPromo())  # <6>
-    <Order total: 30.00 due: 28.50>
-    >>> long_order = [LineItem(str(item_code), 1, 1.0) # <7>
-    ...               for item_code in range(10)]
-    >>> Order(joe, long_order, LargeOrderPromo())  # <8>
-    <Order total: 10.00 due: 9.30>
-    >>> Order(joe, cart, LargeOrderPromo())
-    <Order total: 42.00 due: 42.00>
-
-# END CLASSIC_STRATEGY_TESTS
-"""
-# BEGIN CLASSIC_STRATEGY
 
 from abc import ABC, abstractmethod
 from collections import namedtuple
@@ -102,5 +74,27 @@ class LargeOrderPromo(Promotion):  # third Concrete Strategy
         if len(distinct_items) >= 10:
             return order.total() * .07
         return 0
+    
 
-# END CLASSIC_STRATEGY
+
+joe = Customer('John Doe', 0)
+ann = Customer('Ann Smith', 1100)
+cart = [LineItem('banana', 4, .5), LineItem('apple', 10, 1.5), LineItem('watermellon', 5, 5.0)]
+
+Order(joe, cart, FidelityPromo())
+#output: <Order total: 42.00 due: 42.00>
+
+Order(ann, cart, FidelityPromo())
+#output: <Order total: 42.00 due: 39.90>
+
+banana_cart = [LineItem('banana', 30, .5), LineItem('apple', 10, 1.5)]
+
+Order(joe, banana_cart, BulkItemPromo())
+#output: <Order total: 30.00 due: 28.50>
+
+long_order = [LineItem(str(item_code), 1, 1.0) for item_code in range(10)]
+Order(joe, long_order, LargeOrderPromo())
+#output: <Order total: 10.00 due: 9.30>
+
+Order(joe, cart, LargeOrderPromo())
+#output: <Order total: 42.00 due: 42.00>
