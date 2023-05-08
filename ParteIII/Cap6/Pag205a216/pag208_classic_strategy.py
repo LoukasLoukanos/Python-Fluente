@@ -77,22 +77,32 @@ class LargeOrderPromo(Promotion):  # third Concrete Strategy
     
 
 
-joe = Customer('John Doe', 0)
+# dois clientes: joe não tem nenhum ponto no programa de fidelidade, ann tem 1100 pontos.
+joe = Customer('John Doe', 0) 
 ann = Customer('Ann Smith', 1100)
+
+# um carrinho de compras com três itens
 cart = [LineItem('banana', 4, .5), LineItem('apple', 10, 1.5), LineItem('watermellon', 5, 5.0)]
 
+# A promoção FidelityPromo não dá nenhum desconto a joe
 Order(joe, cart, FidelityPromo())
 #output: <Order total: 42.00 due: 42.00>
 
+# ann obtém desconto de 5% na promoção FidelityPromo porque ela tem pelo menos 1000 pontos
 Order(ann, cart, FidelityPromo())
 #output: <Order total: 42.00 due: 39.90>
 
+# banana_cart tem 30 unidades do produto banana e 10 maçãs 
 banana_cart = [LineItem('banana', 30, .5), LineItem('apple', 10, 1.5)]
 
+# graças a BulkItemPromo, joe obtém um desconto de 1,5 dólar nas bananas
 Order(joe, banana_cart, BulkItemPromo())
 #output: <Order total: 30.00 due: 28.50>
 
+# long_order tem 10 itens diferentes a um dólar cada
 long_order = [LineItem(str(item_code), 1, 1.0) for item_code in range(10)]
+
+# joe obtém um desconto de 7% no total do produto por causa de LargeOrderPromo
 Order(joe, long_order, LargeOrderPromo())
 #output: <Order total: 10.00 due: 9.30>
 
