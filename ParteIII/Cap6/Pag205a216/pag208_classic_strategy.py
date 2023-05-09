@@ -1,4 +1,4 @@
-# Strategy pattern -- classic implementation
+# Padrão de Projeto: Strategy pattern clássic implementation
 
 from abc import ABC, abstractmethod
 from collections import namedtuple
