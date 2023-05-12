@@ -1,10 +1,9 @@
-# Padrão de Projeto: Strategy pattern clássic implementation
+# Padrão de Projeto Clássico Baseado em Classe (Strategy pattern clássic implementation):
 
 from abc import ABC, abstractmethod
 from collections import namedtuple
 
 Customer = namedtuple('Customer', 'name fidelity')
-
 
 class LineItem:
 
@@ -41,6 +40,7 @@ class Order:  # the Context
         return fmt.format(self.total(), self.due())
 
 
+#_________↓Padrão de Projeto Clássico Baseado em Classe↓__________________
 class Promotion(ABC):  # the Strategy: an Abstract Base Class
 
     @abstractmethod
@@ -74,7 +74,7 @@ class LargeOrderPromo(Promotion):  # third Concrete Strategy
         if len(distinct_items) >= 10:
             return order.total() * .07
         return 0
-    
+#_________↑Padrão de Projeto Clássico Baseado em Classe↑__________________
 
 
 # dois clientes: joe não tem nenhum ponto no programa de fidelidade, ann tem 1100 pontos.

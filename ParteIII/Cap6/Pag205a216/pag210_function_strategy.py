@@ -1,9 +1,9 @@
-# Padrão de Projeto: Strategy pattern function-based implementation
+# Padrão de Projeto Baseado em Função (Strategy pattern function-based implementation):
 
 from collections import namedtuple
 
-Customer = namedtuple('Customer', 'name fidelity')
 
+Customer = namedtuple('Customer', 'name fidelity')
 
 class LineItem:
 
@@ -39,8 +39,8 @@ class Order:  # the Context
         fmt = '<Order total: {:.2f} due: {:.2f}>'
         return fmt.format(self.total(), self.due())
 
-# não há classe abstrata
 
+#_________↓Padrão de Projeto Baseado em Função↓__________________
 def fidelity_promo(order):  # cada estratégia é uma função
     """5% discount for customers with 1000 or more fidelity points"""
     return order.total() * .05 if order.customer.fidelity >= 1000 else 0
@@ -61,7 +61,7 @@ def large_order_promo(order):
     if len(distinct_items) >= 10:
         return order.total() * .07
     return 0
-
+#_________↑Padrão de Projeto Baseado em Função↑__________________
 
 joe = Customer('John Doe', 0) # mesma configuração de teste do exemplo pag208_classic_strategy.py
 ann = Customer('Ann Smith', 1100)
