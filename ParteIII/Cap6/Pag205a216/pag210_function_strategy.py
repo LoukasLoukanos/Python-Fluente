@@ -16,7 +16,7 @@ class LineItem:
         return self.price * self.quantity
 
 
-class Order:  # the Context
+class Order:
 
     def __init__(self, customer, cart, promotion=None):
         self.customer = customer
@@ -63,24 +63,27 @@ def large_order_promo(order):
     return 0
 #_________↑Padrão de Projeto Baseado em Função↑__________________
 
-joe = Customer('John Doe', 0) # mesma configuração de teste do exemplo pag208_classic_strategy.py
+
+# dois clientes: joe não tem nenhum ponto no programa de fidelidade, ann tem 1100 pontos.
+joe = Customer('John Doe', 0)
 ann = Customer('Ann Smith', 1100)
 
-cart = [LineItem('banana', 4, .5), LineItem('apple', 10, 1.5), LineItem('watermellon', 5, 5.0)]
-
-Order(joe, cart, fidelity_promo)  # para aplicar uma estratégia de desconto em um Order, basta passar a função de promoção como argumento
-#output: <Order total: 42.00 due: 42.00>
-Order(ann, cart, fidelity_promo)
-#output: <Order total: 42.00 due: 39.90>
-
+# um carrinho de compras 'banana_cart' com 30 unidades de banana e 10 maçãs 
 banana_cart = [LineItem('banana', 30, .5), LineItem('apple', 10, 1.5)]
-
-Order(joe, banana_cart, bulk_item_promo)  # uma função diferente de promoção é usada nesse caso
+# aplicando desconto em um Order, passando a função de promoção bulk_item_promo como argumento
+Order(joe, banana_cart, bulk_item_promo) # graças a bulk_item_promo, joe obtém um desconto de 1,5 dólar nas bananas
 #output: <Order total: 30.00 due: 28.50>
 
-long_order = [LineItem(str(item_code), 1, 1.0) for item_code in range(10)]
-
-Order(joe, long_order, large_order_promo)
-#output: <Order total: 10.00 due: 9.30>
-Order(joe, cart, large_order_promo)
+# um carrinho de compras com três itens
+cart = [LineItem('banana', 4, .5), LineItem('apple', 10, 1.5), LineItem('watermellon', 5, 5.0)]
+# aplicando desconto em um Order, passando a função de promoção fidelity_promo como argumento
+Order(joe, cart, fidelity_promo) # A promoção FidelityPromo não dá nenhum desconto a joe
 #output: <Order total: 42.00 due: 42.00>
+Order(ann, cart, fidelity_promo)  # A promoção fidelity_promo dá desconto de 5% na promoção a ann porque ela tem pelo menos 1000 pontos
+#output: <Order total: 42.00 due: 39.90>
+
+# o carrinho de compras 'long_order' tem 10 itens diferentes a um dólar cada
+long_order = [LineItem(str(item_code), 1, 1.0) for item_code in range(10)]
+# aplicando desconto em um Order, passando a função de promoção large_order_promo como argumento
+Order(joe, long_order, large_order_promo) # joe obtém um desconto de 7% no total do produto por causa de LargeOrderPromo
+#output: <Order total: 10.00 due: 9.30>
