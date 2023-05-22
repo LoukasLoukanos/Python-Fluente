@@ -226,3 +226,58 @@ Esse padrão é baseado no uso de corrotinas, que são funções que podem ser p
     loop.close()
     
     ```
+
+#### ***Padrão Command:***
+
+O padrão de projeto Command é um padrão comportamental que encapsula uma solicitação como um objeto, permitindo que você parametrize clientes com diferentes solicitações, enfileire ou registre solicitações e implemente operações desfazer. Em Python, o padrão Command pode ser implementado da seguinte maneira:
+
+1. Crie uma classe abstrata chamada Command que define a interface para todos os comandos concretos:
+    ```python
+    from abc import ABC, abstractmethod
+    
+    class Command(ABC):
+        @abstractmethod
+        def execute(self):
+            pass
+    ```
+    
+2. Implemente as classes concretas de comandos, que herdam da classe Command e implementam o método execute():
+    ```python
+    class ComandoConcreto1(Command):
+        def execute(self):
+            # Lógica específica do comando 1
+            pass
+    
+    class ComandoConcreto2(Command):
+        def execute(self):
+            # Lógica específica do comando 2
+            pass
+    ```
+
+3. Crie uma classe chamada Invoker que invoca os comandos:
+    ```python
+    class Invoker:
+        def __init__(self):
+            self._comando = None
+    
+        def set_comando(self, comando):
+            self._comando = comando
+    
+        def executar_comando(self):
+            self._comando.execute()
+    ```
+
+4. Utilize o padrão Command criando instâncias dos comandos e configurando o invocador:
+    ```python
+    comando1 = ComandoConcreto1()
+    comando2 = ComandoConcreto2()
+    
+    invocador = Invoker()
+    invocador.set_comando(comando1)
+    invocador.executar_comando()
+    
+    invocador.set_comando(comando2)
+    invocador.executar_comando()
+    ```
+
+Dessa forma, você pode criar diferentes comandos e configurá-los no invocador para que eles sejam executados quando necessário. O padrão Command ajuda a separar o objeto que emite o comando do objeto que o executa, permitindo maior flexibilidade e extensibilidade no design do seu código.
