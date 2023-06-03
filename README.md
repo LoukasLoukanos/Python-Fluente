@@ -1,397 +1,390 @@
-## ***Python Fluente***
+# ***Python Fluente***
 
-*Não é uma referência exaustiva de A a Z para Python. A ênfase da obra está
-nos recursos da linguagem exclusiva do Python ou que não se contram em muitas
-outras linguagens populares. Este também, em sua parte maior, é um livro sobre o
-número de linguagens e algumas de suas bibliotecas. Raramente é falado sobre os pacotes
-que não é um jogo de biblioteca, além do título de páginas do Python (PyPI)
-lista de mais de 60 mil bibliotecas e muitas outras extremidades.*
+*Não é uma referência exaustiva de A a Z para Python. A ênfase da obra está nos recursos da linguagem exclusiva do Python ou que não se contram em muitas outras linguagens populares. Este também, em sua parte maior, é um livro sobre o número de linguagens e algumas de suas bibliotecas. Raramente é falado sobre os pacotes que não é um jogo de biblioteca, além do título de páginas do Python (PyPI) lista de mais de 60 mil bibliotecas e muitas outras extremidades.*
 
-### **Sumário**
-**Prefácio.......17**</br>
-**Parte I ■ Prólogo.......27**</br>
-**Capítulo 1 ■ Modelo de dados do Python.......28**</br>
-Um baralho pythônico.......29</br>
-Como os métodos especiais são usados.......33</br>
-Emulando tipos numéricos.......34</br>
-Representação em string.......36</br>
-Operadores aritméticos.......37</br>
-Valor booleano de um tipo definido pelo usuário.......37</br>
-Visão geral dos métodos especiais.......38</br>
-Por que len não é um método?.......39</br>
-Resumo do capítulo.......40</br>
-Leituras complementares.......41</br>
+## **Sumário**
+### ***➲ Prefácio............Pág. 17***
+### ***➲ Parte I - Prólogo............Pág. 27***
+  - **➥ Capítulo 1 - Modelo de dados do Python............Pág. 28**
+    - Um baralho pythônico............Pág. 29 <a href="#">→code</a>
+    - Como os métodos especiais são usados............Pág. 33 <a href="#">→code</a>
+    - Emulando tipos numéricos............Pág. 34 <a href="#">→code</a>
+    - Representação em string............Pág. 36 <a href="#">→code</a>
+    - Operadores aritméticos............Pág. 37 <a href="#">→code</a>
+    - Valor booleano de um tipo definido pelo usuário............Pág. 37 <a href="#">→code</a>
+    - Visão geral dos métodos especiais............Pág. 39 <a href="#">→code</a>
+    - Por que len não é um método?............Pág. 39 <a href="#">→code</a>
+    - Resumo do capítulo............Pág. 40 
+    - Leituras complementares............Pág. 41 
 
-**Parte II ■ Estruturas de dados.......43**</br>
+### ***➲ Parte II - Estruturas de dados............Pág. 43***
+  - **➥ Capítulo 2 - Uma coleção de sequências............Pág. 44**
+    - Visão geral das sequências embutidas............Pág. 45 <a href="#">→code</a>
+    - List comprehensions e expressões geradoras............Pág. 46 <a href="#">→code</a>
+    - List comprehensions e legibilidade............Pág. 46 <a href="#">→code</a>
+    - Comparação entre listcomps e map/filter............Pág. 48 <a href="#">→code</a>
+    - Produtos cartesianos............Pág. 49 <a href="#">→code</a>
+    - Expressões geradoras............Pág. 50 <a href="#">→code</a>
+    - Tuplas não são apenas listas imutáveis............Pág. 52 <a href="#">→code</a>
+    - Tuplas como registros............Pág. 52 <a href="#">→code</a>
+    - Desempacotamento de tuplas............Pág. 53 <a href="#">→code</a>
+    - Desempacotamento de tuplas aninhadas............Pág. 55 <a href="#">→code</a>
+    - Tuplas nomeadas............Pág. 56 <a href="#">→code</a>
+    - Tuplas como listas imutáveis............Pág. 58 <a href="#">→code</a>
+    - Fatiamento............Pág. 59 <a href="#">→code</a>
+    - Por que as fatias e os intervalos excluem o último item............Pág. 59 <a href="#">→code</a>
+    - Objetos slice............Pág. 60 <a href="#">→code</a>
+    - Fatiamento multidimensional e reticências............Pág. 62 <a href="#">→code</a>
+    - Atribuição de valores a fatias............Pág. 62 <a href="#">→code</a>
+    - Usando + e * com sequências............Pág. 63 <a href="#">→code</a>
+    - Criando listas de listas............Pág. 64 <a href="#">→code</a>
+    - Atribuições combinadas e sequências............Pág. 65 <a href="#">→code</a>
+    - O enigma da atribuição +=............Pág. 67 <a href="#">→code</a>
+    - list.sort e a função embutida sorted............Pág. 69 <a href="#">→code</a>
+    - Administrando sequências ordenadas com bisect............Pág. 71 <a href="#">→code</a>
+    - Pesquisando com bisect............Pág. 71 <a href="#">→code</a>
+    - Inserção com bisect.insort............Pág. 74 <a href="#">→code</a>
+    - Quando uma lista não é a resposta............Pág. 75 <a href="#">→code</a>
+    - Arrays............Pág. 75 <a href="#">→code</a>
+    - Memory Views............Pág. 78 <a href="#">→code</a>
+    - NumPy e SciPy............Pág. 80 <a href="#">→code</a>
+    - Deques e outras filas............Pág. 82 <a href="#">→code</a>
+    - Resumo do capítulo............Pág. 86 
+    - Leituras complementares............Pág. 87 
 
-**Capítulo 2 ■ Uma coleção de sequências.......44**</br>
-Visão geral das sequências embutidas.......45</br>
-List comprehensions e expressões geradoras.......46</br>
-List comprehensions e legibilidade.......46</br>
-Comparação entre listcomps e map/filter.......48</br>
-Produtos cartesianos.......49</br>
-Expressões geradoras.......50</br>
-Tuplas não são apenas listas imutáveis.......52</br>
-Tuplas como registros.......52</br>
-Desempacotamento de tuplas.......53</br>
-Desempacotamento de tuplas aninhadas.......55</br>
-Tuplas nomeadas.......56</br>
-Tuplas como listas imutáveis.......58</br>
-Fatiamento.......59</br>
-Por que as fatias e os intervalos excluem o último item.......59</br>
-Objetos slice.......60</br>
-Fatiamento multidimensional e reticências.......62</br>
-Atribuição de valores a fatias.......62</br>
-Usando + e * com sequências.......63</br>
-Criando listas de listas.......64</br>
-Atribuições combinadas e sequências.......65</br>
-O enigma da atribuição +=.......67</br>
-list.sort e a função embutida sorted.......69</br>
-Administrando sequências ordenadas com bisect.......71</br>
-Pesquisando com bisect.......71</br>
-Inserção com bisect.insort.......74</br>
-Quando uma lista não é a resposta.......75</br>
-Arrays.......75</br>
-Memory Views.......78</br>
-NumPy e SciPy.......80</br>
-Deques e outras filas.......82</br>
-Resumo do capítulo.......86</br>
-Leituras complementares.......87</br>
+  - **➥ Capítulo 3 - Dicionários e conjuntos............Pág. 93**
+    - Tipos genéricos de mapeamento............Pág. 94 <a href="#">→code</a>
+    - dict comprehensions............Pág. 96 <a href="#">→code</a>
+    - Visão geral dos métodos comuns a mapeamentos............Pág. 97 <a href="#">→code</a>
+    - Tratando chaves ausentes com setdefault............Pág. 98 <a href="#">→code</a>
+    - Mapeamentos com consulta de chave flexível............Pág. 101 <a href="#">→code</a>
+    - defaultdict: outra abordagem para chaves ausentes............Pág. 101 <a href="#">→code</a>
+    - Método _ausente__............Pág. 102 <a href="#">→code</a>
+    - Variações de dict............Pág. 105 <a href="#">→code</a>
+    - Criando subclasses de UserDict............Pág. 106 <a href="#">→code</a>
+    - Mapeamentos imutáveis............Pág. 108 <a href="#">→code</a>
+    - Teoria dos conjuntos............Pág. 109 <a href="#">→code</a>
+    - Literais de set............Pág. 111 <a href="#">→code</a>
+    - Set comprehensions............Pág. 113 <a href="#">→code</a>
+    - Operações de conjuntos............Pág. 113 <a href="#">→code</a>
+    - Por dentro de dict e set............Pág. 116 <a href="#">→code</a>
+    - Um experimento para testar o desempenho............Pág. 116 <a href="#">→code</a>
+    - Tabelas hash em dicionários............Pág. 118 <a href="#">→code</a>
+    - Consequências práticas de como os dicionários funcionam............Pág. 121 <a href="#">→code</a>
+    - Como os conjuntos funcionam – consequências práticas............Pág. 125 <a href="#">→code</a>
+    - Resumo do capítulo............Pág. 125 
+    - Leituras complementares............Pág. 126 
 
-**Capítulo 3 ■ Dicionários e conjuntos.......93**</br>
-Tipos genéricos de mapeamento.......94</br>
-dict comprehensions.......96</br>
-Visão geral dos métodos comuns a mapeamentos.......97</br>
-Tratando chaves ausentes com setdefault.......98</br>
-Mapeamentos com consulta de chave flexível.......101</br>
-defaultdict: outra abordagem para chaves ausentes.......101</br>
-Método _ausente__.......102</br>
-Variações de dict.......105</br>
-Criando subclasses de UserDict.......106</br>
-Mapeamentos imutáveis.......108</br>
-Teoria dos conjuntos.......109</br>
-Literais de set.......111</br>
-Set comprehensions.......113</br>
-Operações de conjuntos.......113</br>
-Por dentro de dict e set.......116</br>
-Um experimento para testar o desempenho.......116</br>
-Tabelas hash em dicionários.......118</br>
-Consequências práticas de como os dicionários funcionam.......121</br>
-Como os conjuntos funcionam – consequências práticas.......125</br>
-Resumo do capítulo.......125</br>
-Leituras complementares.......126</br>
+  - **➥ Capítulo 4 - Texto versus bytes............Pág. 129**
+    - Falhas de caracteres............Pág. 130 <a href="#">→code</a>
+    - O essencial sobre bytes............Pág. 131 <a href="#">→code</a>
+    - Structs e memory views............Pág. 134 <a href="#">→code</a>
+    - Codificadores/decodificadores básicos............Pág. 135 <a href="#">→code</a>
+    - Entendendo os problemas de codificação/decodificação............Pág. 137 <a href="#">→code</a>
+    - Lidando com UnicodeEncodeError............Pág. 138 <a href="#">→code</a>
+    - Lidando com UnicodeDecodeError............Pág. 139 <a href="#">→code</a>
+    - SyntaxError ao carregar módulos com codificação inesperada............Pág. 140 <a href="#">→code</a>
+    - Como descobrir a codificação de uma sequência de bytes............Pág. 142 <a href="#">→code</a>
+    - BOM: um gremlin útil............Pág. 142 <a href="#">→code</a>
+    - Lidando com arquivos-texto............Pág. 144 <a href="#">→code</a>
+    - Defaults de codificação: um hospício............Pág. 147 <a href="#">→code</a>
+    - Normalizando Unicode para comparações mais seguras............Pág. 150 <a href="#">→code</a>
+    - Case folding............Pág. 153 <a href="#">→code</a>
+    - Funções utilitárias para comparações normalizadas............Pág. 154 <a href="#">→code</a>
+    - “Normalização” extrema: removendo acentos............Pág. 155 <a href="#">→code</a>
+    - Ordenação de texto Unicode............Pág. 159 <a href="#">→code</a>
+    - Ordenação com o Unicode Collation Algorithm............Pág. 161 <a href="#">→code</a>
+    - Base de dados Unicode............Pág. 161 <a href="#">→code</a>
+    - APIs de modo dual para str e bytes............Pág. 163 <a href="#">→code</a>
+    - str versus bytes em expressões regulares............Pág. 163 <a href="#">→code</a>
+    - str versus bytes em funções de os............Pág. 165 <a href="#">→code</a>
+    - Resumo do capítulo............Pág. 167 
+    - Leituras complementares............Pág. 169 
 
-**Capítulo 4 ■ Texto versus bytes.......129**</br>
-Falhas de caracteres.......130</br>
-O essencial sobre bytes.......131</br>
-Structs e memory views.......134</br>
-Codificadores/decodificadores básicos.......135</br>
-Entendendo os problemas de codificação/decodificação.......137</br>
-Lidando com UnicodeEncodeError.......138</br>
-Lidando com UnicodeDecodeError.......139</br>
-SyntaxError ao carregar módulos com codificação inesperada.......140</br>
-Como descobrir a codificação de uma sequência de bytes.......142</br>
-BOM: um gremlin útil.......142</br>
-Lidando com arquivos-texto.......144</br>
-Defaults de codificação: um hospício.......147</br>
-Normalizando Unicode para comparações mais seguras.......150</br>
-Case folding.......153</br>
-Funções utilitárias para comparações normalizadas.......154</br>
-“Normalização” extrema: removendo acentos.......155</br>
-Ordenação de texto Unicode.......159</br>
-Ordenação com o Unicode Collation Algorithm.......161</br>
-Base de dados Unicode.......161</br>
-APIs de modo dual para str e bytes.......163</br>
-str versus bytes em expressões regulares.......163</br>
-str versus bytes em funções de os.......165</br>
-Resumo do capítulo.......167</br>
-Leituras complementares.......169</br>
+### ***➲ Parte III - Funções como objetos............Pág. 174***
+  - **➥ Capítulo 5 - Funções de primeira classe............Pág. 175**
+    - Tratando uma função como um objeto............Pág. 176 <a href="#">→code</a>
+    - Funções de ordem superior............Pág. 177 <a href="#">→code</a>
+    - Substitutos modernos para map, filter e reduce............Pág. 178 <a href="#">→code</a>
+    - Funções anônimas............Pág. 180 <a href="#">→code</a>
+    - As sete variações de objetos invocáveis............Pág. 181 <a href="#">→code</a>
+    - Tipos invocáveis definidos pelo usuário............Pág. 182 <a href="#">→code</a>
+    - Introspecção de função............Pág. 183 <a href="#">→code</a>
+    - De parâmetros posicionais a parâmetros exclusivamente nomeados............Pág. 185 <a href="#">→code</a>
+    - Obtendo informações sobre parâmetros............Pág. 187 <a href="#">→code</a>
+    - Anotações de função............Pág. 192 <a href="#">→code</a>
+    - Pacotes para programação funcional............Pág. 194 <a href="#">→code</a>
+    - Módulo operator............Pág. 194 <a href="#">→code</a>
+    - Congelando argumentos com functools.partia............Pág. 198 <a href="#">→code</a>
+    - Resumo do capítulo............Pág. 200 
+    - Leituras complementares............Pág. 201 
 
-**Parte III ■ Funções como objetos.......174**</br>
+  - **➥ Capítulo 6 - Padrões de projeto com funções de primeira classe............Pág. 205**
+    - Estudo de caso: refatorando Strategy............Pág. 206 <a href="#">→code</a>
+    - Strategy clássico............Pág. 206 <a href="#">→code</a>
+    - Strategy orientado a função............Pág. 210 <a href="#">→code</a>
+    - Escolhendo a melhor estratégia: abordagem simples............Pág. 213 <a href="#">→code</a>
+    - Encontrando estratégias em um módulo............Pág. 214 <a href="#">→code</a>
+    - Command............Pág. 216 <a href="#">→code</a>
+    - Resumo do capítulo............Pág. 218 
+    - Leituras complementares............Pág. 219 
 
-**Capítulo 5 ■ Funções de primeira classe.......175**</br>
-Tratando uma função como um objeto.......176</br>
-Funções de ordem superior.......177</br>
-Substitutos modernos para map, filter e reduce.......178</br>
-Funções anônimas.......180</br>
-As sete variações de objetos invocáveis.......181</br>
-Tipos invocáveis definidos pelo usuário.......182</br>
-Introspecção de função.......183</br>
-De parâmetros posicionais a parâmetros exclusivamente nomeados.......185</br>
-Obtendo informações sobre parâmetros.......187</br>
-Anotações de função.......192</br>
-Pacotes para programação funcional.......194</br>
-Módulo operator.......194</br>
-Congelando argumentos com functools.partia.......198</br>
-Resumo do capítulo.......200</br>
-Leituras complementares.......201</br>
+  - **➥ Capítulo 7 - Decoradores de diversão e fechamentos............Pág. 222**
+    - Básico sobre decoradores............Pág. 223 <a href="#">→code</a>
+    - Quando Python executa os decoradores............Pág. 224 <a href="#">→code</a>
+    - Padrão Strategy melhorado com decorador............Pág. 226 <a href="#">→code</a>
+    - Regras para escopo de variáveis............Pág. 228 <a href="#">→code</a>
+    - Closures............Pág. 232 <a href="#">→code</a>
+    - Declaração nonlocal............Pág. 235 <a href="#">→code</a>
+    - Implementando um decorador simples............Pág. 237 <a href="#">→code</a>
+    - Funcionamento............Pág. 238 <a href="#">→code</a>
+    - Decoradores da biblioteca-padrão............Pág. 240 <a href="#">→code</a>
+    - Memoização com functools.lru_cache............Pág. 240 <a href="#">→code</a>
+    - Funções genéricas com dispatch simples............Pág. 243 <a href="#">→code</a>
+    - Decoradores empilhados............Pág. 246 <a href="#">→code</a>
+    - Decoradores parametrizados............Pág. 247 <a href="#">→code</a>
+    - Um decorador de registro parametrizado............Pág. 247 <a href="#">→code</a>
+    - Decorador clock parametrizado............Pág. 249 <a href="#">→code</a>
+    - Resumo do capítulo............Pág. 252 
+    - Leituras complementares............Pág. 253 
 
-**Capítulo 6 ■ Padrões de projeto com funções de primeira classe.......205**</br>
-Estudo de caso: refatorando Strategy.......206</br>
-Strategy clássico.......206</br>
-Strategy orientado a função.......210</br>
-Escolhendo a melhor estratégia: abordagem simples.......213</br>
-Encontrando estratégias em um módulo.......214</br>
-Command.......216</br>
-Resumo do capítulo.......218</br>
-Leituras complementares.......219</br>
+### ***➲ Parte IV - Práticas de orientação a objetos............Pág. 257***
+  - **➥ Capítulo 8 - Referências a objetos, mutabilidades e recálagem............Pág. 258**
+    - Variáveis não são caixas............Pág. 259 <a href="#">→code</a>
+    - Identidade, igualdade e apelidos............Pág. 260 <a href="#">→code</a>
+    - Escolhendo entre == e is............Pág. 262 <a href="#">→code</a>
+    - A relativa imutabilidade das tuplas............Pág. 263 <a href="#">→code</a>
+    - Cópias são rasas por padrão............Pág. 264 <a href="#">→code</a>
+    - Cópias profundas e rasas de objetos quaisquer............Pág. 267 <a href="#">→code</a>
+    - Parâmetros de função como referências............Pág. 268 <a href="#">→code</a>
+    - Tipos mutáveis como default de parâmetros: péssima ideia............Pág. 270 <a href="#">→code</a>
+    - Programação defensiva com parâmetros mutáveis............Pág. 272 <a href="#">→code</a>
+    - del e coleta de lixo............Pág. 274 <a href="#">→code</a>
+    - Referências fracas............Pág. 276 <a href="#">→code</a>
+    - Esquete com WeakValueDictionary............Pág. 277 <a href="#">→code</a>
+    - Limitações das referências fracas............Pág. 279 <a href="#">→code</a>
+    - Truques de Python com imutáveis............Pág. 280 <a href="#">→code</a>
+    - Resumo do capítulo............Pág. 282 
+    - Leituras complementares............Pág. 283 
 
-**Capítulo 7 ■ Decoradores de diversão e fechamentos.......222**</br>
-Básico sobre decoradores.......223</br>
-Quando Python executa os decoradores.......224</br>
-Padrão Strategy melhorado com decorador.......226</br>
-Regras para escopo de variáveis.......228</br>
-Closures.......232</br>
-Declaração nonlocal.......235</br>
-Implementando um decorador simples.......237</br>
-Funcionamento.......238</br>
-Decoradores da biblioteca-padrão.......240</br>
-Memoização com functools.lru_cache.......240</br>
-Funções genéricas com dispatch simples.......243</br>
-Decoradores empilhados.......246</br>
-Decoradores parametrizados.......247</br>
-Um decorador de registro parametrizado.......247</br>
-Decorador clock parametrizado.......249</br>
-Resumo do capítulo.......252</br>
-Leituras complementares.......253</br>
+  - **➥ Capítulo 9 - Um objeto pythônico............Pág. 288**
+    - Representações de objetos............Pág. 289 <a href="#">→code</a>
+    - Retorno da classe Vector............Pág. 289 <a href="#">→code</a>
+    - Um construtor alternativo............Pág. 292 <a href="#">→code</a>
+    - classmethod versus staticmethod............Pág. 293 <a href="#">→code</a>
+    - Apresentações formatadas............Pág. 295 <a href="#">→code</a>
+    - Um Vector2d hashable............Pág. 298 <a href="#">→code</a>
+    - Atributos privados e “protegidos” em Python............Pág. 304 <a href="#">→code</a>
+    - Economia de espaço com o atributo de classe _slots__............Pág. 307 <a href="#">→code</a>
+    - Os problemas com _slots__............Pág. 309 <a href="#">→code</a>
+    - Sobrescrita de atributos de classe............Pág. 310 <a href="#">→code</a>
+    - Resumo do capítulo............Pág. 312 
+    - Leituras complementares............Pág. 313 
 
-**Parte IV ■ Práticas de orientação a objetos.......257**</br>
+  - **➥ Capítulo 10 - Hackeando e fatiando sequências............Pág. 318**
+    - Vector: um tipo de sequência definido pelo usuário............Pág. 319 <a href="#">→code</a>
+    - Vector tomada #1: compatível com Vector2d............Pág. 319 <a href="#">→code</a>
+    - Protocolos e duck typing............Pág. 322 <a href="#">→code</a>
+    - Vector tomada #2: uma sequência que permite fatiamento............Pág. 323 <a href="#">→code</a>
+    - Como funciona o fatiamento............Pág. 324 <a href="#">→code</a>
+    - Hum __getitem_ que considera fatias............Pág. 327 <a href="#">→code</a>
+    - Vector tomada #3: acesso dinâmico a atributos............Pág. 328 <a href="#">→code</a>
+    - Vector tomada #4: hashing e um == mais rápido............Pág. 332 <a href="#">→code</a>
+    - Vector tomada #5: formatação............Pág. 338 <a href="#">→code</a>
+    - Resumo do capítulo............Pág. 345 
+    - Leituras complementares............Pág. 347 
 
-**Capítulo 8 ■ Referências a objetos, mutabilidades e recálagem.......258**</br>
-Variáveis não são caixas.......259</br>
-Identidade, igualdade e apelidos.......260</br>
-Escolhendo entre == e is.......262</br>
-A relativa imutabilidade das tuplas.......263</br>
-Cópias são rasas por padrão.......264</br>
-Cópias profundas e rasas de objetos quaisquer.......267</br>
-Parâmetros de função como referências.......268</br>
-Tipos mutáveis como default de parâmetros: péssima ideia.......270</br>
-Programação defensiva com parâmetros mutáveis.......272</br>
-del e coleta de lixo.......274</br>
-Referências fracas.......276</br>
-Esquete com WeakValueDictionary.......277</br>
-Limitações das referências fracas.......279</br>
-Truques de Python com imutáveis.......280</br>
-Resumo do capítulo.......282</br>
-Leituras complementares.......283</br>
+  - **➥ Capítulo 11 - Interfaces: de protocolos a ABCs............Pág. 352**
+    - Interfaces e protocolos na cultura de Python............Pág. 353 <a href="#">→code</a>
+    - Python curte sequências............Pág. 355 <a href="#">→code</a>
+    - Monkey-patching para implementar um protocolo em tempo de execução............Pág. 357 <a href="#">→code</a>
+    - Aves aquáticas de Alex Martelli............Pág. 359 <a href="#">→code</a>
+    - Criando subclasses de uma ABC............Pág. 365 <a href="#">→code</a>
+    - ABCs da biblioteca-padrão............Pág. 367 <a href="#">→code</a>
+    - ABCs em collections.abc............Pág. 367 <a href="#">→code</a>
+    - A torre numérica de ABCs............Pág. 369 <a href="#">→code</a>
+    - Definindo e usando uma ABC............Pág. 370 <a href="#">→code</a>
+    - Detalhes de sintaxe das ABCs............Pág. 374 <a href="#">→code</a>
+    - Herdando da ABC Tombola............Pág. 375 <a href="#">→code</a>
+    - Uma subclasse virtual de Tombola............Pág. 378 <a href="#">→code</a>
+    - Como as subclasses de Tombola foram testadas............Pág. 381 <a href="#">→code</a>
+    - Uso de register na prática............Pág. 384 <a href="#">→code</a>
+    - Gansos podem se comportar como patos............Pág. 385 <a href="#">→code</a>
+    - Resumo do capítulo............Pág. 386 
+    - Leituras complementares............Pág. 389 
 
-**Capítulo 9 ■ Um objeto pythônico.......288**</br>
-Representações de objetos.......289</br>
-Retorno da classe Vector.......289</br>
-Um construtor alternativo.......292</br>
-classmethod versus staticmethod.......293</br>
-Apresentações formatadas.......295</br>
-Um Vector2d hashable.......298</br>
-Atributos privados e “protegidos” em Python.......304</br>
-Economia de espaço com o atributo de classe _slots__.......307</br>
-Os problemas com _slots__.......309</br>
-Sobrescrita de atributos de classe.......310</br>
-Resumo do capítulo.......312</br>
-Leituras complementares.......313</br>
+  - **➥ Capítulo 12 - Herança: para o bem ou para o mal............Pág. 395**
+    - Artimanhas da criação de subclasses de tipos embutidos............Pág. 396 <a href="#">→code</a>
+    - Herança múltipla e ordem de resolução de métodos............Pág. 399 <a href="#">→code</a>
+    - Herança múltipla no mundo real............Pág. 404 <a href="#">→code</a>
+    - Lidando com herança múltipla............Pág. 407 <a href="#">→code</a>
+      1. Faça uma distinção entre a herança de interface e a herança de implementação............Pág. 407
+      2. Deixe como interfaces explícitas com ABCs............Pág. 407
+      3. Use mixins para reutilização de código............Pág. 407
+      4. Explique como mixins pelo nome............Pág. 408
+      5. Uma ABC pode ser uma mistura; o contrário não é verdade............Pág. 408
+      6. Não há mais de uma classe concreta............Pág. 408
+      7. Aulas de Ofereça agregadas aos usuários............Pág. 409
+      8. “Prefira composição de objetos à herança de classe."............Pág. 409
+    - Tkinter: o bom, o ruim e o feio............Pág. 410 <a href="#">→code</a>
+    - Um exemplo moderno: mixins em views genéricas de Django............Pág. 411 <a href="#">→code</a>
+    - Resumo do capítulo............Pág. 414 
+    - Leituras complementares............Pág. 415 
+    
+  - **➥ Capítulo 13 - Sobrecarga de operadores: o jeito certo............Pág. 419**
+    - Básico da sobrecarga de operadores............Pág. 420 <a href="#">→code</a>
+    - Operadores unários............Pág. 420 <a href="#">→code</a>
+    - Sobrecarregando + para soma de vetores............Pág. 423 <a href="#">→code</a>
+    - Sobrecarregando * para multiplicação por escalar............Pág. 429 <a href="#">→code</a>
+    - Operadores de comparação rica............Pág. 433 <a href="#">→code</a>
+    - Operadores de atribuição combinada............Pág. 438 <a href="#">→code</a>
+    - Resumo do capítulo............Pág. 443 
+    - Leituras complementares............Pág. 444 
 
-**Capítulo 10 ■ Hackeando e fatiando sequências.......318**</br>
-Vector: um tipo de sequência definido pelo usuário.......319</br>
-Vector tomada #1: compatível com Vector2d.......319</br>
-Protocolos e duck typing.......322</br>
-Vector tomada #2: uma sequência que permite fatiamento.......323</br>
-Como funciona o fatiamento.......324</br>
-Hum __getitem_ que considera fatias.......327</br>
-Vector tomada #3: acesso dinâmico a atributos.......328</br>
-Vector tomada #4: hashing e um == mais rápido.......332</br>
-Vector tomada #5: formatação.......338</br>
-Resumo do capítulo.......345</br>
-Leituras complementares.......347</br>
 
-**Capítulo 11 ■ Interfaces: de protocolos a ABCs.......352**</br>
-Interfaces e protocolos na cultura de Python.......353</br>
-Python curte sequências.......355</br>
-Monkey-patching para implementar um protocolo em tempo de execução.......357</br>
-Aves aquáticas de Alex Martelli.......359</br>
-Criando subclasses de uma ABC.......365</br>
-ABCs da biblioteca-padrão.......367</br>
-ABCs em collections.abc.......367</br>
-A torre numérica de ABCs.......369</br>
-Definindo e usando uma ABC.......370</br>
-Detalhes de sintaxe das ABCs.......374</br>
-Herdando da ABC Tombola.......375</br>
-Uma subclasse virtual de Tombola.......378</br>
-Como as subclasses de Tombola foram testadas.......381</br>
-Uso de register na prática.......384</br>
-Gansos podem se comportar como patos.......385</br>
-Resumo do capítulo.......386</br>
-Leituras complementares.......389</br>
 
-**Capítulo 12 ■ Herança: para o bem ou para o mal.......395**</br>
-Artimanhas da criação de subclasses de tipos embutidos.......396</br>
-Herança múltipla e ordem de resolução de métodos.......399</br>
-Herança múltipla no mundo real.......404</br>
-Lidando com herança múltipla.......407</br>
-1). Faça uma distinção entre a herança de interface e a herança de implementação.......407</br>
-2). Deixe como interfaces explícitas com ABCs.......407</br>
-3). Use mixins para reutilização de código.......407</br>
-4). Explique como mixins pelo nome.......408</br>
-5). Uma ABC pode ser uma mistura; o contrário não é verdade.......408</br>
-6). Não há mais de uma classe concreta.......408</br>
-7). Aulas de Ofereça agregadas aos usuários.......409</br>
-8). “Prefira composição de objetos à herança de classe.".......409</br>
-Tkinter: o bom, o ruim e o feio.......410</br>
-Um exemplo moderno: mixins em views genéricas de Django.......411</br>
-Resumo do capítulo.......414</br>
-Leituras complementares.......415</br>
+### ***➲ Parte V - Controle de fluxo............Pág. 449***
+  - **➥ Capítulo 14 - Iterários, iteradores e geradores............Pág. 450**
+    - Sentence tomada #1: uma sequência de palavras............Pág. 451 <a href="#">→code</a>
+    - Por que sequências são iteráveis: a função iter............Pág. 453 <a href="#">→code</a>
+    - Iteráveis versus iteradores............Pág. 455 <a href="#">→code</a>
+    - Sentence tomada #2: um iterador clássico............Pág. 459 <a href="#">→code</a>
+    - Fazer de Sentence um iterador: péssima ideia............Pág. 460 <a href="#">→code</a>
+    - Sentence tomada #3: uma função geradora............Pág. 461 <a href="#">→code</a>
+    - Como funciona uma função geradora............Pág. 462 <a href="#">→code</a>
+    - Sentence tomada #4: uma implementação lazy............Pág. 466 <a href="#">→code</a>
+    - Sentence tomada #5: uma expressão geradora............Pág. 467 <a href="#">→code</a>
+    - Expressões geradoras: quando usá-las............Pág. 469 <a href="#">→code</a>
+    - Outro exemplo: gerador de progressão aritmética............Pág. 470 <a href="#">→code</a>
+    - Progressão aritmética com itertools............Pág. 473 <a href="#">→code</a>
+    - Funções geradoras na biblioteca-padrão............Pág. 474 <a href="#">→code</a>
+    - Nova sintaxe em Python 3.3: yield from............Pág. 485 <a href="#">→code</a>
+    - Funções de redução de iteráveis............Pág. 486 <a href="#">→code</a>
+    - Uma visão mais detalhada da função iter............Pág. 488 <a href="#">→code</a>
+    - Estudo de caso: geradores em um utilitário para conversão de banco de dados............Pág. 489 <a href="#">→code</a>
+    - Geradores como corrotinas............Pág. 491 <a href="#">→code</a>
+    - Resumo do capítulo............Pág. 492 
+    - Leituras complementares............Pág. 493 
 
-**Capítulo 13 ■ Sobrecarga de operadores: o jeito certo.......419**</br>
-Básico da sobrecarga de operadores.......420</br>
-Operadores unários.......420</br>
-Sobrecarregando + para soma de vetores.......423</br>
-Sobrecarregando * para multiplicação por escalar.......429</br>
-Operadores de comparação rica.......433</br>
-Operadores de atribuição combinada.......438</br>
-Resumo do capítulo.......443</br>
-Leituras complementares.......444</br>
+  - **➥ Capítulo 15 - Gerenciadores de contexto e blocos............Pág. 499**
+    - Faça isso, então aquilo: blocos else além de if............Pág. 500 <a href="#">→code</a>
+    - Gerenciadores de contexto e blocos with............Pág. 502 <a href="#">→code</a>
+    - Utilitários de contextlib............Pág. 507 <a href="#">→code</a>
+    - Usando @gerente de contexto............Pág. 508 <a href="#">→code</a>
+    - Resumo do capítulo............Pág. 512 
+    - Leituras complementares............Pág. 512 
 
-**Parte V ■ Controle de fluxo.......449**</br>
+  - **➥ Capítulo 16 - Corrotinas............Pág. 515**
+    - Como as corrotinas evoluíram a partir de geradores............Pág. 516 <a href="#">→code</a>
+    - Comportamento básico de um gerador usado como corrotina............Pág. 517 <a href="#">→code</a>
+    - Exemplo: corrotina para calcular uma média cumulativa............Pág. 520 <a href="#">→code</a>
+    - Decoradores para preparação de corrotinas............Pág. 522 <a href="#">→code</a>
+    - Término de corrotinas e tratamento de exceção............Pág. 524 <a href="#">→code</a>
+    - Devolvendo um valor a partir de uma corrotina............Pág. 528 <a href="#">→code</a>
+    - Usando yield from............Pág. 530 <a href="#">→code</a>
+    - O significado de yield from............Pág. 536 <a href="#">→code</a>
+    - Caso de uso: corrotinas para uma simulação de eventos discretos............Pág. 543 <a href="#">→code</a>
+    - Sobre simulações de eventos discretos............Pág. 543 <a href="#">→code</a>
+    - A simulação da frota de táxis............Pág. 544 <a href="#">→code</a>
+    - Resumo do capítulo............Pág. 552 
+    - Leituras complementares............Pág. 554 
+  
+  - **➥ Capítulo 17 - Concorrência com futuros............Pág. 560**
+    - Exemplo: downloads da Web em três estilos............Pág. 560 <a href="#">→code</a>
+    - Um script para download sequencial............Pág. 563 <a href="#">→code</a>
+    - Fazendo download com concurrent.futures............Pág. 565 <a href="#">→code</a>
+    - Onde estão os futures?............Pág. 566 <a href="#">→code</a>
+    - E/S bloqueante e a GIL............Pág. 570 <a href="#">→code</a>
+    - Iniciando processos com concurrent.futures............Pág. 571 <a href="#">→code</a>
+    - Fazendo experimentos com Executor.map............Pág. 573 <a href="#">→code</a>
+    - Downloads com exibição de progresso e tratamento de erros............Pág. 576 <a href="#">→code</a>
+    - Tratamento de erros nos exemplos da série flags2............Pág. 581 <a href="#">→code</a>
+    - Usando futures.as_completed............Pág. 584 <a href="#">→code</a>
+    - Alternativas com threading e multiprocessing............Pág. 587 <a href="#">→code</a>
+    - Resumo do capítulo............Pág. 587 
+    - Leituras complementares............Pág. 588 
 
-**Capítulo 14 ■ Iterários, iteradores e geradores.......450**</br>
-Sentence tomada #1: uma sequência de palavras.......451</br>
-Por que sequências são iteráveis: a função iter.......453</br>
-Iteráveis versus iteradores.......455</br>
-Sentence tomada #2: um iterador clássico.......459</br>
-Fazer de Sentence um iterador: péssima ideia.......460</br>
-Sentence tomada #3: uma função geradora.......461</br>
-Como funciona uma função geradora.......462</br>
-Sentence tomada #4: uma implementação lazy.......466</br>
-Sentence tomada #5: uma expressão geradora.......467</br>
-Expressões geradoras: quando usá-las.......469</br>
-Outro exemplo: gerador de progressão aritmética.......470</br>
-Progressão aritmética com itertools.......473</br>
-Funções geradoras na biblioteca-padrão.......474</br>
-Nova sintaxe em Python 3.3: yield from.......485</br>
-Funções de redução de iteráveis.......486</br>
-Uma visão mais detalhada da função iter.......488</br>
-Estudo de caso: geradores em um utilitário para conversão de banco de dados.......489</br>
-Geradores como corrotinas.......491</br>
-Resumo do capítulo.......492</br>
-Leituras complementares.......493</br>
+  - **➥ Capítulo 18 - Concorrência com assyncio............Pág. 594**
+    - Thread versus corrotina: uma comparação............Pág. 596 <a href="#">→code</a>
+    - asyncio.Future: não bloqueante por design............Pág. 603 <a href="#">→code</a>
+    - yield from com futures, tasks e corrotinas............Pág. 604 <a href="#">→code</a>
+    - Fazendo download com asyncio e aiohttp............Pág. 605 <a href="#">→code</a>
+    - Dando voltas em chamadas bloqueantes............Pág. 610 <a href="#">→code</a>
+    - Melhorando o script para download com asyncio............Pág. 612 <a href="#">→code</a>
+    - Usando asyncio.as_completed............Pág. 613 <a href="#">→code</a>
+    - Usando um executor para evitar bloqueio do loop de eventos............Pág. 619 <a href="#">→code</a>
+    - De callbacks a futures e corrotinas............Pág. 620 <a href="#">→code</a>
+    - Fazendo várias requisições para cada download............Pág. 623 <a href="#">→code</a>
+    - Escrevendo servidores com asyncio............Pág. 626 <a href="#">→code</a>
+    - Um servidor TCP com asyncio............Pág. 627 <a href="#">→code</a>
+    - Um servidor web com aiohttp............Pág. 632 <a href="#">→code</a>
+    - Clientes mais inteligentes para melhorar a concorrência............Pág. 636 <a href="#">→code</a>
+    - Resumo do capítulo............Pág. 637 
+    - Leituras complementares............Pág. 638 
 
-**Capítulo 15 ■ Gerenciadores de contexto e blocos.......499**</br>
-Faça isso, então aquilo: blocos else além de if.......500</br>
-Gerenciadores de contexto e blocos with.......502</br>
-Utilitários de contextlib.......507</br>
-Usando @gerente de contexto.508.......</br>
-Resumo do capítulo.......512</br>
-Leituras complementares.......512</br>
+### ***➲ Parte VI - Metaprogramação............Pág. 643***
+  - **➥ Capítulo 19 - Atributos dinâmicos e propriações............Pág. 644**
+    - Processando dados com atributos dinâmicos............Pág. 645 <a href="#">→code</a>
+    - Explorando dados JSON ou similares com atributos dinâmicos............Pág. 647 <a href="#">→code</a>
+    - O problema do nome de atributo inválido............Pág. 651 <a href="#">→code</a>
+    - Criação flexível de objetos com _novo__............Pág. 652 <a href="#">→code</a>
+    - Reestruturando o feed da OSCON com shelve............Pág. 654 <a href="#">→code</a>
+    - Recuperação de registros relacionados usando propriedades............Pág. 658 <a href="#">→code</a>
+    - Usando uma propriedade para validação de atributo............Pág. 665 <a href="#">→code</a>
+    - LineItem tomada #1: classe para um item de um pedido............Pág. 665 <a href="#">→code</a>
+    - LineItem tomada #2: uma propriedade com validação............Pág. 666 <a href="#">→code</a>
+    - Uma visão apropriada das propriedades............Pág. 667 <a href="#">→code</a>
+    - Propriedades encobrem atributos de instância............Pág. 669 <a href="#">→code</a>
+    - Documentação de propriedades............Pág. 672 <a href="#">→code</a>
+    - Implementando uma fábrica de propriedades............Pág. 673 <a href="#">→code</a>
+    - Tratando a remoção de atributos............Pág. 676 <a href="#">→code</a>
+    - Atributos e funções essenciais para tratamento de atributos............Pág. 677 <a href="#">→code</a>
+    - Atributos especiais que afetam o tratamento de atributos............Pág. 677 <a href="#">→code</a>
+    - Funções embutidas para tratamento de atributos............Pág. 678 <a href="#">→code</a>
+    - Métodos especiais para tratamento de atributos............Pág. 679 <a href="#">→code</a>
+    - Resumo do capítulo............Pág. 681 
+    - Leituras complementares............Pág. 681 
 
-**Capítulo 16 ■ Corrotinas.......515**</br>
-Como as corrotinas evoluíram a partir de geradores.......516</br>
-Comportamento básico de um gerador usado como corrotina.......517</br>
-Exemplo: corrotina para calcular uma média cumulativa.......520</br>
-Decoradores para preparação de corrotinas.......522</br>
-Término de corrotinas e tratamento de exceção.......524</br>
-Devolvendo um valor a partir de uma corrotina.......528</br>
-Usando yield from.......530</br>
-O significado de yield from.......536</br>
-Caso de uso: corrotinas para uma simulação de eventos discretos.......543</br>
-Sobre simulações de eventos discretos.......543</br>
-A simulação da frota de táxis.......544</br>
-Resumo do capítulo.......552</br>
-Leituras complementares.......554</br>
+  - **➥ Capítulo 20 - Descritores de atributos............Pág. 687**
+    - Exemplo de descritor: validação de atributos............Pág. 687 <a href="#">→code</a>
+    - LineItem tomada #3: um descritor simples............Pág. 688 <a href="#">→code</a>
+    - LineItem tomada #4: nomes automáticos para atributos de armazenagem............Pág. 693 <a href="#">→code</a>
+    - LineItem tomada #5: um novo tipo descritor............Pág. 700 <a href="#">→code</a>
+    - Descritores dominantes e não dominantes............Pág. 703 <a href="#">→code</a>
+    - Descritor dominante............Pág. 705 <a href="#">→code</a>
+    - Descritor dominante sem _get__............Pág. 706 <a href="#">→code</a>
+    - Descritor não dominante............Pág. 707 <a href="#">→code</a>
+    - Sobrescrevendo um descritor na classe............Pág. 709 <a href="#">→code</a>
+    - Métodos são descritores............Pág. 709 <a href="#">→code</a>
+    - Dicas para uso de descritores............Pág. 712 <a href="#">→code</a>
+    - Docstring de descritores e controle de remoção............Pág. 714 <a href="#">→code</a>
+    - Resumo do capítulo............Pág. 715 
+    - Leituras complementares............Pág. 716 
 
-**Capítulo 17 ■ Concorrência com futuros.......560**</br>
-Exemplo: downloads da Web em três estilos.......560</br>
-Um script para download sequencial.......563</br>
-Fazendo download com concurrent.futures.......565</br>
-Onde estão os futures?.......566</br>
-E/S bloqueante e a GIL.......570</br>
-Iniciando processos com concurrent.futures.......571</br>
-Fazendo experimentos com Executor.map.......573</br>
-Downloads com exibição de progresso e tratamento de erros.......576</br>
-Tratamento de erros nos exemplos da série flags2.......581</br>
-Usando futures.as_completed.......584</br>
-Alternativas com threading e multiprocessing.......587</br>
-Resumo do capítulo.......587</br>
-Leituras complementares.......588</br>
+  - **➥ Capítulo 21 - Metaprogramação com aulas............Pág. 718**
+    - Uma fábrica de classes............Pág. 719 <a href="#">→code</a>
+    - Um decorador de classe para personalizar descritores............Pág. 722 <a href="#">→code</a>
+    - O que acontece quando: tempo de importação versus tempo de execução............Pág. 725 <a href="#">→code</a>
+    - Exercícios dos instantes de avaliação............Pág. 726 <a href="#">→code</a>
+    - Básico sobre metaclasses............Pág. 730 <a href="#">→code</a>
+    - Exercício do instante de avaliação de metaclasses............Pág. 732 <a href="#">→code</a>
+    - Uma metaclasse para personalizar descritores............Pág. 736 <a href="#">→code</a>
+    - Método especial _prepare__ de metaclasse............Pág. 738 <a href="#">→code</a>
+    - Classes como objetos............Pág. 741 <a href="#">→code</a>
+    - Resumo do capítulo............Pág. 742 <a href="#">→code</a>
+    - Leituras complementares............Pág. 743 <a href="#">→code</a>
+    - Posfácio............Pág. 747 
+    - Leituras complementares............Pág. 749 
 
-**Capítulo 18 ■ Concorrência com assyncio.......594**</br>
-Thread versus corrotina: uma comparação.......596</br>
-asyncio.Future: não bloqueante por design.......603</br>
-yield from com futures, tasks e corrotinas.......604</br>
-Fazendo download com asyncio e aiohttp.......605</br>
-Dando voltas em chamadas bloqueantes.......610</br>
-Melhorando o script para download com asyncio.......612</br>
-Usando asyncio.as_completed.......613</br>
-Usando um executor para evitar bloqueio do loop de eventos.......619</br>
-De callbacks a futures e corrotinas.......620</br>
-Fazendo várias requisições para cada download.......623</br>
-Escrevendo servidores com asyncio.......626</br>
-Um servidor TCP com asyncio.......627</br>
-Um servidor web com aiohttp.......632</br>
-Clientes mais inteligentes para melhorar a concorrência.......636</br>
-Resumo do capítulo.......637</br>
-Leituras complementares.......638</br>
-
-**Parte VI ■ Metaprogramação.......643**</br>
-**Capítulo 19 ■ Atributos dinâmicos e propriações.......644**</br>
-Processando dados com atributos dinâmicos.......645</br>
-Explorando dados JSON ou similares com atributos dinâmicos.......647</br>
-O problema do nome de atributo inválido.......651</br>
-Criação flexível de objetos com _novo__ 652.......</br>
-Reestruturando o feed da OSCON com shelve.......654</br>
-Recuperação de registros relacionados usando propriedades.......658</br>
-Usando uma propriedade para validação de atributo.......665</br>
-LineItem tomada #1: classe para um item de um pedido.......665</br>
-LineItem tomada #2: uma propriedade com validação.......666</br>
-Uma visão apropriada das propriedades.......667</br>
-Propriedades encobrem atributos de instância.......669</br>
-Documentação de propriedades.......672</br>
-Implementando uma fábrica de propriedades.......673</br>
-Tratando a remoção de atributos.......676</br>
-Atributos e funções essenciais para tratamento de atributos.......677</br>
-Atributos especiais que afetam o tratamento de atributos.......677</br>
-Funções embutidas para tratamento de atributos.......678</br>
-Métodos especiais para tratamento de atributos.......679</br>
-Resumo do capítulo.......681</br>
-Leituras complementares.......681</br>
-
-**Capítulo 20 ■ Descritores de atributos.......687**</br>
-Exemplo de descritor: validação de atributos.......687</br>
-LineItem tomada #3: um descritor simples.......688</br>
-LineItem tomada #4: nomes automáticos para atributos de armazenagem.......693</br>
-LineItem tomada #5: um novo tipo descritor.......700</br>
-Descritores dominantes e não dominantes.......703</br>
-Descritor dominante.......705</br>
-Descritor dominante sem _get__.......706</br>
-Descritor não dominante.......707</br>
-Sobrescrevendo um descritor na classe.......709</br>
-Métodos são descritores.......709</br>
-Dicas para uso de descritores.......712</br>
-Docstring de descritores e controle de remoção.......714</br>
-Resumo do capítulo.......715</br>
-Leituras complementares.......716</br>
-
-**Capítulo 21 ■ Metaprogramação com aulas.......718**</br>
-Uma fábrica de classes.......719</br>
-Um decorador de classe para personalizar descritores.......722</br>
-O que acontece quando: tempo de importação versus tempo de execução.......725</br>
-Exercícios dos instantes de avaliação.......726</br>
-Básico sobre metaclasses.......730</br>
-Exercício do instante de avaliação de metaclasses.......732</br>
-Uma metaclasse para personalizar descritores.......736</br>
-Método especial _prepare__ de metaclasse.......738</br>
-Classes como objetos.......741</br>
-Resumo do capítulo.......742</br>
-Leituras complementares.......743</br>
-Posfácio.......747</br>
-Leituras complementares.......749</br>
-
-**Apêndice A ■ Scripts auxiliares.......751**</br>
-Capítulo 3: teste de desempenho do operador in.......751</br>
-Capítulo 3: comparar padrões de bits de hashes.......754</br>
-Capítulo 9: uso da RAM com e sem _slots__ 754.......</br>
-Capítulo 14: script isis2json.py para conversão de banco de dados.......755</br>
-Capítulo 16: simulação de eventos discretos para a frota de táxis.......761</br>
-Capítulo 17: Exemplos com criptografia.......766</br>
-Capítulo 17: exemplos de cliente HTTP para flags2.......769</br>
-Capítulo 19: Scripts e testes para agenda da OSCON.......775</br>
-Jargão de Python.......781</br>
-Sobre o autor.......798</br>
-Colofão.......799</br>
+### ***➲ Apêndice A - Scripts auxiliares............Pág. 751***
+  - Capítulo 3: teste de desempenho do operador in............Pág. 751 <a href="#">→code</a>
+  - Capítulo 3: comparar padrões de bits de hashes............Pág. 754 <a href="#">→code</a>
+  - Capítulo 9: uso da RAM com e sem _slots__ 754............Pág. <a href="#">→code</a>
+  - Capítulo 14: script isis2json.py para conversão de banco de dados............Pág. 755 <a href="#">→code</a>
+  - Capítulo 16: simulação de eventos discretos para a frota de táxis............Pág. 761 <a href="#">→code</a>
+  - Capítulo 17: Exemplos com criptografia............Pág. 766 <a href="#">→code</a>
+  - Capítulo 17: exemplos de cliente HTTP para flags2............Pág. 769 <a href="#">→code</a>
+  - Capítulo 19: Scripts e testes para agenda da OSCON............Pág. 775 <a href="#">→code</a>
+  - Jargão de Python............Pág. 781 
+  - Sobre o autor............Pág. 798 
+  - Colofão............Pág. 799 
