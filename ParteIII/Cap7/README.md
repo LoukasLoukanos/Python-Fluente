@@ -23,3 +23,49 @@ def funcao_decorada():
     # ...
 
 ```
+
+### ***Quando Python executa os decoradores: ***
+```python
+#_________BEGIN REGISTRATION_________
+
+registry = []  # registy armazenará referências a funções decoradas com @register.
+
+def register(func):  # register recebe uma função como argumento.
+    print('running register(%s)' % func)  # exibe a função que está sendo decorada, para demonstração.
+    registry.append(func)  # inclui func e registry.
+    return func  # devolve func: precisamos devolver uma funçõa; nesse caso, devolvemos a mesma função recebida como argumento.
+
+@register  # f1 e f2 são decoradas com @register.
+def f1():
+    print('running f1()')
+
+@register
+def f2():
+    print('running f2()')
+
+def f3():  # f3 não é decorada.
+    print('running f3()')
+
+def main():  # main exibe registry e então chama f1(), f2() e f3().
+    print('running main()')
+    print('registry ->', registry)
+    f1()
+    f2()
+    f3()
+
+if __name__=='__main__':
+    main()  # main() é chamado somente se registration.py executar como script.
+
+#_________END REGISTRATION_________
+
+'''
+output:
+running register(<function f1 at 0x000001A807A33B50>)
+running register(<function f2 at 0x000001A807A33BE0>)
+running main()
+registry -> [<function f1 at 0x000001A807A33B50>, <function f2 at 0x000001A807A33BE0>]
+running f1()
+running f2()
+running f3()
+'''
+```
