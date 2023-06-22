@@ -95,9 +95,11 @@ for card in sorted(deck, key=spades_high):
 '''
 
 ```
+</br>
 
 ## **Como os métodos especiais são usados............Pág. 33**
  - Ao implementar os métodos especiais _len__ e _getitem__ nos beneficiamos de recursos especiais da linguagem (neste caso iteração e fatiamento) e da biblioteca padrao(random.choice, reversed e sorted). Graças à composição as implementações de _len__ e _getitem__ podem passar todo o trabalho para os objetos
+</br>
 
 ## **Emulando tipos numéricos............Pág. 34**
 
@@ -137,6 +139,7 @@ class Vector:
     def __mul__(self, scalar):
         return Vector(self.x * scalar, self.y * scalar)
 
+
 v = Vector(3, 4)
 repr_ = repr(v)
 print("do método especial __repr__:", repr_)
@@ -145,16 +148,25 @@ abs_ = abs(v)
 print("do método especial __abs__:", abs_)
 
 boll_ = bool(v)
-print("do método especial __boll__:", boll_)
+print("do método especial __bool__:", boll_)
 
-add_ = add(v, 2)
-print("do método especial __add__:", add_)#TypeError: add expected 3 arguments, got 2 ???????????????
+add_ = v + 2
+print("do método especial __add__:", add_)
 
-mul_ = mul(v, 6)
-print("do método especial __mul__:", mul_)#TypeError: add expected 3 arguments, got 2 ???????????????
+mul_ = v * 6
+print("do método especial __mul__:", mul_)
+
+'''output:
+do método especial __repr__: Vector(3, 4)
+do método especial __abs__: 5.0
+do método especial __bool__: True
+do método especial __add__: Vector(5, 6)
+do método especial __mul__: Vector(18, 24)
+'''
 
 ```
+</br>
 
 ## **Representação em string............Pág. 36**
 
-### ******
+### ***título do código***
