@@ -167,6 +167,32 @@ do método especial __mul__: Vector(18, 24)
 ```
 </br>
 
-## **Representação em string............Pág. 36**
 
-### ***título do código***
+
+## **Representação em string............Pág. 36**
+</br>
+
+## **Operadores aritméticos............Pág. 37**
+</br>
+
+## **Valor booleano de um tipo definido pelo usuário............Pág. 37**
+</br>
+
+## **Visão geral dos métodos especiais............Pág. 39**
+
+### ***Nomes dos métodos especiais (não inclui operadores)***
+| Categoria | Nomes dos métodos |
+|:-:|:-:|
+| Representação em string/bytes | __ repr __ , __ str __ , __ format __ , __ bytes __ |
+| Conversão para número | __ abs __ , __ bool __ , __ complex __ , __ int __ , __ float , __ hash __ , __ index __ |
+| Emulação de coleções | __ len __ , __ getiten __ , __ setiten __ , __ deliten __ , __ contains __ |
+| Iteração | __ iter __ , __ reversed __ , __ next __ |
+| Emulação de invocáveis | __ call __ |
+| Gerenciamento de contexto | __ enter __ , __ exit __ |
+| Criação e destruição de instâncias | __ new __ , __ init __ , __ del __ |
+| Gerenciamento de atributos | __ getattr __ , __ getattribute __ , __ setattr __ , __ delattr __ , __ dir __ |
+| Descritores de atributos | __ get __ , __ set __ , __ delete __ |
+| Serviços de classes | __ prepare __ , __ instancecheck __ , __ subclasscheck __ |
+</br>
+
+## **Por que len não é um método?............Pág. 39**
