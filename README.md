@@ -49,8 +49,8 @@
     - Memory Views............Pág. 78 <a href="#">→code</a>
     - NumPy e SciPy............Pág. 80 <a href="#">→code</a>
     - Deques e outras filas............Pág. 82 <a href="#">→code</a>
-    - Resumo do capítulo............Pág. 86 
-    - Leituras complementares............Pág. 87 
+    - Resumo do capítulo............Pág. 86
+    - Leituras complementares............Pág. 87
 
   - **➥ Capítulo 3 - Dicionários e conjuntos............Pág. 93**
     - Tipos genéricos de mapeamento............Pág. 94 <a href="#">→code</a>
