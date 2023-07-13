@@ -1,10 +1,10 @@
 ## **Visão geral das sequências embutidas............Pág. 45**
 
 ### ***SEQUÊNCIAS EMBUTIDAS:***
-|  | MUTÁVEIS(aceitam mudanças) | IMUTÁVEIS(não aceitam mudanças) |
+|  | MUTÁVEIS (mesmo id quando ocorre mudança) | IMUTÁVEIS (novo id quando ocorre "mudança" (na verdade subsituição)) |
 |:-:|:-:|:-:|
-| SIMPLES(armazenam itens de um só tipo) | bytearray, array, memoryview | str, bytes |
-| CONTAINER(armazenam itens de tipos diferentes) | list, deque | tuple |
+| SIMPLES (armazenam itens de um só tipo) | bytearray, array, memoryview | str, bytes |
+| CONTAINER (armazenam itens de tipos diferentes) | list, deque | tuple |
 
 #### **SIMPLES:**
   - Mais compactas, rápidas e fáceis de usar.
@@ -64,12 +64,8 @@ print("Valor da variável modificada apenas dentro do escopo", dummy) # e a list
 </br>
 
 
-## **Comparação entre listcomps e map/filter............Pág. 48**
-## **Produtos cartesianos............Pág. 49**
-## **Expressões geradoras............Pág. 50**
+## **Pág. 48 à 52............Comparação entre listcomps e map/filter | Produtos cartesianos | Expressões geradoras | Tuplas não são apenas listas imutáveis | Tuplas como registros**
 
-## **Tuplas não são apenas listas imutáveis............Pág. 52**
-## **Tuplas como registros............Pág. 52**
 ```python
 # 1° EXEMPLO
 from pyparsing import line
@@ -142,8 +138,7 @@ for name, cc, pop, (latitude, longitude) in metro_areas:  # desempacotando as co
 </br>
 
 
-## **Tuplas nomeadas............Pág. 56**
-## **Tuplas como listas imutáveis............Pág. 58**
+## **Pág. 56 à 58............Tuplas nomeadas | Tuplas como listas imutáveis**
 ```python
 from collections import namedtuple #namedtuples contêm chaves como hash para um valor específico, oferecendo suporte ao acesso do valor tanto pela chave[key] como pela iteração[x]
 City = namedtuple('City', 'name country population coordinates')
@@ -183,10 +178,7 @@ for key, value in delhi._asdict().items():
 </br>
 
 
-## **Fatiamento............Pág. 59**
-## **Por que as fatias e os intervalos excluem o último item............Pág. 59**
-## **Objetos slice............Pág. 60**
-## **Fatiamento multidimensional e reticências............Pág. 62**
+## **Pág. 59 à 62............Fatiamento | Por que as fatias e os intervalos excluem o último item | Objetos slice | Fatiamento multidimensional e reticências**
 ```python
 l = [10, 20, 30, 40, 50, 60]
 print('l[:2] = ', l[:2]) # até, mas não inclusive o (:)2° | output: [10, 20]
@@ -242,8 +234,7 @@ print("m[2:5] = [100]\nm =", m, '\n') # no 2°(:) coloca o 100; e elimina tudo a
 </br>
 
 
-## **Usando + e * com sequências............Pág. 63**
-## **Criando listas de listas............Pág. 64**
+## **Pág. 63 e 64............Usando + e * com sequências | Criando listas de listas**
 ```python
 n = [1, 2, 3]
 print("n * 5: ", (n * 5))
@@ -303,16 +294,6 @@ print("código equivalente a SEM o uso de listcomprehension (ocorre evento indes
 
 ## **Atribuições combinadas e sequências............Pág. 65**
 ```python
-'''
- SEQUÊNCIAS EMBUTIDAS:
-    __________________IMUTÁVEIS("superclasse/pai")__________________
-    CONTAINER (armazenam itens de tipos diferentes) : tuple
-    SIMPLES (armazenam itens de um só tipo)         : str, bytes
-    __________________MUTÁVEIS("subclasse/herança")__________________
-    CONTAINER (armazenam itens de tipos diferentes) : list, collections.deque
-    SIMPLES (armazenam itens de um só tipo)         : bytearray, array.array, memoryview      
-    Como um exemplo, o tipo mais básico de sequência é list, um container mutável.
-'''
 #___SEQUÊNCIAS EMBUTIDAS MUTÁVEIS continuam sendo o mesmo objeto ao acrescentar itens_____________________
 mutavel_list = [1, 2, 3]
 print("sequência mutável list: ", mutavel_list)
@@ -382,7 +363,9 @@ output:
 '''
 • list.sort: ordena uma lista in-place (não cria nova lista, altera a lista original)
 • sorted: não ordena uma lista in-place (cria nova lista, não altera a lista original)
-→ 2 parâmetros: (list, 1°reverse=True, 2°key=str.lower/ou/key=len/ou/key=str/ou/key=int)
+→ Sintaxe:
+    <facultativo>
+    sorted(list, <reverse=True>, <key=str.lower/key=len/key=str/key=int>)
 '''
 fruits = ['grape', 'raspberry', 'apple', 'banana']
 sorted(fruits) #sorted: cria uma nova lista de strings em órdem alfabética
