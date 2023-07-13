@@ -143,24 +143,319 @@ for name, cc, pop, (latitude, longitude) in metro_areas:  # desempacotando as co
 
 
 ## **Tuplas nomeadas............Pág. 56**
+## **Tuplas como listas imutáveis............Pág. 58**
+```python
+from collections import namedtuple #namedtuples contêm chaves como hash para um valor específico, oferecendo suporte ao acesso do valor tanto pela chave[key] como pela iteração[x]
+City = namedtuple('City', 'name country population coordinates')
+tokyo = City('tokyo', 'JP', population=36.933, coordinates=(36.689722, 139.691667))
+print("acesso por chaves[keys]:\n", tokyo.name, tokyo.country, tokyo.population, tokyo.coordinates)
+#↑ou↓
+print("acesso por iteração[x]:\n", tokyo[0], tokyo[1], tokyo[2], tokyo[3], "\n......................") 
+''' Output:
+        —————————————————————
+        acesso por chaves[keys]:
+         tokyo JP 36.933 (36.689722, 139.691667)
+        acesso por iteração[x]:
+         tokyo JP 36.933 (36.689722, 139.691667) 
+        —————————————————————
+'''
+#_fields retorna uma tupla com os nomes das [chaves] dos valores da classe namedtuple definida  
+print('Retorno de _fields: ', City._fields) # output:('name', 'country', 'population', 'coordinates')
+
+LatLong = namedtuple('LatLong', 'Lat Long') #Lat será a chave[key] do valor 28.613889; e Long será a chave[key] do valor 77.208889 ↓↓↓
+delhi_data = ('Delhi NCR', 'IN', 21935, LatLong(28.613889, 77.208889))# LatLong(valor da chave [Lat], valor da chave[Long]) ↑↑↑
+
+# _make() permite instanciar uma tupla nomeada a partir de um iterável.
+delhi = City._make(delhi_data) # Os valores das chaves [Lat] e [Long] da namedtuple LatLong() serão, também, os valores da chave [coordinate] da namedtuple City.
+
+ # _asdict() retorna um collections.OrderedDict , chaves e valores...
+print('Retorno de _asdict(): ', delhi._asdict()) # output: Retorno de _asdict():  {'name': 'Delhi NCR', 'country': 'IN', 'population': 21935, 'coordinates': LatLong(Lat=28.613889, Long=77.208889)}
+
+for key, value in delhi._asdict().items():
+    print('hash [',key, ']', ' = ', value)
+    ''' Output:
+            hash [ name ]  =  Delhi NCR
+            hash [ country ]  =  IN
+            hash [ population ]  =  21935
+            hash [ coordinates ]  =  LatLong(Lat=28.613889, Long=77.208889)
+    '''
+```
+</br>
+
+
+## **Fatiamento............Pág. 59**
+## **Por que as fatias e os intervalos excluem o último item............Pág. 59**
+## **Objetos slice............Pág. 60**
+## **Fatiamento multidimensional e reticências............Pág. 62**
+```python
+l = [10, 20, 30, 40, 50, 60]
+print('l[:2] = ', l[:2]) # até, mas não inclusive o (:)2° | output: [10, 20]
+print('l[2:] = ', l[2:]) # a partir do 2(:)° | output: [30, 40, 50, 60]
+
+s = 'Bicycle'
+print('s[::3] = ', s[::3]) #output: Bye
+print('s[::-1] = ', s[::-1]) #output: elcyciB
+print('s[::-2] = ', s[::-2]) #output: eccB
+
+invoice = """
+0.....6.................................40........52...55........
+1909 Pimoroni PiBrella                      $17.50    3    $52.50
+1489 6mm TactileSwitch x20                   $4.95    2     $9.90
+1510 Panavise Jr. - PV-201                  $28.00    1    $28.00
+1601 PiTFT Mini Kit 320x240                 $34.95    1    $34.95
+"""
+SKU = slice(0, 6)
+DESCRIPTION = slice(6, 40)
+UNIT_PRICE = slice(40, 52)
+QUANTITY = slice(52, 55)
+ITEM_TOTAL = slice(55, None)
+line_items = invoice.split('\n')[2:] # invoice é cortado nas quebras de linhas depois da 2segunda (a primeira quebra foi após """)
+print("__________________________________\n")
+for item in line_items:
+    print(item[UNIT_PRICE], item[DESCRIPTION])
+```
+</br>
+
+
+## **Atribuição de valores a fatias............Pág. 62**
+```python
+m = list(range(10))
+print("m =", m, '\n')
+#output: m = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+m[2:5] = [20, 30] # no 2°(:) coloca o 20 e o 30 vai em seguida(no 3°); e elimina tudo após até o 5°, mas não inclusive.
+print("m[2:5] = [20, 30]\nm =", m, '\n') 
+#output: m = [0, 1, 20, 30, 5, 6, 7, 8, 9]
+
+del m[5:7] # deleta tudo a partir do 5°, até o 7°, mas não inclusive.
+print("del m[5:7]\nm =", m, '\n') 
+#output: m = [0, 1, 20, 30, 5, 8, 9]
+
+m[3::2] = [11, 22] # no 3°(:) coloca 11, e, em seguida, antes do (:)2° —que ao reiniciar em zero é o 9— coloca o 22.
+print("m[3::2] = [11, 22]\nm =", m, '\n')
+#output: m = [0, 1, 20, 11, 5, 22, 9]
+
+m[2:5] = [100]
+print("m[2:5] = [100]\nm =", m, '\n') # no 2°(:) coloca o 100; e elimina tudo após até o 5°, mas não inclusive.
+#output: m = [0, 1, 100, 22, 9]
+```
+</br>
+
+
+## **Usando + e * com sequências............Pág. 63**
+## **Criando listas de listas............Pág. 64**
+```python
+n = [1, 2, 3]
+print("n * 5: ", (n * 5))
+#output: [1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3]
+
+print("5 * 'abcd': ", (5 * 'abcd'))
+#output: abcdabcdabcdabcdabcd
+
+#______Listas de listas →→→ COM LISTCOMPREHENSION E EQUIVALENTE:_________________________________
+with_listcomp = [['_'] * 3 for i in range(3)] # LISTCOMPREHENSION
+
+print("COM o uso de listcomprehension (obtém resultado desejado):", '\n', with_listcomp, '\n')
+#output: [['_', '_', '_'], ['_', '_', '_'], ['_', '_', '_']]
+
+with_listcomp[1][2] = 'with_listcomp' # linha por coluna, com índice iniciando em zero.
+print("COM o uso de listcomprehension (obtém resultado desejado):", '\n', with_listcomp, '\n')
+#output: [['_', '_', '_'], ['_', '_', 'with_listcomp'], ['_', '_', '_']]
+
+# CÓDIGO EQUIVALENTE:
+equivalent_with_listcomp = []
+for i in range(3):
+    row_1 = ['_'] * 3
+    equivalent_with_listcomp.append(row_1)
+
+print("código equivalente a COM o uso de listcomprehension (obtém resultado desejado):", '\n', equivalent_with_listcomp, '\n')
+#output: [['_', '_', '_'], ['_', '_', '_'], ['_', '_', '_']]
+
+equivalent_with_listcomp[1][2] = 'equivalent_with_listcomp' # linha por coluna, com índice iniciando em zero.
+print("código equivalente a COM o uso de listcomprehension (obtém resultado desejado):", '\n', equivalent_with_listcomp, '\n')
+#output: [['_', '_', '_'], ['_', '_', 'equivalent_with_listcomp'], ['_', '_', '_']]
+
+#______Listas de listas →→→ SEM LISTCOMPREHENSION E EQUIVALENTE:_________________________________
+without_listcomp = [['_'] * 3] * 3
+
+print("SEM o uso de listcomprehension (ocorre evento indesejado):", '\n', without_listcomp, '\n')
+#output: [['_', '_', '_'], ['_', '_', '_'], ['_', '_', '_']]
+
+without_listcomp[1][2] = 'without_listcomp' # linha por coluna, com índice iniciando em zero.
+print("SEM o uso de listcomprehension (ocorre evento indesejado):", '\n', without_listcomp, '\n') #evento indesejado → (gera repetições)
+#output: [['_', '_', 'without_listcomp'], ['_', '_', 'without_listcomp'], ['_', '_', 'without_listcomp']]
+
+# CÓDIGO EQUIVALENTE:
+row_2 = ['_'] * 3
+equivalent_without_listcomp = []
+for i in range(3):
+    equivalent_without_listcomp.append(row_2)
+
+print("código equivalente a SEM o uso de listcomprehension (ocorre evento indesejado):", '\n', equivalent_without_listcomp, '\n')
+#output: [['_', '_', '_'], ['_', '_', '_'], ['_', '_', '_']]
+
+equivalent_without_listcomp[1][2] = 'equivalent_with_listcomp' # linha por coluna, com índice iniciando em zero.
+print("código equivalente a SEM o uso de listcomprehension (ocorre evento indesejado):", '\n', equivalent_without_listcomp, '\n') #evento indesejado → (gera repetições)
+#output: [['_', '_', 'equivalent_with_listcomp'], ['_', '_', 'equivalent_with_listcomp'], ['_', '_', 'equivalent_with_listcomp']] 
+```
+</br>
+
+
+## **Atribuições combinadas e sequências............Pág. 65**
+```python
+'''
+ SEQUÊNCIAS EMBUTIDAS:
+    __________________IMUTÁVEIS("superclasse/pai")__________________
+    CONTAINER (armazenam itens de tipos diferentes) : tuple
+    SIMPLES (armazenam itens de um só tipo)         : str, bytes
+    __________________MUTÁVEIS("subclasse/herança")__________________
+    CONTAINER (armazenam itens de tipos diferentes) : list, collections.deque
+    SIMPLES (armazenam itens de um só tipo)         : bytearray, array.array, memoryview      
+    Como um exemplo, o tipo mais básico de sequência é list, um container mutável.
+'''
+#___SEQUÊNCIAS EMBUTIDAS MUTÁVEIS continuam sendo o mesmo objeto ao acrescentar itens_____________________
+mutavel_list = [1, 2, 3]
+print("sequência mutável list: ", mutavel_list)
+print("id da sequência mutável list: ", id(mutavel_list))
+#output: 2639841919104
+
+mutavel_list *= 2 #possuirá o mesmo id pois continua sendo o mesmo objeto ao acrescentar itens
+print("sequência mutável list: ", mutavel_list)
+print("id da sequência mutável list: ", id(mutavel_list), '\n')
+#output: 2639841919104
+
+#___SEQUÊNCIAS EMBUTIDAS IMUTÁVEIS geram outros objetos ao acrescentar itens_____________________________
+imutavel_tuple = (1, 2, 30)
+print("sequência imutável tuple: ", imutavel_tuple)
+print("id da sequência imutável tuple: ", id(imutavel_tuple))
+#output: 2639828257536
+
+imutavel_tuple *= 2 #possuirá outro id pois se torna outro objeto ao acrescentar itens
+print("sequência imutável tuple: ", imutavel_tuple)
+print("id da sequência imutável tuple: ", id(imutavel_tuple))
+#output: 2639841656736
+
+# OBS: !!!
+# A SEQUÊNCIA EMBUTIDA IMUTÁVEL SIMPLES str (string) é uma exceção; pois as instâncias de str são alocadas em 
+# memória com espaço extra, de modo que a concatenação não exigirá uma cópia da string completa todas as vezes.
+```
+</br>
+
+
+## **O enigma da atribuição +=............Pág. 67**
+```python
+t = (1, 2, [30, 40])
+'''
+t[2] += [50, 60]
+output: TypeError: 'tuple' object does not support item assignment
+
+print(t)
+output: (1, 2, [30, 40, 50, 60])
+'''
+
+#inspecionar bytecode Python para ver o que ocorre internamente:
+import dis
+dis.dis('t[2] += [50, 60]')
+''' 
+output:
+.1............0 LOAD_NAME................0 (t)
+..............2 LOAD_CONST...............0 (2)
+..............4 DUP_TOP_TWO..............
+..............6 BINARY_SUBSCR............ →→→ coloca o valor de t[2] no TOS (Top Of Stack, ou Topo de Pilha)
+..............8 LOAD_CONST...............1 (50)
+.............10 LOAD_CONST...............2 (60)
+.............12 BUILD_LIST...............2
+.............14 INPLACE_ADD.............. →→→ Executa TOS += [50, 60]. Isso funciona quando TOS refere-se a um objeto mutável (uma lista no exemplo)
+.............16 ROT_THREE................
+.............18 STORE_SUBSCR............. →→→ Faz a atribuição t[2] = TOS. Isso falha se s é imutável (a tupla t)
+.............20 LOAD_CONST...............3 (None)
+.............22 RETURN_VALUE.............
+'''
+
+# →→→→→→→→→ CONCLUSÃO: colocar itens mutáveis(list, no exemplo) em imutáveis(tupla, no exemplo) não é uma boa ideia. ←←←←←←←←←
+```
+</br>
+
+
+## **list.sort e a função embutida sorted............Pág. 69**
+```python
+'''
+• list.sort: ordena uma lista in-place (não cria nova lista, altera a lista original)
+• sorted: não ordena uma lista in-place (cria nova lista, não altera a lista original)
+→ 2 parâmetros: (list, 1°reverse=True, 2°key=str.lower/ou/key=len/ou/key=str/ou/key=int)
+'''
+fruits = ['grape', 'raspberry', 'apple', 'banana']
+sorted(fruits) #sorted: cria uma nova lista de strings em órdem alfabética
+#output: ['apple', 'banana', 'grape', 'raspberry']
+print(fruits) #a lista original não foi alterada
+#output: ['grape', 'raspberry', 'apple', 'banana']
+
+sorted(fruits, reverse=True) #sorted: cria uma nova lista de strings com reverse que deixa em órdem alfabética reversa
+#output: ['raspberry', 'grape', 'banana', 'apple']
+print(fruits) #a lista original não foi alterada
+#output: ['grape', 'raspberry', 'apple', 'banana']
+
+sorted(fruits, key=len) #sorted: cria uma nova lista de strings com key que ordenada de acordo com o tamanho de cada string
+#output: ['grape', 'apple', 'banana', 'raspberry']
+print(fruits) #a lista original não foi alterada
+#output: ['grape', 'raspberry', 'apple', 'banana']
+
+sorted(fruits, key=len, reverse=True) #sorted: cria uma nova lista de strings com key que ordenada de acordo com o tamanho de cada string e com reverse que deixa em órdem reversa
+#output: ['raspberry', 'banana', 'grape', 'apple']
+print(fruits) #a lista original não foi alterada
+#output: ['grape', 'raspberry', 'apple', 'banana']
+
+print(fruits.sort()) #list.sort: ordena a lista in-place (não cria nova lista, altera a lista original)
+#output: None → retorna None para nos lembrar de que o objeto-alvo é aterado e que não foi criado uma nova cópia
+print(fruits) #a lista original foi alterada
+#output: ['apple', 'banana', 'grape', 'raspberry']
+
+
+nomes = ['Aluno', 'alfa', 'Abcd', 'abcd']
+sorted(nomes) #sorted: cria uma nova lista de strings em órdem alfabética
+#output:['Abcd', 'Aluno', 'abcd', 'alfa']
+print(nomes) #a lista original não foi alterada
+#output:['Aluno', 'alfa', 'Abcd', 'abcd']
+
+nomes.sort(key=str.lower) #sorted: #list.sort: ordena a lista in-place (não cria nova lista, altera a lista original) com key=str.lower que ordena sem levar em consideração letras maiúsculas e minúsculas
+#output: None → retorna None para nos lembrar de que o objeto-alvo é aterado e que não foi criado uma nova lista, mas alterado a lista original
+print(nomes) #a lista original foi alterada
+#output:['Abcd', 'abcd', 'alfa', 'Aluno']
+
+sorted(nomes, key=len) #sorted: cria uma nova lista de strings com key=len que ordenada de acordo com o tamanho de cada string
+#output:['Abcd', 'abcd', 'alfa', 'Aluno'] → ♦compare... ↓↓↓
+print(nomes) #a lista original não foi alterada
+#output:['Abcd', 'abcd', 'alfa', 'Aluno']
+
+sorted(nomes, key=len, reverse=True) #sorted: cria uma nova lista de strings com key=len que ordenada de acordo com o tamanho de cada string e com reverse=True que deixa em órdem reversa
+#output:['Aluno', 'Abcd', 'abcd', 'alfa'] → ♦compare... ↑↑↑
+print(nomes) #a lista original não foi alterada
+#output:['Abcd', 'abcd', 'alfa', 'Aluno']
+
+
+str_int = [28, 14, '28', 5, '9', '1', 0, 6, '23', 19]
+#sorted(str_int) → output: "TypeError: '<' not supported between instances of 'str' and 'int'" (solução: key=int/strt↓)
+
+sorted(str_int, key=int) #sorted: cria uma nova lista com key=int que ordenada tratando todos os itens como tipo inteiro
+#output:[0, '1', 5, 6, '9', 14, 19, '23', 28, '28']
+print(str_int) #a lista original não foi alterada
+#output:[28, 14, '28', 5, '9', '1', 0, 6, '23', 19]
+
+sorted(str_int, key=str) #sorted: cria uma nova lista com key=str que ordenada tratando todos os itens como tipo string
+#output:[0, '1', 14, 19, '23', 28, '28', 5, 6, '9']
+print(str_int) #a lista original não foi alterada
+#output:[28, 14, '28', 5, '9', '1', 0, 6, '23', 19]
+```
+</br>
+
+
+## **Administrando sequências ordenadas com bisect............Pág. 71**
 ```python
 
 ```
 </br>
 
 
-## **Tuplas como listas imutáveis............Pág. 58**
-## **Fatiamento............Pág. 59**
-## **Por que as fatias e os intervalos excluem o último item............Pág. 59**
-## **Objetos slice............Pág. 60**
-## **Fatiamento multidimensional e reticências............Pág. 62**
-## **Atribuição de valores a fatias............Pág. 62**
-## **Usando + e * com sequências............Pág. 63**
-## **Criando listas de listas............Pág. 64**
-## **Atribuições combinadas e sequências............Pág. 65**
-## **O enigma da atribuição +=............Pág. 67**
-## **list.sort e a função embutida sorted............Pág. 69**
-## **Administrando sequências ordenadas com bisect............Pág. 71**
 ## **Pesquisando com bisect............Pág. 71**
 ## **Inserção com bisect.insort............Pág. 74**
 ## **Quando uma lista não é a resposta............Pág. 75**
