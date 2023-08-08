@@ -29,7 +29,14 @@
 | List comprehensions(listcomps) | Expressões geradoras(genexps) |
 |:-:|:-:|
 | para o tipo de sequência embutida list | para todos os demais tipos de sequências embutidas |
+</details>
+</br>
+
+
 ## **List comprehensions e legibilidade............Pág. 46**
+<details>
+<summary>📖</summary>
+
 ```python
 #___Sem usar list comprehension(listcomps):______
 from array import array
