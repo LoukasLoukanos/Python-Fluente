@@ -1,4 +1,7 @@
+
 ## **Visão geral das sequências embutidas............Pág. 45**
+<details>
+<summary>📖</summary>
 
 ### ***SEQUÊNCIAS EMBUTIDAS:***
 |  | MUTÁVEIS (mesmo id quando ocorre mudança) | IMUTÁVEIS (novo id quando ocorre "mudança" (na verdade subsituição)) |
@@ -15,10 +18,14 @@
   - Não recomendadas para armazenar objetos mutáveis.
 
 → Como um exemplo, o tipo mais básico de sequência é list, um container mutável.
+</details>
 </br>
 
 
 ## **List comprehensions e expressões geradoras............Pág. 46**
+<details>
+<summary>📖</summary>
+
 | List comprehensions(listcomps) | Expressões geradoras(genexps) |
 |:-:|:-:|
 | para o tipo de sequência embutida list | para todos os demais tipos de sequências embutidas |
@@ -61,10 +68,14 @@ print("Valor da variável preservada fora do escopo", x) # por isso, o valor de 
 print("Valor da variável modificada apenas dentro do escopo", dummy) # e a list comprehension gera a lista esperada.
 
 ```
+</details>
 </br>
 
 
 ## **Pág. 48 à 52............Comparação entre listcomps e map/filter | Produtos cartesianos | Expressões geradoras | Tuplas não são apenas listas imutáveis | Tuplas como registros**
+
+<details>
+<summary>📖</summary>
 
 ```python
 # 1° EXEMPLO
@@ -92,10 +103,14 @@ for country, _ in traveler_ids:# O laço for sabe como obter os itens de uma tup
     print('    5° exemplo: ', type(country), country)#output:<class 'str'> USA, <class 'str'> BRA, <class 'str'> ESP
 
 ```
+</details>
 </br>
 
 
 ## **Desempacotamento de tuplas............Pág. 53**
+<details>
+<summary>📖</summary>
+
 ```python
 #atribuição paralela:
 latitude, longitude = lax_coordinates
@@ -115,10 +130,14 @@ a, *body, c, d = range(5) # → (a=0, [body = 1, 2], c=3, d=4)
 print(a, *body, c, d) # output: 0, 1, 2, 3, 4
 
 ```
+</details>
 </br>
 
 
 ## **Desempacotamento de tuplas aninhadas............Pág. 55**
+<details>
+<summary>📖</summary>
+
 ```python
 metro_areas = [
     ('Tokyo', 'JP', 36.933, (35.689722, 139.691667)),   # a tupla aninhada é um par de coordenadas
@@ -135,10 +154,14 @@ for name, cc, pop, (latitude, longitude) in metro_areas:  # desempacotando as co
     if longitude <= 0: # condições de acesso....
         print(fmt.format(name, latitude, longitude))
 ```
+</details>
 </br>
 
 
 ## **Pág. 56 à 58............Tuplas nomeadas | Tuplas como listas imutáveis**
+<details>
+<summary>📖</summary>
+
 ```python
 from collections import namedtuple #namedtuples contêm chaves como hash para um valor específico, oferecendo suporte ao acesso do valor tanto pela chave[key] como pela iteração[x]
 City = namedtuple('City', 'name country population coordinates')
@@ -175,10 +198,14 @@ for key, value in delhi._asdict().items():
             hash [ coordinates ]  =  LatLong(Lat=28.613889, Long=77.208889)
     '''
 ```
+</details>
 </br>
 
 
 ## **Pág. 59 à 62............Fatiamento | Por que as fatias e os intervalos excluem o último item | Objetos slice | Fatiamento multidimensional e reticências**
+<details>
+<summary>📖</summary>
+
 ```python
 l = [10, 20, 30, 40, 50, 60]
 print('l[:2] = ', l[:2]) # até, mas não inclusive o (:)2° | output: [10, 20]
@@ -206,10 +233,14 @@ print("__________________________________\n")
 for item in line_items:
     print(item[UNIT_PRICE], item[DESCRIPTION])
 ```
+</details>
 </br>
 
 
 ## **Atribuição de valores a fatias............Pág. 62**
+<details>
+<summary>📖</summary>
+
 ```python
 m = list(range(10))
 print("m =", m, '\n')
@@ -231,10 +262,14 @@ m[2:5] = [100]
 print("m[2:5] = [100]\nm =", m, '\n') # no 2°(:) coloca o 100; e elimina tudo após até o 5°, mas não inclusive.
 #output: m = [0, 1, 100, 22, 9]
 ```
+</details>
 </br>
 
 
 ## **Pág. 63 e 64............Usando + e * com sequências | Criando listas de listas**
+<details>
+<summary>📖</summary>
+
 ```python
 n = [1, 2, 3]
 print("n * 5: ", (n * 5))
@@ -289,10 +324,14 @@ equivalent_without_listcomp[1][2] = 'equivalent_with_listcomp' # linha por colun
 print("código equivalente a SEM o uso de listcomprehension (ocorre evento indesejado):", '\n', equivalent_without_listcomp, '\n') #evento indesejado → (gera repetições)
 #output: [['_', '_', 'equivalent_with_listcomp'], ['_', '_', 'equivalent_with_listcomp'], ['_', '_', 'equivalent_with_listcomp']] 
 ```
+</details>
 </br>
 
 
 ## **Atribuições combinadas e sequências............Pág. 65**
+<details>
+<summary>📖</summary>
+
 ```python
 #___SEQUÊNCIAS EMBUTIDAS MUTÁVEIS continuam sendo o mesmo objeto ao acrescentar itens_____________________
 mutavel_list = [1, 2, 3]
@@ -320,10 +359,14 @@ print("id da sequência imutável tuple: ", id(imutavel_tuple))
 # A SEQUÊNCIA EMBUTIDA IMUTÁVEL SIMPLES str (string) é uma exceção; pois as instâncias de str são alocadas em 
 # memória com espaço extra, de modo que a concatenação não exigirá uma cópia da string completa todas as vezes.
 ```
+</details>
 </br>
 
 
 ## **O enigma da atribuição +=............Pág. 67**
+<details>
+<summary>📖</summary>
+
 ```python
 t = (1, 2, [30, 40])
 '''
@@ -355,10 +398,14 @@ output:
 
 # →→→→→→→→→ CONCLUSÃO: colocar itens mutáveis(list, no exemplo) em imutáveis(tupla, no exemplo) não é uma boa ideia. ←←←←←←←←←
 ```
+</details>
 </br>
 
 
 ## **list.sort e a função embutida sorted............Pág. 69**
+<details>
+<summary>📖</summary>
+
 ```python
 '''
 • list.sort: ordena uma lista in-place (não cria nova lista, altera a lista original)
@@ -429,10 +476,14 @@ sorted(str_int, key=str) #sorted: cria uma nova lista com key=str que ordenada t
 print(str_int) #a lista original não foi alterada
 #output:[28, 14, '28', 5, '9', '1', 0, 6, '23', 19]
 ```
+</details>
 </br>
 
 
 ## **Pág. 71 à Pág. 74............Administrando sequências ordenadas com bisect | Pesquisando com bisect | Inserção com bisect.insor**
+<details>
+<summary>📖</summary>
+
 ```python
 '''
 Módulo bisect oferece duas funções — bisect e insort— que usam algoritmo 
@@ -546,6 +597,7 @@ Inserindo itens ordenadamente com bisect.insort():
 10 -> [0, 2, 6, 7, 8, 10, 10]
 '''
 ```
+</details>
 </br>
 
 
