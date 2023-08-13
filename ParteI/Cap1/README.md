@@ -1,6 +1,6 @@
 ## **Pág. 29............Um baralho pythônico**
 <details>
-<summary></📖></summary>
+<summary><📖></summary>
 
 ### ***Um barallho como uma sequência de cartas:***
 ```python
@@ -104,7 +104,7 @@ for card in sorted(deck, key=spades_high):
 
 ## **Pág. 33............Como os métodos especiais são usados**
 <details>
-<summary></📖></summary>
+<summary><📖></summary>
  - Ao implementar os métodos especiais _len__ e _getitem__ nos beneficiamos de recursos especiais da linguagem (neste caso iteração e fatiamento) e da biblioteca padrao(random.choice, reversed e sorted). Graças à composição as implementações de _len__ e _getitem__ podem passar todo o trabalho para os objetos
 
 </details>
@@ -113,7 +113,7 @@ for card in sorted(deck, key=spades_high):
 
 ## **Pág. 34............Emulando tipos numéricos**
 <details>
-<summary></📖></summary>
+<summary><📖></summary>
 
 ### ***Uma classe simples de vetor bidimencional:***
 ```python
@@ -184,7 +184,7 @@ do método especial __mul__: Vector(18, 24)
 
 ## **Pág. 36............Representação em string**
 <details>
-<summary></📖></summary>
+<summary><📖></summary>
 
 A representação em string de um objeto é definida pelo método especial __repr__. Esse método é responsável por retornar uma string que representa o objeto de forma legível. É comum usar o __repr__ para fornecer informações sobre o estado interno do objeto, o que facilita a depuração e a compreensão do objeto durante o 
 
@@ -209,7 +209,7 @@ print(p)  # Saída: Pessoa(nome=João, idade=25)
 
 ## **Pág. 37............Operadores aritméticos**
 <details>
-<summary></📖></summary>
+<summary><📖></summary>
 
 Os operadores aritméticos podem ser personalizados para um objeto por meio dos métodos especiais __add__ e __mul__. O __add__ permite que um objeto seja somado a outro objeto usando o operador +, enquanto o __mul__ permite multiplicar o objeto por um valor usando o operador *. Esses métodos permitem que você defina o comportamento dos operadores aritméticos para seus objetos personalizados.
 
@@ -241,7 +241,7 @@ print(resultado_multiplicacao.x, resultado_multiplicacao.y)  # Saída: 4, 6
 
 ## **Pág. 37............Valor booleano de um tipo definido pelo usuário**
 <details>
-<summary></📖></summary>
+<summary><📖></summary>
 
 O método especial __bool__ permite definir o valor booleano de um objeto definido pelo usuário. Ao implementar esse método, você pode especificar quando um objeto deve ser considerado verdadeiro (True) ou falso (False). Isso é útil em situações em que você deseja que um objeto personalizado seja avaliado em uma expressão booleana, como em um if ou em um contexto de condicional.
 
@@ -268,7 +268,7 @@ print(bool(livro_invalido))  # Saída: False
 
 ## **Pág. 39............Visão geral dos métodos especiais**
 <details>
-<summary></📖></summary>
+<summary><📖></summary>
 
 ### ***Nomes dos métodos especiais (não inclui operadores)***
 | Categoria | Nomes dos métodos |
@@ -302,7 +302,7 @@ print(bool(livro_invalido))  # Saída: False
 
 ## **Pág. 39............Por que len não é um método?**
 <details>
-<summary></📖></summary>
+<summary><📖></summary>
 
 O len não é um método porque é uma função embutida no Python que retorna o tamanho (número de elementos) de um objeto iterável, como uma lista, uma string ou um dicionário. Em vez de ser um método específico de um objeto, o len é usado como uma função geral que pode ser aplicada a diferentes tipos de objetos iteráveis. Portanto, em vez de chamar objeto.len(), você usa len(objeto) para obter o tamanho do objeto.
 

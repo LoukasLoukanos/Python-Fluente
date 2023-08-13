@@ -1,7 +1,7 @@
 
 ## **Pág. 45............Visão geral das sequências embutidas**
 <details>
-<summary></📖></summary>
+<summary><📖></summary>
 
 ### ***SEQUÊNCIAS EMBUTIDAS:***
 |  | MUTÁVEIS (mesmo id quando ocorre mudança) | IMUTÁVEIS (novo id quando ocorre "mudança" (na verdade subsituição)) |
@@ -25,7 +25,7 @@
 
 ## **Pág. 46............List comprehensions e expressões geradoras**
 <details>
-<summary></📖></summary>
+<summary><📖></summary>
 
 | List comprehensions(listcomps) | Expressões geradoras(genexps) |
 |:-:|:-:|
@@ -37,7 +37,7 @@
 
 ## **Pág. 46............List comprehensions e legibilidade**
 <details>
-<summary></📖></summary>
+<summary><📖></summary>
 
 ```python
 #___Sem usar list comprehension(listcomps):______
@@ -85,7 +85,7 @@ print("Valor da variável modificada apenas dentro do escopo", dummy) # e a list
 ## **Pág. 48 à 52............Comparação entre listcomps e map/filter | Produtos cartesianos | Expressões geradoras | Tuplas não são apenas listas imutáveis | Tuplas como registros**
 
 <details>
-<summary></📖></summary>
+<summary><📖></summary>
 
 ```python
 # 1° EXEMPLO
@@ -120,7 +120,7 @@ for country, _ in traveler_ids:# O laço for sabe como obter os itens de uma tup
 
 ## **Pág. 53............Desempacotamento de tuplas**
 <details>
-<summary></📖></summary>
+<summary><📖></summary>
 
 ```python
 #atribuição paralela:
@@ -148,7 +148,7 @@ print(a, *body, c, d) # output: 0, 1, 2, 3, 4
 
 ## **Pág. 55............Desempacotamento de tuplas aninhadas**
 <details>
-<summary></📖></summary>
+<summary><📖></summary>
 
 ```python
 metro_areas = [
@@ -173,7 +173,7 @@ for name, cc, pop, (latitude, longitude) in metro_areas:  # desempacotando as co
 
 ## **Pág. 56 à 58............Tuplas nomeadas | Tuplas como listas imutáveis**
 <details>
-<summary></📖></summary>
+<summary><📖></summary>
 
 ```python
 from collections import namedtuple #namedtuples contêm chaves como hash para um valor específico, oferecendo suporte ao acesso do valor tanto pela chave[key] como pela iteração[x]
@@ -218,7 +218,7 @@ for key, value in delhi._asdict().items():
 
 ## **Pág. 59 à 62............Fatiamento | Por que as fatias e os intervalos excluem o último item | Objetos slice | Fatiamento multidimensional e reticências**
 <details>
-<summary></📖></summary>
+<summary><📖></summary>
 
 ```python
 l = [10, 20, 30, 40, 50, 60]
@@ -254,7 +254,7 @@ for item in line_items:
 
 ## **Pág. 55............Atribuição de valores a fatias**
 <details>
-<summary></📖></summary>
+<summary><📖></summary>
 
 ```python
 m = list(range(10))
@@ -284,7 +284,7 @@ print("m[2:5] = [100]\nm =", m, '\n') # no 2°(:) coloca o 100; e elimina tudo a
 
 ## **Pág. 63 e 64............Usando + e * com sequências | Criando listas de listas**
 <details>
-<summary></📖></summary>
+<summary><📖></summary>
 
 ```python
 n = [1, 2, 3]
@@ -347,7 +347,7 @@ print("código equivalente a SEM o uso de listcomprehension (ocorre evento indes
 
 ## **Pág. 65............Atribuições combinadas e sequências**
 <details>
-<summary></📖></summary>
+<summary><📖></summary>
 
 ```python
 #___SEQUÊNCIAS EMBUTIDAS MUTÁVEIS continuam sendo o mesmo objeto ao acrescentar itens_____________________
@@ -383,7 +383,7 @@ print("id da sequência imutável tuple: ", id(imutavel_tuple))
 
 ## **Pág. 67............O enigma da atribuição +=**
 <details>
-<summary></📖></summary>
+<summary><📖></summary>
 
 ```python
 t = (1, 2, [30, 40])
@@ -423,7 +423,7 @@ output:
 
 ## **Pág. 69............list.sort e a função embutida sorted**
 <details>
-<summary></📖></summary>
+<summary><📖></summary>
 
 ```python
 '''
@@ -502,7 +502,7 @@ print(str_int) #a lista original não foi alterada
 
 ## **Pág. 71 à Pág. 74............Administrando sequências ordenadas com bisect | Pesquisando com bisect | Inserção com bisect.insor**
 <details>
-<summary></📖></summary>
+<summary><📖></summary>
 
 ```python
 '''
@@ -624,7 +624,7 @@ Inserindo itens ordenadamente com bisect.insort():
 
 ## **Pág. 75............Quando uma lista não é a resposta | Arrays**
 <details>
-<summary><📖/></summary>
+<summary><📖></summary>
 
 Arrays em Python, especificamente referindo-se a arrays da biblioteca NumPy, podem ser superiores às listas nativas em várias situações, especialmente quando se trata de computação numérica, eficiência e manipulação avançada de dados.
 
@@ -633,7 +633,7 @@ Arrays em Python, especificamente referindo-se a arrays da biblioteca NumPy, pod
 
 ## **Pág. 78 à Pág. 80............Memory Views | NumPy e SciPy**
 <details>
-<summary><📖/></summary>
+<summary><📖></summary>
 
 ### ***Memory Views X NumPy e SciPy***
 Enquanto as memory views são úteis para acessar dados de arrays sem copiá-los, NumPy e SciPy vão além, oferecendo uma ampla gama de funcionalidades matemáticas, científicas e de engenharia. Essas bibliotecas permitem manipulações mais sofisticadas, operações vetoriais, otimização e análise de dados complexos que vão além do escopo das memory views.
@@ -695,7 +695,7 @@ print(interpolated_value)
 
 ## **Pág. 82............Deques e outras filas | resumo[Métodos de tuple, list, array e deque]**
 <details>
-<summary><📖/></summary>
+<summary><📖></summary>
 
 ### ***SEQUÊNCIAS EMBUTIDAS:***
 |  | MUTÁVEIS (mesmo id quando ocorre mudança) | IMUTÁVEIS (novo id quando ocorre "mudança" (na verdade subsituição)) |
