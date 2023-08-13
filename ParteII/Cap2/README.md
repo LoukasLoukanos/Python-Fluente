@@ -1,7 +1,7 @@
 
-## **Visão geral das sequências embutidas............Pág. 45**
+## **Pág. 45............Visão geral das sequências embutidas**
 <details>
-<summary>📖</summary>
+<summary></📖></summary>
 
 ### ***SEQUÊNCIAS EMBUTIDAS:***
 |  | MUTÁVEIS (mesmo id quando ocorre mudança) | IMUTÁVEIS (novo id quando ocorre "mudança" (na verdade subsituição)) |
@@ -18,24 +18,26 @@
   - Não recomendadas para armazenar objetos mutáveis.
 
 → Como um exemplo, o tipo mais básico de sequência é list, um container mutável.
+
 </details>
 </br>
 
 
-## **List comprehensions e expressões geradoras............Pág. 46**
+## **Pág. 46............List comprehensions e expressões geradoras**
 <details>
-<summary>📖</summary>
+<summary></📖></summary>
 
 | List comprehensions(listcomps) | Expressões geradoras(genexps) |
 |:-:|:-:|
 | para o tipo de sequência embutida list | para todos os demais tipos de sequências embutidas |
+
 </details>
 </br>
 
 
-## **List comprehensions e legibilidade............Pág. 46**
+## **Pág. 46............List comprehensions e legibilidade**
 <details>
-<summary>📖</summary>
+<summary></📖></summary>
 
 ```python
 #___Sem usar list comprehension(listcomps):______
@@ -75,6 +77,7 @@ print("Valor da variável preservada fora do escopo", x) # por isso, o valor de 
 print("Valor da variável modificada apenas dentro do escopo", dummy) # e a list comprehension gera a lista esperada.
 
 ```
+
 </details>
 </br>
 
@@ -82,7 +85,7 @@ print("Valor da variável modificada apenas dentro do escopo", dummy) # e a list
 ## **Pág. 48 à 52............Comparação entre listcomps e map/filter | Produtos cartesianos | Expressões geradoras | Tuplas não são apenas listas imutáveis | Tuplas como registros**
 
 <details>
-<summary>📖</summary>
+<summary></📖></summary>
 
 ```python
 # 1° EXEMPLO
@@ -110,13 +113,14 @@ for country, _ in traveler_ids:# O laço for sabe como obter os itens de uma tup
     print('    5° exemplo: ', type(country), country)#output:<class 'str'> USA, <class 'str'> BRA, <class 'str'> ESP
 
 ```
+
 </details>
 </br>
 
 
-## **Desempacotamento de tuplas............Pág. 53**
+## **Pág. 53............Desempacotamento de tuplas**
 <details>
-<summary>📖</summary>
+<summary></📖></summary>
 
 ```python
 #atribuição paralela:
@@ -137,13 +141,14 @@ a, *body, c, d = range(5) # → (a=0, [body = 1, 2], c=3, d=4)
 print(a, *body, c, d) # output: 0, 1, 2, 3, 4
 
 ```
+
 </details>
 </br>
 
 
-## **Desempacotamento de tuplas aninhadas............Pág. 55**
+## **Pág. 55............Desempacotamento de tuplas aninhadas**
 <details>
-<summary>📖</summary>
+<summary></📖></summary>
 
 ```python
 metro_areas = [
@@ -161,13 +166,14 @@ for name, cc, pop, (latitude, longitude) in metro_areas:  # desempacotando as co
     if longitude <= 0: # condições de acesso....
         print(fmt.format(name, latitude, longitude))
 ```
+
 </details>
 </br>
 
 
 ## **Pág. 56 à 58............Tuplas nomeadas | Tuplas como listas imutáveis**
 <details>
-<summary>📖</summary>
+<summary></📖></summary>
 
 ```python
 from collections import namedtuple #namedtuples contêm chaves como hash para um valor específico, oferecendo suporte ao acesso do valor tanto pela chave[key] como pela iteração[x]
@@ -205,13 +211,14 @@ for key, value in delhi._asdict().items():
             hash [ coordinates ]  =  LatLong(Lat=28.613889, Long=77.208889)
     '''
 ```
+
 </details>
 </br>
 
 
 ## **Pág. 59 à 62............Fatiamento | Por que as fatias e os intervalos excluem o último item | Objetos slice | Fatiamento multidimensional e reticências**
 <details>
-<summary>📖</summary>
+<summary></📖></summary>
 
 ```python
 l = [10, 20, 30, 40, 50, 60]
@@ -240,13 +247,14 @@ print("__________________________________\n")
 for item in line_items:
     print(item[UNIT_PRICE], item[DESCRIPTION])
 ```
+
 </details>
 </br>
 
 
-## **Atribuição de valores a fatias............Pág. 62**
+## **Pág. 55............Atribuição de valores a fatias**
 <details>
-<summary>📖</summary>
+<summary></📖></summary>
 
 ```python
 m = list(range(10))
@@ -269,13 +277,14 @@ m[2:5] = [100]
 print("m[2:5] = [100]\nm =", m, '\n') # no 2°(:) coloca o 100; e elimina tudo após até o 5°, mas não inclusive.
 #output: m = [0, 1, 100, 22, 9]
 ```
+
 </details>
 </br>
 
 
 ## **Pág. 63 e 64............Usando + e * com sequências | Criando listas de listas**
 <details>
-<summary>📖</summary>
+<summary></📖></summary>
 
 ```python
 n = [1, 2, 3]
@@ -331,13 +340,14 @@ equivalent_without_listcomp[1][2] = 'equivalent_with_listcomp' # linha por colun
 print("código equivalente a SEM o uso de listcomprehension (ocorre evento indesejado):", '\n', equivalent_without_listcomp, '\n') #evento indesejado → (gera repetições)
 #output: [['_', '_', 'equivalent_with_listcomp'], ['_', '_', 'equivalent_with_listcomp'], ['_', '_', 'equivalent_with_listcomp']] 
 ```
+
 </details>
 </br>
 
 
-## **Atribuições combinadas e sequências............Pág. 65**
+## **Pág. 65............Atribuições combinadas e sequências**
 <details>
-<summary>📖</summary>
+<summary></📖></summary>
 
 ```python
 #___SEQUÊNCIAS EMBUTIDAS MUTÁVEIS continuam sendo o mesmo objeto ao acrescentar itens_____________________
@@ -366,13 +376,14 @@ print("id da sequência imutável tuple: ", id(imutavel_tuple))
 # A SEQUÊNCIA EMBUTIDA IMUTÁVEL SIMPLES str (string) é uma exceção; pois as instâncias de str são alocadas em 
 # memória com espaço extra, de modo que a concatenação não exigirá uma cópia da string completa todas as vezes.
 ```
+
 </details>
 </br>
 
 
-## **O enigma da atribuição +=............Pág. 67**
+## **Pág. 67............O enigma da atribuição +=**
 <details>
-<summary>📖</summary>
+<summary></📖></summary>
 
 ```python
 t = (1, 2, [30, 40])
@@ -405,13 +416,14 @@ output:
 
 # →→→→→→→→→ CONCLUSÃO: colocar itens mutáveis(list, no exemplo) em imutáveis(tupla, no exemplo) não é uma boa ideia. ←←←←←←←←←
 ```
+
 </details>
 </br>
 
 
-## **list.sort e a função embutida sorted............Pág. 69**
+## **Pág. 69............list.sort e a função embutida sorted**
 <details>
-<summary>📖</summary>
+<summary></📖></summary>
 
 ```python
 '''
@@ -483,13 +495,14 @@ sorted(str_int, key=str) #sorted: cria uma nova lista com key=str que ordenada t
 print(str_int) #a lista original não foi alterada
 #output:[28, 14, '28', 5, '9', '1', 0, 6, '23', 19]
 ```
+
 </details>
 </br>
 
 
 ## **Pág. 71 à Pág. 74............Administrando sequências ordenadas com bisect | Pesquisando com bisect | Inserção com bisect.insor**
 <details>
-<summary>📖</summary>
+<summary></📖></summary>
 
 ```python
 '''
@@ -604,12 +617,157 @@ Inserindo itens ordenadamente com bisect.insort():
 10 -> [0, 2, 6, 7, 8, 10, 10]
 '''
 ```
+
 </details>
 </br>
 
 
-## **Quando uma lista não é a resposta............Pág. 75**
-## **Arrays............Pág. 75**
-## **Memory Views............Pág. 78**
-## **NumPy e SciPy............Pág. 80**
-## **Deques e outras filas............Pág. 82**
+## **Pág. 75............Quando uma lista não é a resposta | Arrays**
+<details>
+<summary><📖/></summary>
+
+Arrays em Python, especificamente referindo-se a arrays da biblioteca NumPy, podem ser superiores às listas nativas em várias situações, especialmente quando se trata de computação numérica, eficiência e manipulação avançada de dados.
+
+</details>
+</br>
+
+## **Pág. 78 à Pág. 80............Memory Views | NumPy e SciPy**
+<details>
+<summary><📖/></summary>
+
+### ***Memory Views X NumPy e SciPy***
+Enquanto as memory views são úteis para acessar dados de arrays sem copiá-los, NumPy e SciPy vão além, oferecendo uma ampla gama de funcionalidades matemáticas, científicas e de engenharia. Essas bibliotecas permitem manipulações mais sofisticadas, operações vetoriais, otimização e análise de dados complexos que vão além do escopo das memory views.
+
+#### **Memory Views:**
+As memory views são uma maneira eficiente de acessar dados de arrays em um formato específico sem copiar os dados. Elas são úteis para trabalhar com grandes volumes de dados, mas têm limitações em termos de funcionalidades e operações.
+
+```python
+import numpy as np
+
+# Criar um array numpy
+arr = np.array([1, 2, 3, 4, 5])
+
+# Criar um memory view
+mem_view = memoryview(arr)
+
+# Acessar os elementos através do memory view
+for element in mem_view:
+    print(element)
+```
+
+#### **NumPy:**
+NumPy é uma biblioteca que expande significativamente as funcionalidades de manipulação de arrays, oferecendo uma ampla gama de funções matemáticas, operações de álgebra linear, broadcasting e muito mais.
+
+```python
+import numpy as np
+
+# Criar um array numpy
+arr = np.array([1, 2, 3, 4, 5])
+
+# Multiplicar todos os elementos por 2 usando NumPy
+arr_times_2 = arr * 2
+print(arr_times_2)
+```
+
+#### **SciPy:**
+SciPy é uma biblioteca construída sobre o NumPy que oferece funcionalidades específicas para ciência e engenharia. Ela inclui módulos para otimização, processamento de sinais, estatísticas, interpolação e muito mais.
+
+```python
+import numpy as np
+from scipy import interpolate
+
+# Criar pontos x e y para interpolação
+x = np.array([0, 1, 2, 3, 4])
+y = np.array([0, 2, 4, 6, 8])
+
+# Criar uma função interpoladora usando SciPy
+f = interpolate.interp1d(x, y, kind='linear')
+
+# Calcular valor interpolado em x = 2.5
+interpolated_value = f(2.5)
+print(interpolated_value)
+
+```
+
+</details>
+</br>
+
+
+## **Pág. 82............Deques e outras filas | resumo[Métodos de tuple, list, array e deque]**
+<details>
+<summary><📖/></summary>
+
+### ***SEQUÊNCIAS EMBUTIDAS:***
+|  | MUTÁVEIS (mesmo id quando ocorre mudança) | IMUTÁVEIS (novo id quando ocorre "mudança" (na verdade subsituição)) |
+|:-:|:-:|:-:|
+| SIMPLES (armazenam itens de um só tipo) | bytearray, array, memoryview | str, bytes |
+| CONTAINER (armazenam itens de tipos diferentes) | list, deque | tuple |
+
+#### **SIMPLES:**
+  - Mais compactas, rápidas e fáceis de usar.
+  - Limitadas ao armazenamento de dados atômicos como números, caracteres e bytes.
+
+#### **CONTAINER:**
+  - Mais flexíveis.
+  - Não recomendadas para armazenar objetos mutáveis.
+
+→ Como um exemplo, o tipo mais básico de sequência é list, um container mutável.</br></br>
+
+Objeto hashable é um ojeto capaz de possuir um hash (um id como sha1 ou MD5):</br>
+ ✓ Terá um valor de hash que não muda (possuirá um método __hash__())</br>
+ ✓ Será comparável com outros objetos (possuirá um método __eq__())</br></br>
+
+Condição para um objeto ser hashable:</br>
+ → Deve ser IMUTÁVEL — str, bytes e tuple (exceto se conter referências a objetos que não são hashable)—.</br></br>
+
+Nota:</br>
+ → frozenset é uma função que transforma objetos MUTÁVEIS em IMUTÁVEIS.</br></br>
+
+### ***MÉTODOS DE TUPLE, LIST, ARRAY E DEQUE:***
+● tuple aceita os métodos de list, com exceção do método __reversed__() e de todos os métodos que acrescentam ou removem itens, pois tuple é IMUTÁVEL.</br>
+● array é mais eficiente que list (exceto pela limitância de ser do tipo de sequência SIMPLES) para sequências contendo apenas tipo de valores numéricos.</br>
+● deque permite as regras de acesso FIFO e LIFO e é a sequência mais otimizada para inserção e remoção de itens das extremidades (centrais a latência é maior).</br>
+|  | tuple | list | array | deque |  |
+|:-:|:-:|:-:|:-:|:-:|:-:|
+| s.__add__(s2) | ♦ | ♦ | ♦ |  | s + s2 → concatenação |
+| s.__iadd__(s2) |  | ♦ | ♦ | ♦ | s += s2 → concatenação in-place |
+| s.append(e) |  | ♦ | ♦ | ♦ | Concatena um elemento após o último |
+| s.appendleft(e) |  |  |  | ♦ | Concatena um elemento à esquerda (antes do primeiro) |
+| s.byteswap() |  |  | ♦ |  | Troca os bytes de todos os itens do array para uma conversão de endianess |
+| s.clear() |  | ♦ |  | ♦ | Apaga todos os itens |
+| s.__contains__(e) | ♦ | ♦ | ♦ |  | e in s |
+| s.copy() |  | ♦ |  |  | Shallow copy (cópia rasa) da lista |
+| s.__copy__() |  |  | ♦ | ♦ | Suporte para copycopy(shallow copy ou copora rasa) |
+| s.count(e) | ♦ | ♦ | ♦ | ♦ | Conta as ocorrências de um elemento |
+| s.__deepcopy__() |  |  | ♦ |  | Suporte otimizado para copydeepcopy |
+| s.__delitem__(p) |  | ♦ | ♦ | ♦ | Remove o item da posição p |
+| s.extend(it) |  | ♦ | ♦ | ♦ | Concatena itens do iterável it |
+| s.extendleft(i) |  |  |  | ♦ | Adiciona itens do iterável i à esquerda |
+| s.fromfile(f, n) |  |  | ♦ |  | Concatena n itens do arquivo binário f interpretado como valores de máquina compactos |
+| s.fromlist(l) |  |  | ♦ |  | Concatena itens da lista; se algum deles provocar um TypeError, nenhum valor será concatenado |
+| s.frombytes(b) |  |  | ♦ |  | Concatena itens da sequência de bytes intepretada como valores de máquina compactos |
+| s.__getitem__(p) | ♦ | ♦ | ♦ | ♦ | s[p] → obtém o item de uma posição |
+| s.__getnewargs__() | ♦ |  |  |  | Suporte para serialização otimizada com pickle |
+| s.index(e) | ♦ | ♦ | ♦ |  | Encontra a posição da primeira ocorrência de e |
+| s.insert(p, e) |  | ♦ | ♦ |  | Insere o elemento e antes do item na posição p |
+| s.itemsize() |  |  | ♦ |  | Tamanho em bytes de cada item do array |
+| s.__iter__() | ♦ | ♦ | ♦ | ♦ | Obtém um iterador |
+| s.__len__() | ♦ | ♦ | ♦ | ♦ | len(s) → número de itens |
+| s.__mul__(n) | ♦ | ♦ | ♦ |  | s * n → concatenação repetida |
+| s.__imul__(n) |  | ♦ | ♦ |  | s *= n → concatenação repetida in-place |
+| s.__rmul__(n) | ♦ | ♦ | ♦ |  | n * s → concatenação repetida invertida (operador reverso) |
+| s.pop([p]) |  | ♦ | ♦ | ♦ | Remove e retorna o último item (por defalt) ou, opcionalmente, o item na posição p |
+| s.popleft() |  |  |  | ♦ | Remove e devolve o primeiro item |
+| s.remove(e) |  | ♦ | ♦ | ♦ | Remove a primeira ocorrência do elemento com o valor de e |
+| s.reverse() |  | ♦ | ♦ | ♦ | Inverte a ordem dos itens in-place |
+| s.__reversed__() |  | ♦ |  | ♦ | Obtém um iterador para percorrer os itens do último para o primeiro |
+| s.rotate(n) |  | ♦ |  | ♦ | Move n itens de uma extremidade para a outra |
+| s.__setitem__(p, e) |  | ♦ | ♦ | ♦ | s[p] = e → coloca e na posição p sobrescrevendo o item existente |
+| s.sort([key], [reverse]) |  | ♦ |  |  | Ordena itens in-place com os argumentos nomeados opcionais key e reverse |
+| s.tobytes() |  |  | ♦ |  | Devolve os itens como valores de máquina compactos em um objeto bytes |
+| s.tofile(f) |  |  | ♦ |  | Salva os itens como valores de máquina compactos em um arquivo binário f |
+| s.tolist() |  |  | ♦ |  | Devolve os itens como objetos numéricos em uma lista |
+| s.typecode |  |  | ♦ |  | String de um caractere que identifica o tipo dos itens na linguagem C |
+
+</details>
+</br>
