@@ -714,18 +714,20 @@ print(interpolated_value)
 → Como um exemplo, o tipo mais básico de sequência é list, um container mutável.
 </br></br>
 
-Objeto hashable é um ojeto capaz de possuir um hash (um id como sha1 ou MD5):
+Objeto hashable é um objeto capaz de possuir um hash (um id como sha1 ou MD5):
   - Terá um valor de hash que não muda (possuirá um método __hash__())
   - Será comparável com outros objetos (possuirá um método __eq__())
+
 Condição para um objeto ser hashable:
   - Deve ser IMUTÁVEL — str, bytes e tuple (exceto se conter referências a objetos que não são hashable)—.
+
 Nota:
   - frozenset é uma função que transforma objetos MUTÁVEIS em IMUTÁVEIS.
 
 ### ***MÉTODOS DE TUPLE, LIST, ARRAY E DEQUE:***
-• tuple aceita os métodos de list, com exceção do método __reversed__() e de todos os métodos que acrescentam ou removem itens, pois tuple é IMUTÁVEL.</br>
-• array é mais eficiente que list (exceto pela limitância de ser do tipo de sequência SIMPLES) para sequências contendo apenas tipo de valores numéricos.</br>
-• deque permite as regras de acesso FIFO e LIFO e é a sequência mais otimizada para inserção e remoção de itens das extremidades (centrais a latência é maior).</br>
+♦ tuple aceita os métodos de list, com exceção do método __reversed__() e de todos os métodos que acrescentam ou removem itens, pois tuple é IMUTÁVEL.</br>
+♦ array é mais eficiente que list (exceto pela limitância de ser do tipo de sequência SIMPLES) para sequências contendo apenas tipo de valores numéricos.</br>
+♦ deque permite as regras de acesso FIFO e LIFO e é a sequência mais otimizada para inserção e remoção de itens das extremidades (centrais a latência é maior).</br>
 |  | tuple | list | array | deque |  |
 |:-:|:-:|:-:|:-:|:-:|:-:|
 | s.__add__(s2) | ● | ● | ● |  | s + s2 → concatenação |
