@@ -3,9 +3,9 @@
 *Não é uma referência exaustiva de A a Z para Python. A ênfase da obra está nos recursos da linguagem exclusiva do Python ou que não se contram em muitas outras linguagens populares. Este também, em sua parte maior, é um livro sobre o número de linguagens e algumas de suas bibliotecas. Raramente é falado sobre os pacotes que não é um jogo de biblioteca, além do título de páginas do Python (PyPI) lista de mais de 60 mil bibliotecas e muitas outras extremidades.*
 
 ## **Sumário**
-### ***➲ Prefácio............Pág. 17***
-### ***➲ Parte I - Prólogo............Pág. 27***
-  - **➥ Capítulo 1 - Modelo de dados do Python............Pág. 28**
+### ***➲ Prefácio — Pág. 17***
+### ***➲ Parte I - Prólogo — Pág. 27***
+  - **➥ Capítulo 1 - Modelo de dados do Python — Pág. 28**
     | Conteúdo | Pág./code |
     |:-:|:-:|
     | Um baralho pythônico | Pág. 29 <a href="#">→code</a> |
@@ -19,8 +19,10 @@
     | Resumo do capítulo | Pág. 40 |
     | Leituras complementares | Pág. 41 |
 
-### ***➲ Parte II - Estruturas de dados............Pág. 43***
-  - **➥ Capítulo 2 - Uma coleção de sequências............Pág. 44**
+</br>
+
+### ***➲ Parte II - Estruturas de dados — Pág. 43***
+  - **➥ Capítulo 2 - Uma coleção de sequências — Pág. 44**
     | Conteúdo | Pág./code |
     |:-:|:-:|
     | Visão geral das sequências embutidas | Pág. 45 <a href="#">→code</a> |
@@ -56,7 +58,9 @@
     | Resumo do capítulo | Pág. 86 |
     | Leituras complementares | Pág. 87 |
 
-  - **➥ Capítulo 3 - Dicionários e conjuntos............Pág. 93**
+</br>
+
+  - **➥ Capítulo 3 - Dicionários e conjuntos — Pág. 93**
     | Conteúdo | Pág./code |
     |:-:|:-:|
     | Tipos genéricos de mapeamento | Pág. 94 <a href="#">→code</a> |
@@ -81,7 +85,9 @@
     | Resumo do capítulo | Pág. 125 |
     | Leituras complementares | Pág. 126 |
 
-  - **➥ Capítulo 4 - Texto versus bytes............Pág. 129**
+</br>
+
+  - **➥ Capítulo 4 - Texto versus bytes — Pág. 129**
     | Conteúdo | Pág./code |
     |:-:|:-:|
     | Falhas de caracteres | Pág. 130 <a href="#">→code</a> |
@@ -109,8 +115,10 @@
     | Resumo do capítulo | Pág. 167 |
     | Leituras complementares | Pág. 169 |
 
-### ***➲ Parte III - Funções como objetos............Pág. 174***
-  - **➥ Capítulo 5 - Funções de primeira classe............Pág. 175**
+</br>
+
+### ***➲ Parte III - Funções como objetos — Pág. 174***
+  - **➥ Capítulo 5 - Funções de primeira classe — Pág. 175**
     | Conteúdo | Pág./code |
     |:-:|:-:|
     | Tratando uma função como um objeto | Pág. 176 <a href="#">→code</a> |
@@ -129,7 +137,9 @@
     | Resumo do capítulo | Pág. 200 |
     | Leituras complementares | Pág. 201 |
 
-  - **➥ Capítulo 6 - Padrões de projeto com funções de primeira classe............Pág. 205**
+</br>
+
+  - **➥ Capítulo 6 - Padrões de projeto com funções de primeira classe — Pág. 205**
     | Conteúdo | Pág./code |
     |:-:|:-:|
     | Estudo de caso: refatorando Strategy | Pág. 206 <a href="#">→code</a> |
@@ -141,7 +151,9 @@
     | Resumo do capítulo | Pág. 218 |
     | Leituras complementares | Pág. 219 |
 
-  - **➥ Capítulo 7 - Decoradores de diversão e fechamentos............Pág. 222**
+</br>
+
+  - **➥ Capítulo 7 - Decoradores de diversão e fechamentos — Pág. 222**
     | Conteúdo | Pág./code |
     |:-:|:-:|
     | Básico sobre decoradores | Pág. 223 <a href="#">→code</a> |
@@ -162,8 +174,10 @@
     | Resumo do capítulo | Pág. 252 |
     | Leituras complementares | Pág. 253 |
 
-### ***➲ Parte IV - Práticas de orientação a objetos............Pág. 257***
-  - **➥ Capítulo 8 - Referências a objetos, mutabilidades e recálagem............Pág. 258**
+</br>
+
+### ***➲ Parte IV - Práticas de orientação a objetos — Pág. 257***
+  - **➥ Capítulo 8 - Referências a objetos, mutabilidades e recálagem — Pág. 258**
     | Conteúdo | Pág./code |
     |:-:|:-:|
     | Variáveis não são caixas | Pág. 259 <a href="#">→code</a> |
@@ -183,7 +197,9 @@
     | Resumo do capítulo | Pág. 282 |
     | Leituras complementares | Pág. 283 |
 
-  - **➥ Capítulo 9 - Um objeto pythônico............Pág. 288**
+</br>
+
+  - **➥ Capítulo 9 - Um objeto pythônico — Pág. 288**
     | Conteúdo | Pág./code |
     |:-:|:-:|
     | Representações de objetos | Pág. 289 <a href="#">→code</a> |
@@ -199,7 +215,9 @@
     | Resumo do capítulo | Pág. 312 |
     | Leituras complementares | Pág. 313 |
 
-  - **➥ Capítulo 10 - Hackeando e fatiando sequências............Pág. 318**
+</br>
+
+  - **➥ Capítulo 10 - Hackeando e fatiando sequências — Pág. 318**
     | Conteúdo | Pág./code |
     |:-:|:-:|
     | Vector: um tipo de sequência definido pelo usuário | Pág. 319 <a href="#">→code</a> |
@@ -214,7 +232,9 @@
     | Resumo do capítulo | Pág. 345 |
     | Leituras complementares | Pág. 347 |
 
-  - **➥ Capítulo 11 - Interfaces: de protocolos a ABCs............Pág. 352**
+</br>
+
+  - **➥ Capítulo 11 - Interfaces: de protocolos a ABCs — Pág. 352**
     | Conteúdo | Pág./code |
     |:-:|:-:|
     | Interfaces e protocolos na cultura de Python | Pág. 353 <a href="#">→code</a> |
@@ -235,7 +255,9 @@
     | Resumo do capítulo | Pág. 386 |
     | Leituras complementares | Pág. 389 |
 
-  - **➥ Capítulo 12 - Herança: para o bem ou para o mal............Pág. 395**
+</br>
+
+  - **➥ Capítulo 12 - Herança: para o bem ou para o mal — Pág. 395**
     | Conteúdo | Pág./code |
     |:-:|:-:|
     | Artimanhas da criação de subclasses de tipos embutidos | Pág. 396 <a href="#">→code</a> |
@@ -255,7 +277,9 @@
     | Resumo do capítulo | Pág. 414  |
     | Leituras complementares | Pág. 415 |
     
-  - **➥ Capítulo 13 - Sobrecarga de operadores: o jeito certo............Pág. 419**
+</br>
+
+  - **➥ Capítulo 13 - Sobrecarga de operadores: o jeito certo — Pág. 419**
     | Conteúdo | Pág./code |
     |:-:|:-:|
     | Básico da sobrecarga de operadores | Pág. 420 <a href="#">→code</a> |
@@ -267,10 +291,10 @@
     | Resumo do capítulo | Pág. 443 |
     | Leituras complementares | Pág. 444 |
 
+</br>
 
-
-### ***➲ Parte V - Controle de fluxo............Pág. 449***
-  - **➥ Capítulo 14 - Iterários, iteradores e geradores............Pág. 450**
+### ***➲ Parte V - Controle de fluxo — Pág. 449***
+  - **➥ Capítulo 14 - Iterários, iteradores e geradores — Pág. 450**
     | Conteúdo | Pág./code |
     |:-:|:-:|
     | Sentence tomada #1: uma sequência de palavras | Pág. 451 <a href="#">→code</a> |
@@ -294,7 +318,9 @@
     | Resumo do capítulo | Pág. 492 |
     | Leituras complementares | Pág. 493 |
 
-  - **➥ Capítulo 15 - Gerenciadores de contexto e blocos............Pág. 499**
+</br>
+
+  - **➥ Capítulo 15 - Gerenciadores de contexto e blocos — Pág. 499**
     | Conteúdo | Pág./code |
     |:-:|:-:|
     | Faça isso, então aquilo: blocos else além de if | Pág. 500 <a href="#">→code</a> |
@@ -304,7 +330,9 @@
     | Resumo do capítulo | Pág. 512 |
     | Leituras complementares | Pág. 512 |
 
-  - **➥ Capítulo 16 - Corrotinas............Pág. 515**
+</br>
+
+  - **➥ Capítulo 16 - Corrotinas — Pág. 515**
     | Conteúdo | Pág./code |
     |:-:|:-:|
     | Como as corrotinas evoluíram a partir de geradores | Pág. 516 <a href="#">→code</a> |
@@ -321,7 +349,9 @@
     | Resumo do capítulo | Pág. 552 |
     | Leituras complementares | Pág. 554 |
   
-  - **➥ Capítulo 17 - Concorrência com futuros............Pág. 560**
+</br>
+
+  - **➥ Capítulo 17 - Concorrência com futuros — Pág. 560**
     | Conteúdo | Pág./code |
     |:-:|:-:|
     | Exemplo: downloads da Web em três estilos | Pág. 560 <a href="#">→code</a> |
@@ -338,7 +368,9 @@
     | Resumo do capítulo | Pág. 587 |
     | Leituras complementares | Pág. 588 |
 
-  - **➥ Capítulo 18 - Concorrência com assyncio............Pág. 594**
+</br>
+
+  - **➥ Capítulo 18 - Concorrência com assyncio — Pág. 594**
     | Conteúdo | Pág./code |
     |:-:|:-:|
     | Thread versus corrotina: uma comparação | Pág. 596 <a href="#">→code</a> |
@@ -358,8 +390,10 @@
     | Resumo do capítulo | Pág. 637 |
     | Leituras complementares | Pág. 638 |
 
-### ***➲ Parte VI - Metaprogramação............Pág. 643***
-  - **➥ Capítulo 19 - Atributos dinâmicos e propriações............Pág. 644**
+</br>
+
+### ***➲ Parte VI - Metaprogramação — Pág. 643***
+  - **➥ Capítulo 19 - Atributos dinâmicos e propriações — Pág. 644**
     | Conteúdo | Pág./code |
     |:-:|:-:|
     | Processando dados com atributos dinâmicos | Pág. 645 <a href="#">→code</a> |
@@ -383,7 +417,9 @@
     | Resumo do capítulo | Pág. 681 |
     | Leituras complementares | Pág. 681 |
 
-  - **➥ Capítulo 20 - Descritores de atributos............Pág. 687**
+</br>
+
+  - **➥ Capítulo 20 - Descritores de atributos — Pág. 687**
     | Conteúdo | Pág./code |
     |:-:|:-:|
     | Exemplo de descritor: validação de atributos | Pág. 687 <a href="#">→code</a> |
@@ -401,7 +437,9 @@
     | Resumo do capítulo | Pág. 715 |
     | Leituras complementares | Pág. 716 |
 
-  - **➥ Capítulo 21 - Metaprogramação com aulas............Pág. 718**
+</br>
+
+  - **➥ Capítulo 21 - Metaprogramação com aulas — Pág. 718**
     | Conteúdo | Pág./code |
     |:-:|:-:|
     | Uma fábrica de classes | Pág. 719 <a href="#">→code</a> |
@@ -418,7 +456,9 @@
     | Posfácio | Pág. 747 |
     | Leituras complementares | Pág. 749 |
 
-### ***➲ Apêndice A - Scripts auxiliares............Pág. 751***
+</br>
+
+### ***➲ Apêndice A - Scripts auxiliares — Pág. 751***
   | Conteúdo | Pág./code |
   |:-:|:-:|
   | Capítulo 3: teste de desempenho do operador in | Pág. 751 <a href="#">→code</a> |
