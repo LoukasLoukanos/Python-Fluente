@@ -1,7 +1,7 @@
 ## **Decoradores (decorators) de função e closures**
 Um decorador é basicamente uma função (função decoradora) que recebe outra função como parâmetro (chamada de função decorada) que, por sua vez, poderá ser modificada por uma terceira função (uma subfunção da decoradora). Decoradores de função em python permitem "marcar" funções modificando o seu comportamento.
 
-### ***Exemplo simples da sintaxe: ***
+### ***Exemplo simples da sintaxe:***
 ```python
 def decorador(funcao_decorada):
     def subfuncao():
@@ -24,7 +24,7 @@ def funcao_decorada():
 
 ```
 
-### ***Quando Python executa os decoradores: ***
+### ***Quando Python executa os decoradores:***
 ```python
 #_________BEGIN REGISTRATION_________
 
