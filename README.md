@@ -2,6 +2,8 @@
 
 *Não é uma referência exaustiva de A a Z para Python. A ênfase da obra está nos recursos da linguagem exclusiva do Python ou que não se contram em muitas outras linguagens populares. Este também, em sua parte maior, é um livro sobre o número de linguagens e algumas de suas bibliotecas. Raramente é falado sobre os pacotes que não é um jogo de biblioteca, além do título de páginas do Python (PyPI) lista de mais de 60 mil bibliotecas e muitas outras extremidades.*
 
+</br>
+
 ## **Sumário**
 ### ***➲ Prefácio — Pág. 17***
 ### ***➲ Parte I - Prólogo — Pág. 27***
@@ -58,8 +60,6 @@
     | Resumo do capítulo | Pág. 86 |
     | Leituras complementares | Pág. 87 |
 
-</br>
-
   - **➥ Capítulo 3 - Dicionários e conjuntos — Pág. 93**
     | Conteúdo | Pág./code |
     |:-:|:-:|
@@ -84,8 +84,6 @@
     | Como os conjuntos funcionam – consequências práticas | Pág. 125 <a href="#">→code</a> |
     | Resumo do capítulo | Pág. 125 |
     | Leituras complementares | Pág. 126 |
-
-</br>
 
   - **➥ Capítulo 4 - Texto versus bytes — Pág. 129**
     | Conteúdo | Pág./code |
@@ -137,8 +135,6 @@
     | Resumo do capítulo | Pág. 200 |
     | Leituras complementares | Pág. 201 |
 
-</br>
-
   - **➥ Capítulo 6 - Padrões de projeto com funções de primeira classe — Pág. 205**
     | Conteúdo | Pág./code |
     |:-:|:-:|
@@ -150,8 +146,6 @@
     | Command | Pág. 216 <a href="#">→code</a> |
     | Resumo do capítulo | Pág. 218 |
     | Leituras complementares | Pág. 219 |
-
-</br>
 
   - **➥ Capítulo 7 - Decoradores de diversão e fechamentos — Pág. 222**
     | Conteúdo | Pág./code |
@@ -197,8 +191,6 @@
     | Resumo do capítulo | Pág. 282 |
     | Leituras complementares | Pág. 283 |
 
-</br>
-
   - **➥ Capítulo 9 - Um objeto pythônico — Pág. 288**
     | Conteúdo | Pág./code |
     |:-:|:-:|
@@ -215,8 +207,6 @@
     | Resumo do capítulo | Pág. 312 |
     | Leituras complementares | Pág. 313 |
 
-</br>
-
   - **➥ Capítulo 10 - Hackeando e fatiando sequências — Pág. 318**
     | Conteúdo | Pág./code |
     |:-:|:-:|
@@ -231,8 +221,6 @@
     | Vector tomada #5: formatação | Pág. 338 <a href="#">→code</a> |
     | Resumo do capítulo | Pág. 345 |
     | Leituras complementares | Pág. 347 |
-
-</br>
 
   - **➥ Capítulo 11 - Interfaces: de protocolos a ABCs — Pág. 352**
     | Conteúdo | Pág./code |
@@ -255,8 +243,6 @@
     | Resumo do capítulo | Pág. 386 |
     | Leituras complementares | Pág. 389 |
 
-</br>
-
   - **➥ Capítulo 12 - Herança: para o bem ou para o mal — Pág. 395**
     | Conteúdo | Pág./code |
     |:-:|:-:|
@@ -277,8 +263,6 @@
     | Resumo do capítulo | Pág. 414  |
     | Leituras complementares | Pág. 415 |
     
-</br>
-
   - **➥ Capítulo 13 - Sobrecarga de operadores: o jeito certo — Pág. 419**
     | Conteúdo | Pág./code |
     |:-:|:-:|
@@ -318,8 +302,6 @@
     | Resumo do capítulo | Pág. 492 |
     | Leituras complementares | Pág. 493 |
 
-</br>
-
   - **➥ Capítulo 15 - Gerenciadores de contexto e blocos — Pág. 499**
     | Conteúdo | Pág./code |
     |:-:|:-:|
@@ -329,8 +311,6 @@
     | Usando @gerente de contexto | Pág. 508 <a href="#">→code</a> |
     | Resumo do capítulo | Pág. 512 |
     | Leituras complementares | Pág. 512 |
-
-</br>
 
   - **➥ Capítulo 16 - Corrotinas — Pág. 515**
     | Conteúdo | Pág./code |
@@ -348,8 +328,6 @@
     | A simulação da frota de táxis | Pág. 544 <a href="#">→code</a> |
     | Resumo do capítulo | Pág. 552 |
     | Leituras complementares | Pág. 554 |
-  
-</br>
 
   - **➥ Capítulo 17 - Concorrência com futuros — Pág. 560**
     | Conteúdo | Pág./code |
@@ -367,8 +345,6 @@
     | Alternativas com threading e multiprocessing | Pág. 587 <a href="#">→code</a> |
     | Resumo do capítulo | Pág. 587 |
     | Leituras complementares | Pág. 588 |
-
-</br>
 
   - **➥ Capítulo 18 - Concorrência com assyncio — Pág. 594**
     | Conteúdo | Pág./code |
@@ -417,8 +393,6 @@
     | Resumo do capítulo | Pág. 681 |
     | Leituras complementares | Pág. 681 |
 
-</br>
-
   - **➥ Capítulo 20 - Descritores de atributos — Pág. 687**
     | Conteúdo | Pág./code |
     |:-:|:-:|
@@ -436,8 +410,6 @@
     | Docstring de descritores e controle de remoção | Pág. 714 <a href="#">→code</a> |
     | Resumo do capítulo | Pág. 715 |
     | Leituras complementares | Pág. 716 |
-
-</br>
 
   - **➥ Capítulo 21 - Metaprogramação com aulas — Pág. 718**
     | Conteúdo | Pág./code |
