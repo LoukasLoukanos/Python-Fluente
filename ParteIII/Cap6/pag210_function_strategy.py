@@ -1,44 +1,6 @@
 # Padrão de Projeto Baseado em Função (Strategy pattern function-based implementation):
 
-from collections import namedtuple
-
-
-Customer = namedtuple('Customer', 'name fidelity')
-
-class LineItem:
-
-    def __init__(self, product, quantity, price):
-        self.product = product
-        self.quantity = quantity
-        self.price = price
-
-    def total(self):
-        return self.price * self.quantity
-
-
-class Order:
-
-    def __init__(self, customer, cart, promotion=None):
-        self.customer = customer
-        self.cart = list(cart)
-        self.promotion = promotion
-
-    def total(self):
-        if not hasattr(self, '__total'):
-            self.__total = sum(item.total() for item in self.cart)
-        return self.__total
-
-    def due(self):
-        if self.promotion is None:
-            discount = 0
-        else:
-            discount = self.promotion(self)  # Para calcular um desconto, basta chamar a função self.promotion()
-        return self.total() - discount
-
-    def __repr__(self):
-        fmt = '<Order total: {:.2f} due: {:.2f}>'
-        return fmt.format(self.total(), self.due())
-
+from pag208_contexto import *
 
 #_________↓Padrão de Projeto Baseado em Função↓__________________
 def fidelity_promo(order):  # cada estratégia é uma função
@@ -87,3 +49,6 @@ long_order = [LineItem(str(item_code), 1, 1.0) for item_code in range(10)]
 # aplicando desconto em um Order, passando a função de promoção large_order_promo como argumento
 Order(joe, long_order, large_order_promo) # joe obtém um desconto de 7% no total do produto por causa de LargeOrderPromo
 #output: <Order total: 10.00 due: 9.30>
+
+
+#Ver [Uso de decorador (substitui o código acima de forma eficiente)] na pág 226 à 228 → pag226a228__strategy_best4.py ou README.md 7
