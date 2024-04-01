@@ -28,7 +28,7 @@ print(dict_comprehensions_2) #output: {1: 'UNITED STATES', 62: 'INDONESIA', 55: 
 </br>
 
 
-## **Pág. 98............Tratando chaves ausentes com setdefault**
+## **Pág. 97............Visão geral dos métodos comuns a mapeamentos**
 <details>
 <summary></summary>
 
@@ -71,7 +71,7 @@ Mapeamento ou Dicionário ("dict") ou hash[key]=value é uma coleção de objeto
 </br>
 
 
-## **Pág. 97............Visão geral dos métodos comuns a mapeamentos**
+## **Pág. 98............Tratando chaves ausentes com setdefault**
 <details>
 <summary></summary>
 
