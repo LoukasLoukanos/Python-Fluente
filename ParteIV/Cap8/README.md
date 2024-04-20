@@ -1,6 +1,6 @@
 # Referências a objetos, mutabilidade e reciclagem
 
-## **Pág. 258 à 262............Variáveis não são caixas | Identidade, igualdade e apelidos | Escolhendo entre == e is | **
+## **Pág. 258 à 262............Variáveis não são caixas | Identidade, igualdade e apelidos | Escolhendo entre == e is**
 <details>
 <summary></summary>
 
@@ -306,14 +306,130 @@ basketball_team_B #output: ['Luna', 'Tami', 'Julya', 'Let'] → não afetou a li
 </br>
 
 
-## **Pág. xxx à xxx............None | None**
+## **Pág. 274 à 280............del e coleta de lixo | Referências fracas | Esquete com WeakValueDictionary | Limitações das referências fracas**
 <details>
 <summary></summary>
 
-**Exemplo:**
+### del e coleta de lixo para Alias, Referência Fraca (weakref) e Variável Global
+
+**Alias:**</br>
+O comando del apaga nomes(alias), e não objetos diretamente. Ou seja, para que o objeto seja apagado, é necessário que o alias seja o último.</br>
+Cada objeto mantém um contador para o número de referências a ele. Assim que refcount atinge zero, o objeto é destruído.</br>
+É complicado e quase desnecessário implementar _ _ del _ _, apesar de alguns iniciantes em Python gastarem tempo nisso.</br>
 ```python
+import weakref
+s1 = {1, 2, 3}
+s2 = s1
+
+def bye():
+    print("The bug is on the table")
+
+ender = weakref.finalize(s1, bye)
+ender.alive
+#output: True
+
+del s1 # deleta a referência(alias) s1 ao objeto '{1, 2, 3}' → restou a refência s2 ao mesmo objeto '{1, 2, 3}', ainda que s1 tenha sido deletada
+ender.alive
+#output: True
+
+s2 = 'spam' # ao reassociar s2 a outro objeto ('spam'), s2 não é mais alias de '{1, 2, 3}'. Nisso, o objeto '{1, 2, 3}' é extinguido.
+#output: The bug is on the table
+ender.alive
+#output: False
+
+#Portanto, fica claro que del não deleta diretamente objetos, estes porém são deletados indiretamentes por ficarem sem referências (alias) ao usar del para deletá-las.
+
+```
+
+**Referência Fraca (weakref):**
+Uma referência fraca é um invocável que devolve o objeto referenciado ou None se o referente não existir.</br>
+A presença de referências é o que mantém um objeto vivo na memória.</br>
+Uma referência fraca não impede que o objeto referente seja destruido pelo coletor de lixo, caso o alias usado como referência seja deletado.</br>
+```python
+import weakref
+a_set = {0, 1}
+wref = weakref.ref(a_set) # referência fraca 'wref' criada
+wref #output: <weakref at 0x000002721F51E8E0; to 'set' at 0x000002721F9392A0>
+wref() #output: {0, 1}
+wref() is None #output: False → wref não é none, é alias fraca de a_set
+del a_set # deletando o primeiro alias, suas referências fracas não impedirão a destruição consequente do objeto.
+wref() is None #output: True → wref agora é none, pois a referência a_set, foi deletada, deletando por consequência, suas referêcias fracas...
+
+```
+
+**Variável Global:**
+Uma Variável Global só desaparecerá ao deletar explicitamente seu alias</br>
+```python
+
+"""
+SET   : Pode ter referência fraca (pode ser Alvo ou Referente de weakref)
+DICT  : Apelas Subclasse pode ter referência fraca (A Subclasse pode ser Alvo ou Referente de weakref)
+LIST  : Apelas Subclasse pode ter referência fraca (A Subclasse pode ser Alvo ou Referente de weakref)
+TUPLE : Não pode ter referência fraca (NÃO pode ser Alvo ou Referente de weakref)
+INT   : Não pode ter referência fraca (NÃO pode ser Alvo ou Referente de weakref)
+"""
+
+class Cheese:
+
+    def __init__(self, kind):
+        self.kind = kind
+
+    def __repr__(self):
+        return 'Cheese(%r)' % self.kind
+
+  
+import weakref
+stock = weakref.WeakValueDictionary()
+catalog = [Cheese('Red Leicester'), Cheese('Tilsit'), Cheese('Brie'), Cheese('Parmesan')]
+
+for cheese in catalog: # o alias cheese do alias catalog, é uma variável global ↓
+    stock[cheese.kind] = cheese
+
+sorted(stock.keys()) # chaves de stock[]
+#output: ['Brie', 'Parmesan', 'Red Leicester', 'Tilsit']
+
+del catalog # ao deletar o alias catalog, ainda temos a chave ['Parmesan'], de stock[]↓
+sorted(stock.keys())
+#output: ['Parmesan']
+
+#a variável global cheese só desaparecerá ao deletar explicitamente seu alias↓↓↓
+del cheese
+sorted(stock.keys())
+#output: []
 
 ```
 
 </details>
 </br>
+
+
+## **Pág. 280 à 281............Truques de Python com imutáveis**
+<details>
+<summary></summary>
+
+### Internalização (interning)
+
+**É uma técnica de otimização usada para o compartilhamento de strings e números inteiros para evitar duplicação desnecessária de objetos**
+```python
+t1 = (1, 2, 3)
+t2 = tuple(t1) #alias de t1
+t2 is t1
+#output: True
+
+t3 = t1[:] #alias de t1
+t3 is t1
+#output: True
+
+#t1 = (1, 2, 3) ↑...
+t4 = (1, 2, 3)
+t4 is t1
+#output: False
+
+s1 = 'ABC'
+s2 = 'ABC' # Internalização (interning) ...↓
+s2 is s1
+#output: True → Surpresa!!! Porém Python não internaliza todas as strings ou todos os inteiros, os critérios que ele para isso são detalhes de implementação não documentados.
+
+```
+
+</details>
